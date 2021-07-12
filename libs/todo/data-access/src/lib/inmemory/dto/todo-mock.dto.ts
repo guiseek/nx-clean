@@ -4,6 +4,9 @@ export class TodoMockDto {
   completed: boolean;
 
   constructor(params: TodoMockDto) {
-    Object.assign(this, params);
+    this.id = params.id;
+    this.title = params.title;
+    this.completed = params.completed;
+    // Object.assign(this, params);
   }
 }

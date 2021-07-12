@@ -1,0 +1,20 @@
+<header class="header">
+  <h1>todos</h1>
+  <input
+    [(ngModel)]="name"
+    type="text"
+    class="new-todo"
+    placeholder="O que falta finalizar?"
+    autofocus=""
+    (keyup.enter)="onAddItem()"
+  />
+
+  <input
+    id="toggle-all"
+    class="toggle-all"
+    type="checkbox"
+    [(ngModel)]="isToggleAll"
+    (change)="onToggleAllChange()"
+  />
+  <label for="toggle-all"> Marcar todos como finalizados </label>
+</header>

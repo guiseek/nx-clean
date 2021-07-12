@@ -1,0 +1,26 @@
+<section class="todoapp">
+  <todo-header
+    (addItem)="onAddItem($event)"
+    (toggleAllCompleted)="onToggleAllCompleted()"
+    (toggleAllActive)="onToggleAllActive()"
+  >
+  </todo-header>
+
+  <todo-todos
+    [todos]="todos$ | async"
+    (checkItem)="onCheckItem($event)"
+    (uncheckItem)="onUncheckItem($event)"
+    (removeItem)="onRemoveItem($event)"
+  >
+  </todo-todos>
+
+  <todo-footer
+    [count]="activeTodosCount$ | async"
+    [filter]="filter$ | async"
+    (all)="onShowAll()"
+    (active)="onShowActive()"
+    (completed)="onShowCompleted()"
+    (clearCompleted)="onClearCompleted()"
+  >
+  </todo-footer>
+</section>

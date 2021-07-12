@@ -32,16 +32,16 @@ export class TodoInMemoryRepository implements TodoRepository {
 
   public addTodo(name: string): Observable<TodoEntity> {
     const id = 'item-' + new Date().getTime();
-    const todo: TodoEntity = TodoEntity.create({ id, name });
+    const todo: TodoEntity = TodoEntity.create({ id, name, completed: false });
 
     this.data.push(this.mapper.mapFrom(todo));
     return of(todo);
   }
 
   public getTodoById(id: string): Observable<TodoEntity> {
-    return of(this.data.find((todo) => todo.id === id)).pipe(
-      map(this.mapper.mapTo)
-    );
+    return of<TodoMockDto>(
+      this.data.find((todo) => todo.id === id) as TodoMockDto
+    ).pipe(map(this.mapper.mapTo));
   }
 
   public removeTodo(id: string): Observable<TodoEntity> {
@@ -50,7 +50,7 @@ export class TodoInMemoryRepository implements TodoRepository {
 
     this.data.splice(idx, 1);
 
-    return of(todo).pipe(map(this.mapper.mapTo));
+    return of<TodoMockDto>(todo as TodoMockDto).pipe(map(this.mapper.mapTo));
   }
 
   public removeCompletedTodos(): Observable<TodoEntity[]> {
@@ -65,9 +65,9 @@ export class TodoInMemoryRepository implements TodoRepository {
     isCompleted: boolean
   ): Observable<TodoEntity> {
     const todo = this.data.find((t) => t.id === id);
-    todo.completed = isCompleted;
+    (todo as TodoMockDto).completed = isCompleted;
 
-    return of(todo).pipe(map(this.mapper.mapTo));
+    return of(todo as TodoMockDto).pipe(map(this.mapper.mapTo));
   }
 
   public markAllTodosAsCompleted(): Observable<TodoEntity[]> {

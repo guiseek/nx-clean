@@ -156,9 +156,145 @@
           }
         }
       }
+    },
+    "todo-web": {
+      "projectType": "application",
+      "root": "apps/todo/web",
+      "sourceRoot": "apps/todo/web/src",
+      "prefix": "todo",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/todo/web",
+            "index": "apps/todo/web/src/index.html",
+            "main": "apps/todo/web/src/main.ts",
+            "polyfills": "apps/todo/web/src/polyfills.ts",
+            "tsConfig": "apps/todo/web/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/todo/web/src/favicon.ico",
+              "apps/todo/web/src/assets"
+            ],
+            "styles": ["apps/todo/web/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/todo/web/src/environments/environment.ts",
+                  "with": "apps/todo/web/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "todo-web:build:production"
+            },
+            "development": {
+              "browserTarget": "todo-web:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "todo-web:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/todo/web/src/**/*.ts",
+              "apps/todo/web/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/todo/web"],
+          "options": {
+            "jestConfig": "apps/todo/web/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todo-web-e2e": {
+      "root": "apps/todo/web-e2e",
+      "sourceRoot": "apps/todo/web-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/todo/web-e2e/cypress.json",
+            "tsConfig": "apps/todo/web-e2e/tsconfig.e2e.json",
+            "devServerTarget": "todo-web:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "todo-web:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/todo/web-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "todo-web"
 }

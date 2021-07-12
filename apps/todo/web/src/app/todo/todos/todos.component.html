@@ -1,0 +1,9 @@
+<ul class="todo-list">
+  <li
+    todo-item
+    *ngFor="let todo of todos"
+    [todo]="todo"
+    (toggle)="onCheckItem(todo, $event)"
+    (remove)="onRemoveItem(todo)"
+  ></li>
+</ul>

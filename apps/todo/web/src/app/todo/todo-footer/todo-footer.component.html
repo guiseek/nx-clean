@@ -1,0 +1,35 @@
+<footer class="footer">
+  <span class="todo-count">
+    <strong>{{ count }}</strong> iten(s) a finalizar
+  </span>
+
+  <ul class="filters">
+    <li>
+      <a href="#/" [class.selected]="filter === 'all'" (click)="onShowAll()">
+        Todos
+      </a>
+    </li>
+    <li>
+      <a
+        href="#/active"
+        [class.selected]="filter === 'active'"
+        (click)="onShowActive()"
+      >
+        Ativos
+      </a>
+    </li>
+    <li>
+      <a
+        href="#/completed"
+        [class.selected]="filter === 'completed'"
+        (click)="onShowCompleted()"
+      >
+        Finalizados
+      </a>
+    </li>
+  </ul>
+
+  <button class="clear-completed" (click)="onClearCompleted()">
+    Limpar finalizados
+  </button>
+</footer>

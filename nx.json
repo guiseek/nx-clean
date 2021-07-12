@@ -41,6 +41,13 @@
     },
     "todo-presentation": {
       "tags": []
+    },
+    "todo-web": {
+      "tags": ["type:app"]
+    },
+    "todo-web-e2e": {
+      "tags": [],
+      "implicitDependencies": ["todo-web"]
     }
   },
   "workspaceLayout": {

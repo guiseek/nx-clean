@@ -38,6 +38,9 @@
     },
     "todo-domain": {
       "tags": []
+    },
+    "todo-presentation": {
+      "tags": []
     }
   },
   "workspaceLayout": {

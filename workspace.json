@@ -125,6 +125,37 @@
           }
         }
       }
+    },
+    "todo-presentation": {
+      "root": "libs/todo/presentation",
+      "sourceRoot": "libs/todo/presentation/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/todo/presentation",
+            "main": "libs/todo/presentation/src/index.ts",
+            "tsConfig": "libs/todo/presentation/tsconfig.lib.json",
+            "assets": ["libs/todo/presentation/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/todo/presentation/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todo/presentation"],
+          "options": {
+            "jestConfig": "libs/todo/presentation/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

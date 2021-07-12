@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/libs/core',
     '<rootDir>/libs/todo/domain',
     '<rootDir>/libs/todo/data-access',
+    '<rootDir>/libs/todo/presentation',
   ],
 };

@@ -29,6 +29,9 @@
   "projects": {
     "cli": {
       "tags": []
+    },
+    "core": {
+      "tags": []
     }
   },
   "workspaceLayout": {

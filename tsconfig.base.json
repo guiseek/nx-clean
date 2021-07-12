@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@todo/cli": ["libs/cli/src/index.ts"]
+      "@todo/cli": ["libs/cli/src/index.ts"],
+      "@todo/core": ["libs/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

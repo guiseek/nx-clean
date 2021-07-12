@@ -1,16 +1,24 @@
 <footer class="footer">
   <p class="todo-count">
-    <strong>{{ count }}</strong>
     <span [ngPlural]="count ?? 0">
       <ng-template ngPluralCase="=0">Nada pra fazer</ng-template>
-      <ng-template ngPluralCase="=1">item pra finalizar</ng-template>
-      <ng-template ngPluralCase="few">tens faltando pra finalizar</ng-template>
+      <ng-template ngPluralCase="=1">Falta apenas um item</ng-template>
+      <ng-template ngPluralCase="other">
+        Faltam
+        <strong>{{ count }}</strong>
+        itens pra finalizar
+      </ng-template>
     </span>
   </p>
 
   <ul class="filters">
     <li>
-      <a routerLink="/todo" fragment="/" [class.selected]="filter === 'all'" (click)="onShowAll()">
+      <a
+        routerLink="/todo"
+        fragment="/"
+        [class.selected]="filter === 'all'"
+        (click)="onShowAll()"
+      >
         Todos
       </a>
     </li>

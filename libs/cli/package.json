@@ -1,0 +1,7 @@
+{
+  "name": "@todo/cli",
+  "version": "0.0.1",
+  "bin": {
+    "todo": "./bin/cli.js"
+  }
+}

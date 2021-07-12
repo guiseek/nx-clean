@@ -1,11 +1,11 @@
 import { TodoRoutingModule } from './todo-routing.module';
-import { TodoDefaultPresenter, TodoPresenter } from '@todo/todo-presentation';
+import { TodoDefaultPresenter, TodoPresenter } from '@nx-clean/todo-presentation';
 import { TodoFooterComponent } from './todo-footer/todo-footer.component';
 import { TodoHeaderComponent } from './todo-header/todo-header.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
-import { TodoInMemoryRepository } from '@todo/todo-data-access';
+import { TodoInMemoryRepository } from '@nx-clean/todo-data-access';
 import { TodosComponent } from './todos/todos.component';
-import { TodoRepository } from '@todo/todo-domain';
+import { TodoRepository } from '@nx-clean/todo-domain';
 import { TodoComponent } from './todo.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

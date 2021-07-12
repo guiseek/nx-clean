@@ -1,6 +1,6 @@
 import { TodoVM } from '../viewmodel/todos.viewmodel';
-import { TodoEntity } from '@todo/todo-domain';
-import { Mapper } from '@todo/core';
+import { TodoEntity } from '@nx-clean/todo-domain';
+import { Mapper } from '@nx-clean/core';
 
 export class TodoViewModelMapper implements Mapper<TodoEntity, TodoVM> {
   mapFrom(input: TodoEntity): TodoVM {

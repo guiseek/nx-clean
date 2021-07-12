@@ -1,17 +1,23 @@
 <footer class="footer">
-  <span class="todo-count">
-    <strong>{{ count }}</strong> iten(s) a finalizar
-  </span>
+  <p class="todo-count">
+    <strong>{{ count }}</strong>
+    <span [ngPlural]="count ?? 0">
+      <ng-template ngPluralCase="=0">Nada pra fazer</ng-template>
+      <ng-template ngPluralCase="=1">item pra finalizar</ng-template>
+      <ng-template ngPluralCase="few">tens faltando pra finalizar</ng-template>
+    </span>
+  </p>
 
   <ul class="filters">
     <li>
-      <a href="#/" [class.selected]="filter === 'all'" (click)="onShowAll()">
+      <a routerLink="/todo" fragment="/" [class.selected]="filter === 'all'" (click)="onShowAll()">
         Todos
       </a>
     </li>
     <li>
       <a
-        href="#/active"
+        routerLink="/todo"
+        fragment="/active"
         [class.selected]="filter === 'active'"
         (click)="onShowActive()"
       >
@@ -20,7 +26,8 @@
     </li>
     <li>
       <a
-        href="#/completed"
+        routerLink="/todo"
+        fragment="/completed"
         [class.selected]="filter === 'completed'"
         (click)="onShowCompleted()"
       >

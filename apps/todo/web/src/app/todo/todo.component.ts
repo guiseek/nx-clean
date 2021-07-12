@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { TodoPresenter, TodoVM } from '@todo/todo-presentation';
+import { TodoPresenter, TodoVM } from '@nx-clean/todo-presentation';
 import { Component } from '@angular/core';
 
 @Component({

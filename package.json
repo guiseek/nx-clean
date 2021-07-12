@@ -1,5 +1,5 @@
 {
-  "name": "todo-clean-architecture-nx",
+  "name": "nx-clean",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -26,7 +26,7 @@
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^12.0.0",
     "@angular/common": "^12.0.0",

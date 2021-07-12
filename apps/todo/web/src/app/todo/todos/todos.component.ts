@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TodoVM } from '@todo/todo-presentation';
+import { TodoVM } from '@nx-clean/todo-presentation';
 
 @Component({
   selector: 'todo-todos',

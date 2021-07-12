@@ -1,5 +1,5 @@
 import { TodoInMemoryRepository } from './todo.inmemory.repository';
-import { TodoRepository } from '@todo/todo-domain';
+import { TodoRepository } from '@nx-clean/todo-domain';
 import { forkJoin } from 'rxjs';
 
 describe('Todo In Memory Repository', () => {

@@ -9,12 +9,15 @@
     (keyup.enter)="onAddItem()"
   />
 
-  <input
-    id="toggle-all"
-    class="toggle-all"
-    type="checkbox"
-    [(ngModel)]="isToggleAll"
-    (change)="onToggleAllChange()"
-  />
-  <label for="toggle-all"> Marcar todos como finalizados </label>
+  <label for="toggle-all">
+    <input
+      id="toggle-all"
+      class="toggle-all"
+      type="checkbox"
+      [(ngModel)]="isToggleAll"
+      (change)="onToggleAllChange()"
+    />
+
+    Marcar todos como finalizados
+  </label>
 </header>

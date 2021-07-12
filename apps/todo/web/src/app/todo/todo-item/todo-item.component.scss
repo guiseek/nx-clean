@@ -1,0 +1,10 @@
+:host .view {
+  gap: 14px;
+  display: flex;
+  align-items: center;
+
+  button {
+    border-width: 0.5px;
+    border-radius: 50%;
+  }
+}

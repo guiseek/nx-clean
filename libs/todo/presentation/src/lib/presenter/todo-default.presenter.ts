@@ -17,7 +17,7 @@ import {
   MarkTodoAsCompletedUseCase,
   RemoveCompletedTodosUseCase,
   RemoveTodoUseCase,
-} from '@todo/todo-domain';
+} from '@nx-clean/todo-domain';
 
 export class TodoDefaultPresenter implements TodoPresenter {
   todos$: Observable<TodoVM[]>;
@@ -31,37 +31,56 @@ export class TodoDefaultPresenter implements TodoPresenter {
 
   // use cases
   private filterTodosUC: FilterTodosUseCase;
+
   private getAllTodosUC: GetAllTodosUseCase;
+
   private getCompletedTodosUC: GetCompletedTodosUseCase;
+
   private getActiveTodosUC: GetActiveTodosUseCase;
+
   private getActiveTodosCountUC: GetActiveTodosCountUseCase;
+
   private addTodoUC: AddTodoUseCase;
+
   private markTodoAsCompletedUC: MarkTodoAsCompletedUseCase;
+
   private markTodoAsActiveUC: MarkTodoAsActiveUseCase;
+
   private removeTodoUC: RemoveTodoUseCase;
+
   private removeCompletedTodosUC: RemoveCompletedTodosUseCase;
+
   private markAllTodosAsCompletedUC: MarkAllTodosAsCompletedUseCase;
+
   private markAllTodosAsActiveUC: MarkAllTodosAsActiveUseCase;
 
   constructor(private repository: TodoRepository) {
     this.filterTodosUC = new FilterTodosUseCase(this.repository);
+    
     this.getAllTodosUC = new GetAllTodosUseCase(this.repository);
+    
     this.getCompletedTodosUC = new GetCompletedTodosUseCase(this.repository);
+    
     this.getActiveTodosUC = new GetActiveTodosUseCase(this.repository);
+    
     this.getActiveTodosCountUC = new GetActiveTodosCountUseCase(
       this.repository
     );
+
     this.addTodoUC = new AddTodoUseCase(this.repository);
     this.markTodoAsCompletedUC = new MarkTodoAsCompletedUseCase(
       this.repository
     );
+
     this.markTodoAsActiveUC = new MarkTodoAsActiveUseCase(this.repository);
     this.markAllTodosAsCompletedUC = new MarkAllTodosAsCompletedUseCase(
       this.repository
     );
+
     this.markAllTodosAsActiveUC = new MarkAllTodosAsActiveUseCase(
       this.repository
     );
+
     this.removeTodoUC = new RemoveTodoUseCase(this.repository);
     this.removeCompletedTodosUC = new RemoveCompletedTodosUseCase(
       this.repository
@@ -71,9 +90,11 @@ export class TodoDefaultPresenter implements TodoPresenter {
     this.todos$ = this.dispatch
       .asObservable()
       .pipe(map((state) => state.todos));
+
     this.filter$ = this.dispatch
       .asObservable()
       .pipe(map((state) => state.filter));
+
     this.activeTodosCount$ = this.dispatch
       .asObservable()
       .pipe(map((state) => state.activeTodosCount));
@@ -135,7 +156,9 @@ export class TodoDefaultPresenter implements TodoPresenter {
     const add$ = this.addTodoUC
       .execute({ name })
       .pipe(map(this.mapper.mapFrom));
+      
     const count$ = this.getActiveTodosCountUC.execute();
+
     const todos$ = this.filterTodosUC
       .execute({ filter: this.state.filter })
       .pipe(map((todos) => todos.map(this.mapper.mapFrom)));

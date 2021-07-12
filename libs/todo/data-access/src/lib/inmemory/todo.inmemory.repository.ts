@@ -1,7 +1,7 @@
 import { TodoMockMapper } from './mapper/todo-mock.mapper';
-import { TodoRepository } from '@todo/todo-domain';
+import { TodoRepository } from '@nx-clean/todo-domain';
 import { TodoMockDto } from './dto/todo-mock.dto';
-import { TodoEntity } from '@todo/todo-domain';
+import { TodoEntity } from '@nx-clean/todo-domain';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 

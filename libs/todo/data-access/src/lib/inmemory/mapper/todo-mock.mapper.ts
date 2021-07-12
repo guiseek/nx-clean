@@ -1,6 +1,6 @@
 import { TodoMockDto } from '../dto/todo-mock.dto';
-import { TodoEntity } from '@todo/todo-domain';
-import { Mapper } from '@todo/core';
+import { TodoEntity } from '@nx-clean/todo-domain';
+import { Mapper } from '@nx-clean/core';
 
 export class TodoMockMapper implements Mapper<TodoEntity, TodoMockDto> {
   mapFrom(input: TodoEntity): TodoMockDto {

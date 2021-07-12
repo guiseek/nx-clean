@@ -1,5 +1,5 @@
 {
-  "name": "@todo/cli",
+  "name": "@nx-clean/cli",
   "version": "0.0.1",
   "bin": {
     "todo": "./bin/cli.js"

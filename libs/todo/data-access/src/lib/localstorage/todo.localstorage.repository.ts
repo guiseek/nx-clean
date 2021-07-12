@@ -1,5 +1,5 @@
-import { TodoRepository, TodoEntity } from '@todo/todo-domain';
-import { LocalStorageService } from '@todo/core';
+import { TodoRepository, TodoEntity } from '@nx-clean/todo-domain';
+import { LocalStorageService } from '@nx-clean/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 

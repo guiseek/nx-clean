@@ -1,4 +1,4 @@
-import { TodoInMemoryRepository, TodoMockDto } from '@todo/todo-data-access';
+import { TodoInMemoryRepository, TodoMockDto } from '@nx-clean/todo-data-access';
 import { TodoDefaultPresenter } from './todo-default.presenter';
 import { TodoPresenter } from './todo.presenter';
 import { skip } from 'rxjs/operators';

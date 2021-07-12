@@ -1,5 +1,5 @@
 {
-  "npmScope": "todo",
+  "npmScope": "nx-clean",
   "affected": {
     "defaultBase": "main"
   },

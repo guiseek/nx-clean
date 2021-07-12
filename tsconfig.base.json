@@ -16,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@todo/cli": ["libs/cli/src/index.ts"],
-      "@todo/core": ["libs/core/src/index.ts"]
+      "@todo/core": ["libs/core/src/index.ts"],
+      "@todo/todo-data-access": ["libs/todo/data-access/src/index.ts"],
+      "@todo/todo-domain": ["libs/todo/domain/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

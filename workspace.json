@@ -63,9 +63,71 @@
           }
         }
       }
+    },
+    "todo-data-access": {
+      "root": "libs/todo/data-access",
+      "sourceRoot": "libs/todo/data-access/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/todo/data-access",
+            "main": "libs/todo/data-access/src/index.ts",
+            "tsConfig": "libs/todo/data-access/tsconfig.lib.json",
+            "assets": ["libs/todo/data-access/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/todo/data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todo/data-access"],
+          "options": {
+            "jestConfig": "libs/todo/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todo-domain": {
+      "root": "libs/todo/domain",
+      "sourceRoot": "libs/todo/domain/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/todo/domain",
+            "main": "libs/todo/domain/src/index.ts",
+            "tsConfig": "libs/todo/domain/tsconfig.lib.json",
+            "assets": ["libs/todo/domain/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/todo/domain/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todo/domain"],
+          "options": {
+            "jestConfig": "libs/todo/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/node"
+    "defaultCollection": "@nrwl/workspace"
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TodoVM } from '@nx-clean/todo-presentation';
 
 @Component({
@@ -6,7 +6,7 @@ import { TodoVM } from '@nx-clean/todo-presentation';
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent {
   @Input() todos: TodoVM[] | null;
   @Output() checkItem = new EventEmitter<TodoVM>();
   @Output() uncheckItem = new EventEmitter<TodoVM>();
@@ -15,8 +15,6 @@ export class TodosComponent implements OnInit {
   constructor() {
     this.todos = [];
   }
-
-  ngOnInit() {}
 
   onCheckItem(todo: TodoVM, checked: boolean) {
     if (checked) {

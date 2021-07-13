@@ -7,7 +7,7 @@ export class TodoLocalStorageRepository implements TodoRepository {
   constructor(private localStorageService: LocalStorageService) {}
 
   public getAllTodos(): Observable<TodoEntity[]> {
-    return of(this.localStorageService.getItem('todos'));
+    return of(this.localStorageService.getItem<TodoEntity[]>('todos'));
   }
 
   public getCompletedTodos(): Observable<TodoEntity[]> {
@@ -41,7 +41,7 @@ export class TodoLocalStorageRepository implements TodoRepository {
   }
 
   public removeTodo(id: string): Observable<TodoEntity> {
-    throw Error('not implemented');
+    throw Error(id + 'not implemented');
   }
 
   public removeCompletedTodos(): Observable<TodoEntity[]> {
@@ -52,7 +52,7 @@ export class TodoLocalStorageRepository implements TodoRepository {
     id: string,
     isCompleted: boolean
   ): Observable<TodoEntity> {
-    throw Error('not implemented');
+    throw Error(id + isCompleted + 'not implemented');
   }
 
   public markAllTodosAsCompleted(): Observable<TodoEntity[]> {

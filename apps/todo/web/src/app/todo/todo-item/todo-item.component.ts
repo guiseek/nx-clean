@@ -11,8 +11,6 @@ export class TodoItemComponent {
   @Output() toggle = new EventEmitter<boolean>();
   @Output() remove = new EventEmitter();
 
-  constructor() {}
-
   onToggleItem(checked: boolean) {
     this.toggle.next(checked);
   }

@@ -1,3 +1,5 @@
 export abstract class Presenter {
-  onDestroy() {}
+  onDestroy() {
+    return;
+  }
 }

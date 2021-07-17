@@ -7,12 +7,14 @@ describe('TodoHeaderComponent', () => {
   let component: TodoHeaderComponent;
   let fixture: ComponentFixture<TodoHeaderComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [FormsModule],
-      declarations: [TodoHeaderComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FormsModule],
+        declarations: [TodoHeaderComponent],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoHeaderComponent);

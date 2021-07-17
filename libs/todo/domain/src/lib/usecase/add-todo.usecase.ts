@@ -1,6 +1,6 @@
+import { UseCase } from '@nx-clean/core';
 import { TodoRepository } from '../repository/todo.repository';
 import { TodoEntity } from '../entity/todo.entity';
-import { UseCase } from '@nx-clean/core';
 import { Observable } from 'rxjs';
 
 export interface AddTodoUseCaseDTO {

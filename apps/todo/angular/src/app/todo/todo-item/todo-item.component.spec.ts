@@ -6,11 +6,13 @@ describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
   let fixture: ComponentFixture<TodoItemComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [TodoItemComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TodoItemComponent],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoItemComponent);

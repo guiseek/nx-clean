@@ -33,6 +33,13 @@
     "core": {
       "tags": []
     },
+    "todo-angular": {
+      "tags": ["type:app"]
+    },
+    "todo-angular-e2e": {
+      "tags": [],
+      "implicitDependencies": ["todo-angular"]
+    },
     "todo-data-access": {
       "tags": []
     },
@@ -41,13 +48,6 @@
     },
     "todo-presentation": {
       "tags": []
-    },
-    "todo-web": {
-      "tags": ["type:app"]
-    },
-    "todo-web-e2e": {
-      "tags": [],
-      "implicitDependencies": ["todo-web"]
     }
   },
   "workspaceLayout": {

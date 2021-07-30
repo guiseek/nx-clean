@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "plugin-core",
+  "version": "0.0.1",
+  "generators": {
+    "plugin-core": {
+      "factory": "./src/generators/plugin-core/generator",
+      "schema": "./src/generators/plugin-core/schema.json",
+      "description": "plugin-core generator"
+    }
+  }
+}

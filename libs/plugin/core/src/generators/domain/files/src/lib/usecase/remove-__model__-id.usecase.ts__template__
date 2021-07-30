@@ -1,0 +1,18 @@
+import { UseCase } from '@<%= npmScope %>/<%= projectCore %>';
+import { <%= entity.className %>Repository } from '../repository/<%= entity.fileName %>.repository';
+import { <%= entity.className %>Entity } from '../entity/<%= entity.fileName %>.entity';
+import { Observable } from 'rxjs';
+
+export interface Remove<%= entity.className %>UseCaseDto {
+  id: string;
+}
+
+export class Remove<%= entity.className %>UseCase
+  implements UseCase<Remove<%= entity.className %>UseCaseDto, <%= entity.className %>Entity>
+{
+  constructor(private <%= entity.propertyName %>Repository: <%= entity.className %>Repository) {}
+
+  execute(request: Remove<%= entity.className %>UseCaseDto): Observable<<%= entity.className %>Entity> {
+    return this.<%= entity.propertyName %>Repository.remove<%= entity.className %>(request.id);
+  }
+}

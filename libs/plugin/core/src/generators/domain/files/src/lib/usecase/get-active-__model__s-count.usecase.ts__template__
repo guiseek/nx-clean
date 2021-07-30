@@ -1,0 +1,11 @@
+import { UseCase } from '@<%= npmScope %>/<%= projectCore %>';
+import { <%= entity.className %>Repository } from '../repository/<%= entity.fileName %>.repository';
+import { Observable } from 'rxjs';
+
+export class GetActive<%= entity.className %>sCountUseCase implements UseCase<void, number> {
+  constructor(private <%= entity.propertyName %>Repository: <%= entity.className %>Repository) {}
+
+  execute(): Observable<number> {
+    return this.<%= entity.propertyName %>Repository.getActive<%= entity.className %>sCount();
+  }
+}

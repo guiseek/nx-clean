@@ -1,5 +1,5 @@
 {
-  "extends": ["../../.eslintrc.json"],
+  "extends": ["<%= offsetFromRoot %>.eslintrc.json"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {

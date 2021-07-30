@@ -1,0 +1,19 @@
+import { UseCase } from '@<%= npmScope %>/<%= projectCore %>';
+import { <%= entity.className %>Repository } from '../repository/<%= entity.fileName %>.repository';
+import { <%= entity.className %>Entity } from '../entity/<%= entity.fileName %>.entity';
+import { Observable } from 'rxjs';
+
+/**
+ * Add your own transfer object definitions
+ */
+export interface Add<%= entity.className %>UseCaseDTO extends <%= entity.className %>Entity {
+  name: string;
+}
+
+export class Add<%= entity.className %>UseCase implements UseCase<Add<%= entity.className %>UseCaseDTO, <%= entity.className %>Entity> {
+  constructor(private <%= entity.propertyName %>Repository: <%= entity.className %>Repository) { }
+
+  execute(request: Add<%= entity.className %>UseCaseDTO): Observable<<%= entity.className %>Entity> {
+    return this.<%= entity.propertyName %>Repository.add<%= entity.className %>(request);
+  }
+}

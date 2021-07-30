@@ -9,19 +9,21 @@ import {
   readWorkspaceConfiguration,
 } from '@nrwl/devkit';
 import * as path from 'path';
-import { PluginCoreGeneratorSchema } from './schema';
+import { getProjectConfiguration } from '../../utils';
+import { DomainGeneratorSchema } from './schema';
 
-interface NormalizedSchema extends PluginCoreGeneratorSchema {
+interface NormalizedSchema extends DomainGeneratorSchema {
   projectName: string;
   projectRoot: string;
   projectDirectory: string;
+  projectCore: string;
   parsedTags: string[];
   npmScope: string;
 }
 
 function normalizeOptions(
   host: Tree,
-  options: PluginCoreGeneratorSchema
+  options: DomainGeneratorSchema
 ): NormalizedSchema {
   const name = names(options.name).fileName;
   const projectDirectory = options.directory
@@ -30,6 +32,7 @@ function normalizeOptions(
   const npmScope = readWorkspaceConfiguration(host).npmScope;
   const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
   const projectRoot = `${getWorkspaceLayout(host).libsDir}/${projectDirectory}`;
+  const projectCore = options.project;
   const parsedTags = options.tags
     ? options.tags.split(',').map((s) => s.trim())
     : [];
@@ -39,15 +42,19 @@ function normalizeOptions(
     projectName,
     projectRoot,
     projectDirectory,
+    projectCore,
     parsedTags,
     npmScope,
   };
 }
 
 function addFiles(host: Tree, options: NormalizedSchema) {
+  const entity = names(options.entity)
   const templateOptions = {
     ...options,
     ...names(options.name),
+    model: entity.fileName,
+    entity,
     offsetFromRoot: offsetFromRoot(options.projectRoot),
     template: '',
   };
@@ -60,29 +67,11 @@ function addFiles(host: Tree, options: NormalizedSchema) {
   );
 }
 
-export default async function (host: Tree, options: PluginCoreGeneratorSchema) {
+export default async function (host: Tree, options: DomainGeneratorSchema) {
   const normalizedOptions = normalizeOptions(host, options);
-  addProjectConfiguration(host, normalizedOptions.projectName, {
-    root: normalizedOptions.projectRoot,
-    projectType: 'library',
-    sourceRoot: `${normalizedOptions.projectRoot}/src`,
-    targets: {
-      build: {
-        executor: '@nrwl/node:package',
-        outputs: ['{options.outputPath}'],
-        options: {
-          outputPath: `dist/${normalizedOptions.projectRoot}`,
-          main: `${normalizedOptions.projectRoot}/src/index.ts`,
-          packageJson: `${normalizedOptions.projectRoot}/package.json`,
-          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.lib.json`,
-          assets: [`${normalizedOptions.projectRoot}/*.md`],
-        },
-      },
-    },
-    tags: normalizedOptions.parsedTags,
-  });
+  const configuration = getProjectConfiguration(normalizedOptions);
+  addProjectConfiguration(host, normalizedOptions.projectName, configuration);
 
   addFiles(host, normalizedOptions);
-
   await formatFiles(host);
 }

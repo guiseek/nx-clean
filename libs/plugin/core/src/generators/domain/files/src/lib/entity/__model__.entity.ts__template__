@@ -1,0 +1,13 @@
+export class <%= entity.className %>Entity {
+  id: string;
+  name: string;
+
+  private constructor(params: <%= entity.className %>Entity) {
+    this.id = params?.id;
+    this.name = params?.name;
+  }
+
+  static create(params: <%= entity.className %>Entity) {
+    return new this(params);
+  }
+}

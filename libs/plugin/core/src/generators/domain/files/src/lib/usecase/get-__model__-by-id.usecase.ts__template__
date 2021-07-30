@@ -1,0 +1,18 @@
+import { UseCase } from '@<%= npmScope %>/<%= projectCore %>';
+import { <%= entity.className %>Repository } from '../repository/<%= entity.fileName %>.repository';
+import { <%= entity.className %>Entity } from '../entity/<%= entity.fileName %>.entity';
+import { Observable } from 'rxjs';
+
+export interface Get<%= entity.className %>ByIdUseCaseDto {
+  id: string;
+}
+
+export class Get<%= entity.className %>ByIdUseCase
+  implements UseCase<Get<%= entity.className %>ByIdUseCaseDto, <%= entity.className %>Entity>
+{
+  constructor(private <%= entity.propertyName %>Repository: <%= entity.className %>Repository) {}
+
+  execute(request: Get<%= entity.className %>ByIdUseCaseDto): Observable<<%= entity.className %>Entity> {
+    return this.<%= entity.propertyName %>Repository.get<%= entity.className %>ById(request.id);
+  }
+}

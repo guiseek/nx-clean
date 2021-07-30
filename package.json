@@ -50,10 +50,12 @@
     "@nrwl/angular": "^12.5.7",
     "@nrwl/cli": "12.5.7",
     "@nrwl/cypress": "12.5.7",
+    "@nrwl/devkit": "12.5.8",
     "@nrwl/eslint-plugin-nx": "12.5.7",
     "@nrwl/jest": "12.5.7",
     "@nrwl/linter": "12.5.7",
     "@nrwl/node": "^12.5.7",
+    "@nrwl/nx-plugin": "^12.5.8",
     "@nrwl/tao": "12.5.7",
     "@nrwl/workspace": "12.5.7",
     "@types/jest": "26.0.8",
@@ -70,6 +72,7 @@
     "prettier": "^2.3.1",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",
+    "tslib": "^2.0.0",
     "typescript": "~4.2.4"
   }
 }

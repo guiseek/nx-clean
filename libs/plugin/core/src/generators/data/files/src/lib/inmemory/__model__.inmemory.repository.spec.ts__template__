@@ -1,0 +1,60 @@
+import { <%= entity.className %>InMemoryRepository } from './<%= entity.propertyName %>.inmemory.repository';
+import { <%= entity.className %>Repository } from '@<%= npmScope %>/<%= projectDomain %>';
+import { forkJoin } from 'rxjs';
+
+describe('<%= entity.className %> In Memory Repository', () => {
+  let repo: <%= entity.className %>Repository;
+
+  beforeEach(() => {
+    repo = new <%= entity.className %>InMemoryRepository([
+      {
+        id: '1',
+        title: 'one',
+        active: true
+      },
+      {
+        id: '2',
+        title: 'two',
+        active: false
+      },
+      {
+        id: '3',
+        title: 'three',
+        active: true
+      },
+    ]);
+  });
+
+  it('get all', (done) => {
+    repo.getAll<%= entity.className %>s().subscribe((<%= entity.propertyName %>s) => {
+      expect(<%= entity.propertyName %>s.length).toEqual(3);
+      done();
+    });
+  });
+
+  it('get completed', (done) => {
+    repo.getActive<%= entity.className %>s().subscribe((<%= entity.propertyName %>s) => {
+      expect(<%= entity.propertyName %>s.length).toEqual(1);
+      done();
+    });
+  });
+
+  it('get active', (done) => {
+    repo.getActive<%= entity.className %>s().subscribe((<%= entity.propertyName %>s) => {
+      expect(<%= entity.propertyName %>s.length).toEqual(2);
+      done();
+    });
+  });
+
+  it('add <%= entity.propertyName %>', (done) => {
+    const name = 'bar';
+    const add$ = repo.add<%= entity.className %>({name});
+    const all$ = repo.getAll<%= entity.className %>s();
+
+    forkJoin([add$, all$]).subscribe(([<%= entity.propertyName %>, <%= entity.propertyName %>s]) => {
+      expect(<%= entity.propertyName %>.name).toEqual('bar');
+      expect(<%= entity.propertyName %>s.length).toEqual(4);
+      done();
+    });
+  });
+});

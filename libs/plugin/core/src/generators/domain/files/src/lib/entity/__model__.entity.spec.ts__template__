@@ -5,6 +5,7 @@ describe('<%= entity.className %> Entity', () => {
     const model = <%= entity.className %>Entity.create({
       id: '1',
       name: 'foo',
+      active: true
     });
 
     expect(model.id).toEqual('1');

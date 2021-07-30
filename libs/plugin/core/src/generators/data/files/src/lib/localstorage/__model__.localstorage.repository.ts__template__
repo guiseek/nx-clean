@@ -1,0 +1,46 @@
+import { <%= entity.className %>Repository, <%= entity.className %>Entity } from '@<%= npmScope %>/<%= projectDomain %>';
+import { LocalStorageService } from '@<%= npmScope %>/<%= projectCore %>';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+export class <%= entity.className %>LocalStorageRepository implements <%= entity.className %>Repository {
+  constructor(private localStorageService: LocalStorageService) {}
+
+  public getAll<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]> {
+    return of(this.localStorageService.getItem<<%= entity.className %>Entity[]>('<%= entity.propertyName %>s'));
+  }
+
+  public getActive<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]> {
+    throw Error('not implemented');
+  }
+
+  public getActive<%= entity.className %>sCount(): Observable<number> {
+    return this.getActive<%= entity.className %>s().pipe(map((<%= entity.propertyName %>s) => <%= entity.propertyName %>s.length));
+  }
+
+  public add<%= entity.className %>({ name, active }: Pick<<%= entity.className %>Entity, 'name' | 'active'>): Observable<<%= entity.className %>Entity> {
+    const <%= entity.propertyName %>s: <%= entity.className %>Entity[] = this.localStorageService.getItem('<%= entity.propertyName %>s') || [];
+    const <%= entity.propertyName %> = <%= entity.className %>Entity.create({
+      id: Math.random().toString(),
+      name, active
+    });
+
+    this.localStorageService.setItem('<%= entity.propertyName %>s', [...<%= entity.propertyName %>s, <%= entity.propertyName %>]);
+
+    return of(<%= entity.propertyName %>);
+  }
+
+  public get<%= entity.className %>ById(id: string): Observable<<%= entity.className %>Entity> {
+    const <%= entity.propertyName %>s: <%= entity.className %>Entity[] = this.localStorageService.getItem('<%= entity.propertyName %>s');
+    return of<<%= entity.className %>Entity>(<%= entity.propertyName %>s.find((<%= entity.propertyName %>) => <%= entity.propertyName %>.id === id) as <%= entity.className %>Entity);
+  }
+
+  public update<%= entity.className %>(id: string, user: <%= entity.className %>Entity): Observable<<%= entity.className %>Entity> {
+    throw new Error('Method not implemented.');
+  }
+
+  public remove<%= entity.className %>(id: string): Observable<<%= entity.className %>Entity> {
+    throw Error(id + 'not implemented');
+  }
+
+}

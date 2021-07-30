@@ -1,6 +1,6 @@
 {
   "name": "@nx-clean/plugin-core",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/guiseek/nx-clean.git"

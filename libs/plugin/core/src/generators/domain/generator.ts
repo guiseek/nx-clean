@@ -21,7 +21,7 @@ interface NormalizedSchema extends DomainGeneratorSchema {
   npmScope: string;
 }
 
-function normalizeOptions(
+export function normalizeOptions(
   host: Tree,
   options: DomainGeneratorSchema
 ): NormalizedSchema {

@@ -10,6 +10,14 @@ npm i @nx-clean/plugin-core
 
 ### Core - Generate
 
+| Property   | Value                      | Description                     |
+| ---------- | -------------------------- | ------------------------------- |
+| name       | common                     | Name or last directory in tree  |
+| directory  | account                    | Where the project is placed     |
+| tags       | type:domain,scope:account  | Tags (used for linting)         |
+
+#### Core - Command
+
 ```sh
 nx generate @nx-clean/plugin-core:core --name=common --directory=core --tags=scope:core,type:common
 ```
@@ -17,20 +25,26 @@ nx generate @nx-clean/plugin-core:core --name=common --directory=core --tags=sco
 #### Core - Result
 
 ```sh
-UPDATE workspace.json
-UPDATE nx.json
 CREATE libs/core/common/README.md
-CREATE libs/core/common/jest.config.js
+CREATE libs/core/common/.babelrc
 CREATE libs/core/common/package.json
 CREATE libs/core/common/src/index.ts
+CREATE libs/core/common/src/lib/core-common.spec.ts
+CREATE libs/core/common/src/lib/core-common.ts
+CREATE libs/core/common/tsconfig.json
+CREATE libs/core/common/tsconfig.lib.json
+UPDATE tsconfig.base.json
+UPDATE workspace.json
+UPDATE nx.json
+CREATE libs/core/common/.eslintrc.json
+CREATE libs/core/common/jest.config.js
+CREATE libs/core/common/tsconfig.spec.json
+UPDATE jest.config.js
 CREATE libs/core/common/src/lib/common/mapper.ts
 CREATE libs/core/common/src/lib/domain/service/localstorage.service.ts
 CREATE libs/core/common/src/lib/domain/usecase/usecase.ts
 CREATE libs/core/common/src/lib/presentation/presenter.ts
 CREATE libs/core/common/src/lib/presentation/view-model.ts
-CREATE libs/core/common/tsconfig.json
-CREATE libs/core/common/tsconfig.lib.json
-CREATE libs/core/common/tsconfig.spec.json
 ```
 
 #### Core - Folder structure
@@ -45,6 +59,8 @@ libs/core/common
 │   └── lib
 │       ├── common
 │       │   └── mapper.ts
+│       ├── core-common.spec.ts
+│       ├── core-common.ts
 │       ├── domain
 │       │   ├── service
 │       │   │   └── localstorage.service.ts
@@ -70,6 +86,8 @@ libs/core/common
 | directory  | account                    | Where the project is placed     |
 | tags       | type:domain,scope:account  | Tags (used for linting)         |
 
+#### Domain - Command
+
 ```sh
 nx generate @nx-clean/plugin-core:domain --name=domain --entity=user --project=core-common --directory=account --tags=type:domain,scope:account
 ```
@@ -77,12 +95,20 @@ nx generate @nx-clean/plugin-core:domain --name=domain --entity=user --project=c
 #### Domain - Result
 
 ```sh
+CREATE libs/account/domain/README.md
+CREATE libs/account/domain/.babelrc
+CREATE libs/account/domain/src/index.ts
+CREATE libs/account/domain/src/lib/account-domain.spec.ts
+CREATE libs/account/domain/src/lib/account-domain.ts
+CREATE libs/account/domain/tsconfig.json
+CREATE libs/account/domain/tsconfig.lib.json
+UPDATE tsconfig.base.json
 UPDATE workspace.json
 UPDATE nx.json
-CREATE libs/account/domain/README.md
+CREATE libs/account/domain/.eslintrc.json
 CREATE libs/account/domain/jest.config.js
-CREATE libs/account/domain/package.json
-CREATE libs/account/domain/src/index.ts
+CREATE libs/account/domain/tsconfig.spec.json
+UPDATE jest.config.js
 CREATE libs/account/domain/src/lib/entity/user.entity.spec.ts
 CREATE libs/account/domain/src/lib/entity/user.entity.ts
 CREATE libs/account/domain/src/lib/repository/user.repository.ts
@@ -93,9 +119,6 @@ CREATE libs/account/domain/src/lib/usecase/get-active-users.usecase.ts
 CREATE libs/account/domain/src/lib/usecase/get-all-users.usecase.ts
 CREATE libs/account/domain/src/lib/usecase/remove-user-id.usecase.ts
 CREATE libs/account/domain/src/lib/usecase/update-user.usecase.ts
-CREATE libs/account/domain/tsconfig.json
-CREATE libs/account/domain/tsconfig.lib.json
-CREATE libs/account/domain/tsconfig.spec.json
 ```
 
 #### Domain - Folder structure
@@ -104,10 +127,11 @@ CREATE libs/account/domain/tsconfig.spec.json
 libs/account/domain
 ├── README.md
 ├── jest.config.js
-├── package.json
 ├── src
 │   ├── index.ts
 │   └── lib
+│       ├── account-domain.spec.ts
+│       ├── account-domain.ts
 │       ├── entity
 │       │   ├── user.entity.spec.ts
 │       │   └── user.entity.ts
@@ -121,6 +145,74 @@ libs/account/domain
 │           ├── get-user-by-id.usecase.ts
 │           ├── remove-user-id.usecase.ts
 │           └── update-user.usecase.ts
+├── tsconfig.json
+├── tsconfig.lib.json
+└── tsconfig.spec.json
+```
+
+---
+
+### Data - Generate
+
+| Property   | Value                      | Description                     |
+| ---------- | -------------------------- | ------------------------------- |
+| name       | data                       | Name or last directory in tree  |
+| entity     | user                       | Entity of domain                |
+| project    | core-common                | Common core library             |
+| domain     | account-domain             | Domain library                  |
+| directory  | account                    | Where the project is placed     |
+| tags       | type:data,scope:account    | Tags (used for linting)         |
+
+#### Data - Command
+
+```sh
+nx generate @nx-clean/plugin-core:data --name=data --domain=account-domain --entity=user --project=core-common --directory=account --tags=type:data,scope:account
+```
+
+#### Data - Result
+
+```sh
+CREATE libs/account/data/README.md
+CREATE libs/account/data/.babelrc
+CREATE libs/account/data/src/index.ts
+CREATE libs/account/data/src/lib/account-data.spec.ts
+CREATE libs/account/data/src/lib/account-data.ts
+CREATE libs/account/data/tsconfig.json
+CREATE libs/account/data/tsconfig.lib.json
+UPDATE tsconfig.base.json
+UPDATE workspace.json
+UPDATE nx.json
+CREATE libs/account/data/.eslintrc.json
+CREATE libs/account/data/jest.config.js
+CREATE libs/account/data/tsconfig.spec.json
+UPDATE jest.config.js
+CREATE libs/account/data/src/lib/inmemory/user.inmemory.repository.spec.ts
+CREATE libs/account/data/src/lib/inmemory/user.inmemory.repository.ts
+CREATE libs/account/data/src/lib/inmemory/dto/user-mock.dto.ts
+CREATE libs/account/data/src/lib/inmemory/mapper/user-mock.mapper.ts
+CREATE libs/account/data/src/lib/localstorage/user.localstorage.repository.ts
+```
+
+#### Data - Folder structure
+
+```sh
+libs/account/data
+├── README.md
+├── jest.config.js
+├── src
+│   ├── index.ts
+│   └── lib
+│       ├── account-data.spec.ts
+│       ├── account-data.ts
+│       ├── inmemory
+│       │   ├── dto
+│       │   │   └── user-mock.dto.ts
+│       │   ├── mapper
+│       │   │   └── user-mock.mapper.ts
+│       │   ├── user.inmemory.repository.spec.ts
+│       │   └── user.inmemory.repository.ts
+│       └── localstorage
+│           └── user.localstorage.repository.ts
 ├── tsconfig.json
 ├── tsconfig.lib.json
 └── tsconfig.spec.json

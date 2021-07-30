@@ -1,0 +1,55 @@
+import { <%= entity.className %>Repository, <%= entity.className %>Entity } from '@<%= npmScope %>/<%= projectDomain %>';
+import { <%= entity.className %>MockMapper } from './mapper/<%= entity.fileName %>-mock.mapper';
+import { <%= entity.className %>MockDto } from './dto/<%= entity.fileName %>-mock.dto';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+export class <%= entity.className %>InMemoryRepository implements <%= entity.className %>Repository {
+  constructor(private data: <%= entity.className %>MockDto[] = []) {}
+
+  private mapper = new <%= entity.className %>MockMapper();
+
+  public getAll<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]> {
+    return of(this.data).pipe(map((mocks) => mocks.map(this.mapper.mapTo)));
+  }
+
+  public getActive<%= entity.className %>sCount(): Observable<number> {
+    return this.getActive<%= entity.className %>s().pipe(map((<%= entity.propertyName %>s) => <%= entity.propertyName %>s.length));
+  }
+
+
+  public getActive<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]> {
+    return of(this.data.filter((<%= entity.propertyName %>) => !<%= entity.propertyName %>.active)).pipe(
+      map((mocks) => mocks.map(this.mapper.mapTo))
+    );
+  }
+
+  public add<%= entity.className %>({ name, active }: Pick<<%= entity.className %>Entity, 'name' | 'active'>): Observable<<%= entity.className %>Entity> {
+    const id = 'item-' + new Date().getTime();
+    const <%= entity.propertyName %>: <%= entity.className %>Entity = <%= entity.className %>Entity.create({ id, name, active });
+
+    this.data.push(this.mapper.mapFrom(<%= entity.propertyName %>));
+    return of(<%= entity.propertyName %>);
+  }
+
+  public get<%= entity.className %>ById(id: string): Observable<<%= entity.className %>Entity> {
+    return of<<%= entity.className %>MockDto>(
+      this.data.find((<%= entity.propertyName %>) => <%= entity.propertyName %>.id === id) as <%= entity.className %>MockDto
+    ).pipe(map(this.mapper.mapTo));
+  }
+
+  public update<%= entity.className %>(id: string, <%= entity.propertyName %>: <%= entity.className %>Entity): Observable<<%= entity.className %>Entity> {
+    const record = this.data.findIndex((<%= entity.propertyName %>) => <%= entity.propertyName %>.id === id)
+    this.data[record] = this.mapper.mapFrom(<%= entity.propertyName %>);
+    return of(this.mapper.mapTo(this.data[record]));
+  }
+
+  public remove<%= entity.className %>(id: string): Observable<<%= entity.className %>Entity> {
+    const idx = this.data.findIndex((t) => t.id === id);
+    const <%= entity.propertyName %> = this.data.find((t) => t.id === id);
+
+    this.data.splice(idx, 1);
+
+    return of<<%= entity.className %>MockDto>(<%= entity.propertyName %> as <%= entity.className %>MockDto).pipe(map(this.mapper.mapTo));
+  }
+}

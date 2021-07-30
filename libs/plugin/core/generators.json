@@ -12,6 +12,11 @@
       "factory": "./src/generators/domain/generator",
       "schema": "./src/generators/domain/schema.json",
       "description": "Add a core feature domain"
+    },
+    "data": {
+      "factory": "./src/generators/data/generator",
+      "schema": "./src/generators/data/schema.json",
+      "description": "data generator"
     }
   }
 }

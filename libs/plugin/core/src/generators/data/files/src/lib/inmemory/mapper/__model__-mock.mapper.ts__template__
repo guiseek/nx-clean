@@ -1,0 +1,23 @@
+import { <%= entity.className %>MockDto } from '../dto/<%= entity.propertyName %>-mock.dto';
+import { <%= entity.className %>Entity } from '@<%= npmScope %>/<%= projectDomain %>';
+import { Mapper } from '@<%= npmScope %>/<%= projectCore %>';
+
+export class <%= entity.className %>MockMapper implements Mapper<<%= entity.className %>Entity, <%= entity.className %>MockDto> {
+  mapFrom(input: <%= entity.className %>Entity): <%= entity.className %>MockDto {
+    return {
+      id: input?.id,
+      title: input?.name,
+      active: input?.active,
+    };
+  }
+
+  mapTo(input: <%= entity.className %>MockDto): <%= entity.className %>Entity {
+    const <%= entity.propertyName %> = <%= entity.className %>Entity.create({
+      id: input?.id,
+      name: input?.title,
+      active: input?.active,
+    });
+
+    return <%= entity.propertyName %>;
+  }
+}

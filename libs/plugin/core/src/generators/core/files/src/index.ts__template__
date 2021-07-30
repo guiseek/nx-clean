@@ -1,4 +1,3 @@
-const variable = "<%= projectName %>";
 export * from './lib/common/mapper';
 export * from './lib/domain/service/localstorage.service';
 export * from './lib/domain/usecase/usecase';

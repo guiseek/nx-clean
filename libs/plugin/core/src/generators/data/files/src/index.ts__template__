@@ -1,0 +1,4 @@
+export * from './lib/localstorage/<%= entity.fileName %>.localstorage.repository';
+export * from './lib/inmemory/<%= entity.fileName %>.inmemory.repository';
+export * from './lib/inmemory/mapper/<%= entity.fileName %>-mock.mapper';
+export * from './lib/inmemory/dto/<%= entity.fileName %>-mock.dto';

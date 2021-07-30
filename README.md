@@ -1,17 +1,25 @@
 # 🧹 Nx Clean
 
-## Understand your workspace
+## Clean Architecture with Nx workspaces
 
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+### Install
 
-## Further help
+```sh
+npm i @nx-clean/plugin-core
+```
 
-Visit the [Plugin Core](./libs/plugin/core/README.md) to learn more.
+### Generators
 
-## Nx Cloud
+- [Core](./libs/plugin/core#core---generate)
+- [Domain](./libs/plugin/core#domain---generate)
+- [Data](./libs/plugin/core#data---generate)
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+---
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+### Nx Console with Nx Clean
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
+![Nx Console with Nx Clean](./assets/nx-clean-console.png)
+
+For developers, Nx extends Nx Console to give you more visibility into your workspace. With Nx Console and Nx in your workflow you can reduce the time it takes to build high-quality software at scale, and improve best-practices across your organization. [Try out Nx Console](https://nx.dev/getting-started/console#nx-console-for-vscode).
+
+Visit [Nx](https://nx.dev/) to learn more.

@@ -220,7 +220,6 @@ libs/account/data
 
 ---
 
-
 ### Presentation - Generate
 
 | Property   | Value                      | Description                     |

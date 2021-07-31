@@ -10,7 +10,6 @@ import {
 } from '@nrwl/devkit';
 import * as path from 'path';
 import { libraryGenerator } from '@nrwl/workspace/generators';
-import { getProjectConfiguration } from '../../utils';
 import { DataGeneratorSchema } from './schema';
 
 interface NormalizedSchema extends DataGeneratorSchema {

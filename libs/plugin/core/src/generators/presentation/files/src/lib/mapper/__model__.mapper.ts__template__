@@ -1,0 +1,13 @@
+import { <%= entity.className %>VM } from '../viewmodel/<%= entity.fileName %>s.viewmodel';
+import { <%= entity.className %>Entity } from '@<%= npmScope %>/<%= projectDomain %>';
+import { Mapper } from '@<%= npmScope %>/<%= projectCore %>';
+
+export class <%= entity.className %>ViewModelMapper implements Mapper<<%= entity.className %>Entity, <%= entity.className %>VM> {
+  mapFrom(input: <%= entity.className %>Entity): <%= entity.className %>VM {
+    return { id: input.id, name: input.name, active: input.active };
+  }
+
+  mapTo(input: <%= entity.className %>VM): <%= entity.className %>Entity {
+    return { id: input.id, name: input.name, active: input.active };
+  }
+}

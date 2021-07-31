@@ -17,6 +17,11 @@
       "factory": "./src/generators/data/generator",
       "schema": "./src/generators/data/schema.json",
       "description": "data generator"
+    },
+    "presentation": {
+      "factory": "./src/generators/presentation/generator",
+      "schema": "./src/generators/presentation/schema.json",
+      "description": "Presentation"
     }
   }
 }

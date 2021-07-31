@@ -220,4 +220,73 @@ libs/account/data
 
 ---
 
+
+### Presentation - Generate
+
+| Property   | Value                      | Description                     |
+| ---------- | -------------------------- | ------------------------------- |
+| name       | presentation               | Name or last directory in tree  |
+| entity     | user                       | Entity of domain                |
+| project    | core-common                | Common core library             |
+| domain     | account-domain             | Domain library                  |
+| data       | account-data               | Data library                    |
+| directory  | account                    | Where the project is placed     |
+| tags       | type:data,scope:account    | Tags (used for linting)         |
+
+#### Presentation - Command
+
+```sh
+nx generate @nx-clean/plugin-core:presentation --name=presentation --domain=account-domain --entity=user --project=core-common --directory=account --data=account-data --tags=type:presentation,scope:account
+```
+
+#### Presentation - Result
+
+```sh
+CREATE libs/account/presentation/README.md
+CREATE libs/account/presentation/.babelrc
+CREATE libs/account/presentation/src/index.ts
+CREATE libs/account/presentation/src/lib/account-presentation.spec.ts
+CREATE libs/account/presentation/src/lib/account-presentation.ts
+CREATE libs/account/presentation/tsconfig.json
+CREATE libs/account/presentation/tsconfig.lib.json
+UPDATE tsconfig.base.json
+UPDATE workspace.json
+UPDATE nx.json
+CREATE libs/account/presentation/.eslintrc.json
+CREATE libs/account/presentation/jest.config.js
+CREATE libs/account/presentation/tsconfig.spec.json
+UPDATE jest.config.js
+CREATE libs/account/presentation/src/lib/mapper/user.mapper.ts
+CREATE libs/account/presentation/src/lib/presenter/user-default.presenter.spec.ts
+CREATE libs/account/presentation/src/lib/presenter/user-default.presenter.ts
+CREATE libs/account/presentation/src/lib/presenter/user.presenter.ts
+CREATE libs/account/presentation/src/lib/viewmodel/users.viewmodel.ts
+```
+
+#### Presentation - Folder structure
+
+```sh
+libs/account/presentation
+├── README.md
+├── jest.config.js
+├── src
+│   ├── index.ts
+│   └── lib
+│       ├── account-presentation.spec.ts
+│       ├── account-presentation.ts
+│       ├── mapper
+│       │   └── user.mapper.ts
+│       ├── presenter
+│       │   ├── user-default.presenter.spec.ts
+│       │   ├── user-default.presenter.ts
+│       │   └── user.presenter.ts
+│       └── viewmodel
+│           └── users.viewmodel.ts
+├── tsconfig.json
+├── tsconfig.lib.json
+└── tsconfig.spec.json
+```
+
+---
+
 This project was generated using [Nx Clean](https://github.com/guiseek/nx-clean).

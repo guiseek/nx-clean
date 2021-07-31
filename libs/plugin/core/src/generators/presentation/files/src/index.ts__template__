@@ -1,0 +1,4 @@
+export * from './lib/presenter/<%= entity.fileName %>-default.presenter';
+export * from './lib/viewmodel/<%= entity.fileName %>s.viewmodel';
+export * from './lib/presenter/<%= entity.fileName %>.presenter';
+export * from './lib/mapper/<%= entity.fileName %>.mapper';

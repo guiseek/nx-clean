@@ -1,4 +1,4 @@
-# 🧹 Nx Clean
+# 🧅 Nx Clean
 
 ## Clean Architecture with Nx workspaces
 
@@ -13,6 +13,7 @@ npm i @nx-clean/plugin-core
 - [Core](./libs/plugin/core#core---generate)
 - [Domain](./libs/plugin/core#domain---generate)
 - [Data](./libs/plugin/core#data---generate)
+- [Presentation](./libs/plugin/core#presentation---generate)
 
 ---
 

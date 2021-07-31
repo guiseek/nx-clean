@@ -1,0 +1,91 @@
+import { <%= entity.className %>InMemoryRepository, <%= entity.className %>MockDto } from '@<%= npmScope %>/<%= projectData %>';
+import { <%= entity.className %>DefaultPresenter } from './<%= entity.fileName %>-default.presenter';
+import { <%= entity.className %>Presenter } from './<%= entity.fileName %>.presenter';
+import { skip } from 'rxjs/operators';
+
+describe('<%= entity.className %> Presenter', () => {
+  let <%= entity.propertyName %>Presenter: <%= entity.className %>Presenter;
+
+  const item1 = { id: '1', title: '<%= entity.propertyName %> 1', active: true };
+  const item2 = { id: '2', title: '<%= entity.propertyName %> 2', active: false };
+  const db: <%= entity.className %>MockDto[] = [item1, item2];
+
+  beforeEach(() => {
+    <%= entity.propertyName %>Presenter = new <%= entity.className %>DefaultPresenter(new <%= entity.className %>InMemoryRepository(db));
+  });
+
+  describe('Initial State', () => {
+    describe('<%= entity.className %>s', () => {
+      it('should return empty array of <%= entity.propertyName %>s', done => {
+        <%= entity.propertyName %>Presenter.<%= entity.propertyName %>s$.subscribe(<%= entity.propertyName %>s => {
+          expect(<%= entity.propertyName %>s).toEqual([]);
+          done();
+        });
+      });
+    });
+
+    describe('Active <%= entity.className %>s Count', () => {
+      it('should return zero', done => {
+        <%= entity.propertyName %>Presenter.active<%= entity.className %>sCount$.subscribe(count => {
+          expect(count).toEqual(0);
+          done();
+        });
+      });
+    });
+
+    describe('Filter', () => {
+      it('should return "all"', done => {
+        <%= entity.propertyName %>Presenter.filter$.subscribe(filter => {
+          expect(filter).toEqual('all');
+          done();
+        });
+      });
+    });
+  });
+
+  describe('Get All <%= entity.className %>s', () => {
+    describe('<%= entity.className %>s', () => {
+      it('should return proper <%= entity.propertyName %>s from repository', done => {
+        <%= entity.propertyName %>Presenter.<%= entity.propertyName %>s$.pipe(skip(1)).subscribe(<%= entity.propertyName %>s => {
+          expect(<%= entity.propertyName %>s).toHaveLength(2);
+
+          expect(<%= entity.propertyName %>s[0].id).toEqual(item1.id);
+          expect(<%= entity.propertyName %>s[0].name).toEqual(item1.title);
+          expect(<%= entity.propertyName %>s[0].active).toEqual(item1.active);
+          expect(<%= entity.propertyName %>s[0].editing).toBeFalsy();
+
+          expect(<%= entity.propertyName %>s[1].id).toEqual(item2.id);
+          expect(<%= entity.propertyName %>s[1].name).toEqual(item2.title);
+          expect(<%= entity.propertyName %>s[1].active).toEqual(item2.active);
+          expect(<%= entity.propertyName %>s[1].editing).toBeFalsy();
+
+          done();
+        });
+
+        <%= entity.propertyName %>Presenter.getAll<%= entity.className %>s();
+      });
+    });
+
+    describe('Active <%= entity.className %>s Count', () => {
+      it('should return proper counts of <%= entity.propertyName %>s', done => {
+        <%= entity.propertyName %>Presenter.active<%= entity.className %>sCount$.pipe(skip(1)).subscribe(count => {
+          expect(count).toEqual(1);
+          done();
+        });
+
+        <%= entity.propertyName %>Presenter.getAll<%= entity.className %>s();
+      });
+    });
+
+    describe('Filter', () => {
+      it('should return "all"', done => {
+        <%= entity.propertyName %>Presenter.filter$.pipe(skip(1)).subscribe(filter => {
+          expect(filter).toEqual('all');
+          done();
+        });
+
+        <%= entity.propertyName %>Presenter.getAll<%= entity.className %>s();
+      });
+    });
+  });
+});

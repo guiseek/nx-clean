@@ -6,7 +6,7 @@ import { DomainGeneratorSchema } from './schema';
 
 describe('domain generator', () => {
   let appTree: Tree;
-  const options: DomainGeneratorSchema = { name: 'test', entity: 'todo' };
+  const options: DomainGeneratorSchema = { name: 'test', entity: 'todo', project: 'common-core' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();

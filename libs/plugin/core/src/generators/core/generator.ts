@@ -5,17 +5,19 @@ import {
   generateFiles,
   offsetFromRoot,
   getWorkspaceLayout,
-  addProjectConfiguration,
+  installPackagesTask,
   readWorkspaceConfiguration,
+  readProjectConfiguration,
 } from '@nrwl/devkit';
 import * as path from 'path';
-import { getProjectConfiguration } from '../../utils';
+import { libraryGenerator } from '@nrwl/workspace/generators';
 import { PluginCoreGeneratorSchema } from './schema';
 
 interface NormalizedSchema extends PluginCoreGeneratorSchema {
   projectName: string;
   projectRoot: string;
   projectDirectory: string;
+  buildable: boolean;
   parsedTags: string[];
   npmScope: string;
 }
@@ -40,6 +42,7 @@ function normalizeOptions(
     projectName,
     projectRoot,
     projectDirectory,
+    buildable: true,
     parsedTags,
     npmScope,
   };
@@ -63,10 +66,12 @@ function addFiles(host: Tree, options: NormalizedSchema) {
 
 export default async function (host: Tree, options: PluginCoreGeneratorSchema) {
   const normalizedOptions = normalizeOptions(host, options);
-  const configuration = getProjectConfiguration(normalizedOptions);
-  addProjectConfiguration(host, normalizedOptions.projectName, configuration);
+  await libraryGenerator(host, normalizedOptions);
 
   addFiles(host, normalizedOptions);
-
   await formatFiles(host);
+
+  return () => {
+    installPackagesTask(host);
+  };
 }

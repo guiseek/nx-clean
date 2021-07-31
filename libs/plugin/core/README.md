@@ -71,7 +71,7 @@ libs/core/common
 | tags       | type:domain,scope:account  | Tags (used for linting)         |
 
 ```sh
-nx generate @nx-clean/plugin-core:domain --name=domain --entity=user --project=core --directory=account --tags=type:domain,scope:account
+nx generate @nx-clean/plugin-core:domain --name=domain --entity=user --project=core-common --directory=account --tags=type:domain,scope:account
 ```
 
 #### Domain - Result

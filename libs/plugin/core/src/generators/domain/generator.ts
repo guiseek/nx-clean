@@ -5,11 +5,11 @@ import {
   generateFiles,
   offsetFromRoot,
   getWorkspaceLayout,
-  addProjectConfiguration,
+  installPackagesTask,
   readWorkspaceConfiguration,
 } from '@nrwl/devkit';
 import * as path from 'path';
-import { getProjectConfiguration } from '../../utils';
+import { libraryGenerator } from '@nrwl/workspace/generators';
 import { DomainGeneratorSchema } from './schema';
 
 interface NormalizedSchema extends DomainGeneratorSchema {
@@ -32,7 +32,7 @@ function normalizeOptions(
   const npmScope = readWorkspaceConfiguration(host).npmScope;
   const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
   const projectRoot = `${getWorkspaceLayout(host).libsDir}/${projectDirectory}`;
-  const projectCore = options.project;
+  const projectCore = options.project.replace('-','/');
   const parsedTags = options.tags
     ? options.tags.split(',').map((s) => s.trim())
     : [];
@@ -69,9 +69,12 @@ function addFiles(host: Tree, options: NormalizedSchema) {
 
 export default async function (host: Tree, options: DomainGeneratorSchema) {
   const normalizedOptions = normalizeOptions(host, options);
-  const configuration = getProjectConfiguration(normalizedOptions);
-  addProjectConfiguration(host, normalizedOptions.projectName, configuration);
+  await libraryGenerator(host, normalizedOptions);
 
   addFiles(host, normalizedOptions);
   await formatFiles(host);
+
+  return () => {
+    installPackagesTask(host);
+  };
 }

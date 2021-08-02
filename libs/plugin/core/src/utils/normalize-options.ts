@@ -23,15 +23,15 @@ export function normalizeOptions<T extends GeneratorSchema>(host: Tree, options:
   }
 
   if (options.project) {
-    normalized.projectCore = options.project.replace('-', '/');
+    normalized.projectCore = options.project.replace(new RegExp('-', 'g'), '/');
   }
 
   if (options.domain) {
-    normalized.projectDomain = options.domain.replace('-', '/');
+    normalized.projectDomain = options.domain.replace(new RegExp('-', 'g'), '/');
   }
 
   if (options.data) {
-    normalized.projectData = options.data.replace('-', '/');
+    normalized.projectData = options.data.replace(new RegExp('-', 'g'), '/');
   }
 
   return normalized;

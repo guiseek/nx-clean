@@ -14,7 +14,7 @@
       "outputs": ["coverage/libs/plugin/core"],
       "options": {
         "jestConfig": "libs/plugin/core/jest.config.js",
-        "passWithNoTests": true
+        "passWithNoTests": false
       }
     },
     "build": {

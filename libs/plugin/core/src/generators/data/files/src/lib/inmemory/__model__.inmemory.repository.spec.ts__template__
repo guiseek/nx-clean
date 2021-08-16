@@ -32,13 +32,6 @@ describe('<%= entity.className %> In Memory Repository', () => {
     });
   });
 
-  it('get completed', (done) => {
-    repo.getActive<%= entity.className %>s().subscribe((<%= entity.propertyName %>s) => {
-      expect(<%= entity.propertyName %>s.length).toEqual(1);
-      done();
-    });
-  });
-
   it('get active', (done) => {
     repo.getActive<%= entity.className %>s().subscribe((<%= entity.propertyName %>s) => {
       expect(<%= entity.propertyName %>s.length).toEqual(2);

@@ -6,7 +6,7 @@ import { PresentationGeneratorSchema } from './schema';
 
 describe('presentation generator', () => {
   let appTree: Tree;
-  const options: PresentationGeneratorSchema = { name: 'test' };
+  const options: PresentationGeneratorSchema = { name: 'test', project: 'core', domain: 'todo-domain', data: 'todo-data-access', entity: 'seek' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();

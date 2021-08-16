@@ -3,6 +3,7 @@ export interface PresentationGeneratorSchema {
     entity: string;
     project: string;
     domain: string;
+    data: string;
     tags?: string;
     directory?: string;
 }

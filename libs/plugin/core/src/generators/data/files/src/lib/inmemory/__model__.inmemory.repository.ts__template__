@@ -19,7 +19,7 @@ export class <%= entity.className %>InMemoryRepository implements <%= entity.cla
 
 
   public getActive<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]> {
-    return of(this.data.filter((<%= entity.propertyName %>) => !<%= entity.propertyName %>.active)).pipe(
+    return of(this.data.filter((<%= entity.propertyName %>) => <%= entity.propertyName %>.active)).pipe(
       map((mocks) => mocks.map(this.mapper.mapTo))
     );
   }

@@ -49,6 +49,12 @@
           }
         ]
       }
+    },
+    "release": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx semantic-release -e ./libs/plugin/core/.releaserc.json"
+      }
     }
   },
   "tags": ["type:plugin"]

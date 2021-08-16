@@ -6,4 +6,4 @@ Run `nx test <%= projectName %>"` to execute the unit tests via [Jest](https://j
 
 ---
 
-This project was generated using [Nx Clean](https://github.com/guiseek/nx-clean).
+This project was generated using [Nx](https://github.com/nrwl/nx) & [Nx Clean / Plugin Core](https://github.com/guiseek/nx-clean).

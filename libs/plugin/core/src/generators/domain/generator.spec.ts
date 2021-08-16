@@ -1,8 +1,9 @@
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
-import { default as generator, normalizeOptions } from './generator';
+import { default as generator } from './generator';
 import { DomainGeneratorSchema } from './schema';
+import { normalizeOptions } from '../../utils';
 
 describe('domain generator', () => {
   let appTree: Tree;

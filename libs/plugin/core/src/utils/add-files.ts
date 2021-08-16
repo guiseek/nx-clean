@@ -3,7 +3,7 @@ import { PluginCoreNormalizedSchema } from "../interfaces";
 import { join } from 'path';
 
 export function addFiles(host: Tree, options: PluginCoreNormalizedSchema, dir: string) {
-  let templateOptions: Record<string, any> = {
+  const templateOptions: Record<string, any> = {
     ...options,
     ...names(options.name),
     offsetFromRoot: offsetFromRoot(options.projectRoot),

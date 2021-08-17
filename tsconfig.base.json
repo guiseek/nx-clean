@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-clean/angular": ["libs/plugin/angular/src/index.ts"],
       "@nx-clean/cli": ["libs/cli/src/index.ts"],
       "@nx-clean/core": ["libs/core/src/index.ts"],
       "@nx-clean/core-plugin": ["libs/plugin/core/src/index.ts"],

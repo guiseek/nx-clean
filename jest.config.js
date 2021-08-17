@@ -8,5 +8,7 @@ module.exports = {
     '<rootDir>/apps/todo/web',
     '<rootDir>/libs/plugin/core',
     '<rootDir>/apps/plugin/core-e2e',
+    '<rootDir>/libs/plugin/angular',
+    '<rootDir>/apps/plugin/angular-e2e',
   ],
 };

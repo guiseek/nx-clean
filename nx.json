@@ -33,6 +33,13 @@
     "core": {
       "tags": []
     },
+    "plugin-angular": {
+      "tags": ["type:plugin"]
+    },
+    "plugin-angular-e2e": {
+      "tags": [],
+      "implicitDependencies": ["plugin-angular"]
+    },
     "todo-angular": {
       "tags": ["type:app"]
     },

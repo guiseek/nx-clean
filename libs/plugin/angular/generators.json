@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "plugin-angular",
+  "version": "0.0.1",
+  "generators": {
+    "domain": {
+      "factory": "./src/generators/domain/generator",
+      "schema": "./src/generators/domain/schema.json",
+      "description": "Domain Library Scaffolding"
+    }
+  }
+}

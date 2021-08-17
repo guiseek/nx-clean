@@ -65,6 +65,76 @@
         }
       }
     },
+    "plugin-angular": {
+      "root": "libs/plugin/angular",
+      "sourceRoot": "libs/plugin/angular/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/plugin/angular/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/plugin/angular"],
+          "options": {
+            "jestConfig": "libs/plugin/angular/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/plugin/angular",
+            "tsConfig": "libs/plugin/angular/tsconfig.lib.json",
+            "packageJson": "libs/plugin/angular/package.json",
+            "main": "libs/plugin/angular/src/index.ts",
+            "assets": [
+              "libs/plugin/angular/*.md",
+              {
+                "input": "./libs/plugin/angular/src",
+                "glob": "**/!(*.ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/plugin/angular/src",
+                "glob": "**/*.d.ts",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/plugin/angular",
+                "glob": "generators.json",
+                "output": "."
+              },
+              {
+                "input": "./libs/plugin/angular",
+                "glob": "executors.json",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "plugin-angular-e2e": {
+      "root": "apps/plugin/angular-e2e",
+      "projectType": "application",
+      "sourceRoot": "apps/plugin/angular-e2e/src",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "plugin-angular:build",
+            "npmPackageName": "@nx-clean/angular",
+            "pluginOutputPath": "dist/libs/plugin/angular",
+            "jestConfig": "apps/plugin/angular-e2e/jest.config.js"
+          }
+        }
+      }
+    },
     "plugin-core": "libs/plugin/core",
     "plugin-core-e2e": "apps/plugin/core-e2e",
     "todo-angular": {

@@ -29,12 +29,16 @@ jobs:
         with:
           node-version: '12'
       - run: npm ci
-      - name: Lint
-        run: npm run affected:lint -- --base=origin/main
-      - name: Test
-        run: npm run affected:test -- --base=origin/main
-      - name: Build
-        run: npm run affected:build -- --base=origin/main --with-deps
+      - uses: mansagroup/nrwl-nx-action@v2
+        with:
+          targets: lint,test,build
+          affected: 'true' # Defaults to true, therefore optional
+      # - name: Lint
+      #   run: npm run affected:lint -- --base=origin/main
+      # - name: Test
+      #   run: npm run affected:test -- --base=origin/main
+      # - name: Build
+      #   run: npm run affected:build -- --base=origin/main --with-deps
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

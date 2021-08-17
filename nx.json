@@ -53,6 +53,9 @@
     "todo-domain": {
       "tags": []
     },
+    "todo-nest": {
+      "tags": ["type:app", "scope:todo"]
+    },
     "todo-presentation": {
       "tags": []
     }

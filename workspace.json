@@ -203,7 +203,10 @@
               "browserTarget": "todo-angular:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/todo/angular/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -315,6 +318,56 @@
           "outputs": ["coverage/libs/todo/domain"],
           "options": {
             "jestConfig": "libs/todo/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todo-nest": {
+      "root": "apps/todo/nest",
+      "sourceRoot": "apps/todo/nest/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/todo/nest",
+            "main": "apps/todo/nest/src/main.ts",
+            "tsConfig": "apps/todo/nest/tsconfig.app.json",
+            "assets": ["apps/todo/nest/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/todo/nest/src/environments/environment.ts",
+                  "with": "apps/todo/nest/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "todo-nest:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/todo/nest/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/todo/nest"],
+          "options": {
+            "jestConfig": "apps/todo/nest/jest.config.js",
             "passWithNoTests": true
           }
         }

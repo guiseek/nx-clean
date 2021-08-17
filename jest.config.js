@@ -10,5 +10,6 @@ module.exports = {
     '<rootDir>/apps/plugin/core-e2e',
     '<rootDir>/libs/plugin/angular',
     '<rootDir>/apps/plugin/angular-e2e',
+    '<rootDir>/apps/todo/nest',
   ],
 };

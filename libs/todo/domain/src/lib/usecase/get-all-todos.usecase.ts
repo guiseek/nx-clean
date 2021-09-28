@@ -4,7 +4,7 @@ import { UseCase } from '@nx-clean/core';
 import { Observable } from 'rxjs';
 
 export class GetAllTodosUseCase implements UseCase<void, TodoEntity[]> {
-  constructor(private todoRepository: TodoRepository) { }
+  constructor(private todoRepository: TodoRepository) {}
 
   execute(): Observable<TodoEntity[]> {
     return this.todoRepository.getAllTodos();

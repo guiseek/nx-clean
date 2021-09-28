@@ -2,7 +2,7 @@ import { ProjectConfiguration } from '@nrwl/devkit';
 import { PluginCoreNormalizedSchema } from '../interfaces';
 
 export function getProjectConfiguration<T extends PluginCoreNormalizedSchema>(
-  normalizedOptions: T,
+  normalizedOptions: T
 ): ProjectConfiguration & { tags: string[] } {
   return {
     root: normalizedOptions.projectRoot,
@@ -22,5 +22,5 @@ export function getProjectConfiguration<T extends PluginCoreNormalizedSchema>(
       },
     },
     tags: normalizedOptions.parsedTags,
-  }
+  };
 }

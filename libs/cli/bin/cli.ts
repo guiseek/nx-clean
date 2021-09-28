@@ -1,7 +1,7 @@
 #!/bin/usr/env node
 
-import { run } from "../src/lib/cli";
+import { run } from '../src/lib/cli';
 
-const cmd = process.argv.splice(2)
+const cmd = process.argv.splice(2);
 
-run(cmd.shift(), cmd)
+run(cmd.shift(), cmd);

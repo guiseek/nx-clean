@@ -6,7 +6,7 @@ export abstract class TodoPresenter implements Presenter {
   abstract todos$: Observable<TodoVM[]>;
   abstract activeTodosCount$: Observable<number>;
   abstract filter$: Observable<string>;
-  
+
   abstract getAllTodos(): Observable<TodoVM[]>;
   abstract getCompletedTodos(): void;
   abstract getActiveTodos(): void;

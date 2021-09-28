@@ -1,4 +1,7 @@
-import { TodoInMemoryRepository, TodoMockDto } from '@nx-clean/todo-data-access';
+import {
+  TodoInMemoryRepository,
+  TodoMockDto,
+} from '@nx-clean/todo-data-access';
 import { TodoDefaultPresenter } from './todo-default.presenter';
 import { TodoPresenter } from './todo.presenter';
 import { skip } from 'rxjs/operators';
@@ -16,8 +19,8 @@ describe('Todo Presenter', () => {
 
   describe('Initial State', () => {
     describe('Todos', () => {
-      it('should return empty array of todos', done => {
-        todoPresenter.todos$.subscribe(todos => {
+      it('should return empty array of todos', (done) => {
+        todoPresenter.todos$.subscribe((todos) => {
           expect(todos).toEqual([]);
           done();
         });
@@ -25,8 +28,8 @@ describe('Todo Presenter', () => {
     });
 
     describe('Active Todos Count', () => {
-      it('should return zero', done => {
-        todoPresenter.activeTodosCount$.subscribe(count => {
+      it('should return zero', (done) => {
+        todoPresenter.activeTodosCount$.subscribe((count) => {
           expect(count).toEqual(0);
           done();
         });
@@ -34,8 +37,8 @@ describe('Todo Presenter', () => {
     });
 
     describe('Filter', () => {
-      it('should return "all"', done => {
-        todoPresenter.filter$.subscribe(filter => {
+      it('should return "all"', (done) => {
+        todoPresenter.filter$.subscribe((filter) => {
           expect(filter).toEqual('all');
           done();
         });
@@ -45,8 +48,8 @@ describe('Todo Presenter', () => {
 
   describe('Get All Todos', () => {
     describe('Todos', () => {
-      it('should return proper todos from repository', done => {
-        todoPresenter.todos$.pipe(skip(1)).subscribe(todos => {
+      it('should return proper todos from repository', (done) => {
+        todoPresenter.todos$.pipe(skip(1)).subscribe((todos) => {
           expect(todos).toHaveLength(2);
 
           expect(todos[0].id).toEqual(item1.id);
@@ -67,8 +70,8 @@ describe('Todo Presenter', () => {
     });
 
     describe('Active Todos Count', () => {
-      it('should return proper counts of todos', done => {
-        todoPresenter.activeTodosCount$.pipe(skip(1)).subscribe(count => {
+      it('should return proper counts of todos', (done) => {
+        todoPresenter.activeTodosCount$.pipe(skip(1)).subscribe((count) => {
           expect(count).toEqual(1);
           done();
         });
@@ -78,8 +81,8 @@ describe('Todo Presenter', () => {
     });
 
     describe('Filter', () => {
-      it('should return "all"', done => {
-        todoPresenter.filter$.pipe(skip(1)).subscribe(filter => {
+      it('should return "all"', (done) => {
+        todoPresenter.filter$.pipe(skip(1)).subscribe((filter) => {
           expect(filter).toEqual('all');
           done();
         });
@@ -91,8 +94,8 @@ describe('Todo Presenter', () => {
 
   describe('Get Completed Todos', () => {
     describe('Todos', () => {
-      it('should return proper todos from repository', done => {
-        todoPresenter.todos$.pipe(skip(1)).subscribe(todos => {
+      it('should return proper todos from repository', (done) => {
+        todoPresenter.todos$.pipe(skip(1)).subscribe((todos) => {
           expect(todos).toHaveLength(1);
 
           expect(todos[0].id).toEqual(item1.id);
@@ -108,8 +111,8 @@ describe('Todo Presenter', () => {
     });
 
     describe('Active Todos Count', () => {
-      it('should return proper counts of todos', done => {
-        todoPresenter.activeTodosCount$.pipe(skip(1)).subscribe(count => {
+      it('should return proper counts of todos', (done) => {
+        todoPresenter.activeTodosCount$.pipe(skip(1)).subscribe((count) => {
           expect(count).toEqual(1);
           done();
         });
@@ -119,8 +122,8 @@ describe('Todo Presenter', () => {
     });
 
     describe('Filter', () => {
-      it('should return "completed"', done => {
-        todoPresenter.filter$.pipe(skip(1)).subscribe(filter => {
+      it('should return "completed"', (done) => {
+        todoPresenter.filter$.pipe(skip(1)).subscribe((filter) => {
           expect(filter).toEqual('completed');
           done();
         });

@@ -1,7 +1,15 @@
 import { GeneratorSchema, PluginCoreNormalizedSchema } from '../interfaces';
-import { getWorkspaceLayout, names, readWorkspaceConfiguration, Tree } from "@nrwl/devkit";
+import {
+  getWorkspaceLayout,
+  names,
+  readWorkspaceConfiguration,
+  Tree,
+} from '@nrwl/devkit';
 
-export function normalizeOptions<T extends GeneratorSchema>(host: Tree, options: T): PluginCoreNormalizedSchema {
+export function normalizeOptions<T extends GeneratorSchema>(
+  host: Tree,
+  options: T
+): PluginCoreNormalizedSchema {
   const name = names(options.name).fileName;
   const projectDirectory = options.directory
     ? `${names(options.directory).fileName}/${name}`
@@ -20,14 +28,17 @@ export function normalizeOptions<T extends GeneratorSchema>(host: Tree, options:
     projectDirectory,
     parsedTags,
     npmScope,
-  }
+  };
 
   if (options.project) {
     normalized.projectCore = options.project.replace(new RegExp('-', 'g'), '/');
   }
 
   if (options.domain) {
-    normalized.projectDomain = options.domain.replace(new RegExp('-', 'g'), '/');
+    normalized.projectDomain = options.domain.replace(
+      new RegExp('-', 'g'),
+      '/'
+    );
   }
 
   if (options.data) {

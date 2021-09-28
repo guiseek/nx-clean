@@ -11,7 +11,7 @@ describe('data generator', () => {
     name: 'test',
     project: 'core-common',
     domain: 'account-domain',
-    entity: 'user'
+    entity: 'user',
   };
 
   beforeEach(() => {

@@ -8,7 +8,7 @@ export interface AddTodoUseCaseDTO {
 }
 
 export class AddTodoUseCase implements UseCase<AddTodoUseCaseDTO, TodoEntity> {
-  constructor(private todoRepository: TodoRepository) { }
+  constructor(private todoRepository: TodoRepository) {}
 
   execute(request: AddTodoUseCaseDTO): Observable<TodoEntity> {
     return this.todoRepository.addTodo(request.name);

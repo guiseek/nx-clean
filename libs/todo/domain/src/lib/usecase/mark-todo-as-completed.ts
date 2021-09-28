@@ -7,8 +7,10 @@ export interface MarkTodoAsCompletedUseCaseDto {
   id: string;
 }
 
-export class MarkTodoAsCompletedUseCase implements UseCase<MarkTodoAsCompletedUseCaseDto, TodoEntity> {
-  constructor(private todoRepository: TodoRepository) { }
+export class MarkTodoAsCompletedUseCase
+  implements UseCase<MarkTodoAsCompletedUseCaseDto, TodoEntity>
+{
+  constructor(private todoRepository: TodoRepository) {}
 
   execute(request: MarkTodoAsCompletedUseCaseDto): Observable<TodoEntity> {
     return this.todoRepository.markTodoAsCompleted(request.id, true);

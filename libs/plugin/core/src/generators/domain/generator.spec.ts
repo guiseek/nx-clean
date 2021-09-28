@@ -7,7 +7,11 @@ import { normalizeOptions } from '../../utils';
 
 describe('domain generator', () => {
   let appTree: Tree;
-  const options: DomainGeneratorSchema = { name: 'test', entity: 'todo', project: 'core-common' };
+  const options: DomainGeneratorSchema = {
+    name: 'test',
+    entity: 'todo',
+    project: 'core-common',
+  };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();
@@ -23,5 +27,5 @@ describe('domain generator', () => {
     const config = readProjectConfiguration(appTree, 'test');
 
     expect(config).toBeDefined();
-  })
+  });
 });

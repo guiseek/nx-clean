@@ -10,11 +10,11 @@ npm i @nx-clean/plugin-core
 
 ### Core - Generate
 
-| Property   | Value                      | Description                     |
-| ---------- | -------------------------- | ------------------------------- |
-| name       | common                     | Name or last directory in tree  |
-| directory  | core                       | Where the project is placed     |
-| tags       | type:common,scope:core     | Tags (used for linting)         |
+| Property  | Value                  | Description                    |
+| --------- | ---------------------- | ------------------------------ |
+| name      | common                 | Name or last directory in tree |
+| directory | core                   | Where the project is placed    |
+| tags      | type:common,scope:core | Tags (used for linting)        |
 
 #### Core - Command
 
@@ -78,13 +78,13 @@ libs/core/common
 
 ### Domain - Generate
 
-| Property   | Value                      | Description                     |
-| ---------- | -------------------------- | ------------------------------- |
-| name       | domain                     | Name or last directory in tree  |
-| entity     | user                       | Entity of domain                |
-| project    | core-common                | Common core library             |
-| directory  | account                    | Where the project is placed     |
-| tags       | type:domain,scope:account  | Tags (used for linting)         |
+| Property  | Value                     | Description                    |
+| --------- | ------------------------- | ------------------------------ |
+| name      | domain                    | Name or last directory in tree |
+| entity    | user                      | Entity of domain               |
+| project   | core-common               | Common core library            |
+| directory | account                   | Where the project is placed    |
+| tags      | type:domain,scope:account | Tags (used for linting)        |
 
 #### Domain - Command
 
@@ -154,14 +154,14 @@ libs/account/domain
 
 ### Data - Generate
 
-| Property   | Value                      | Description                     |
-| ---------- | -------------------------- | ------------------------------- |
-| name       | data                       | Name or last directory in tree  |
-| entity     | user                       | Entity of domain                |
-| project    | core-common                | Common core library             |
-| domain     | account-domain             | Domain library                  |
-| directory  | account                    | Where the project is placed     |
-| tags       | type:data,scope:account    | Tags (used for linting)         |
+| Property  | Value                   | Description                    |
+| --------- | ----------------------- | ------------------------------ |
+| name      | data                    | Name or last directory in tree |
+| entity    | user                    | Entity of domain               |
+| project   | core-common             | Common core library            |
+| domain    | account-domain          | Domain library                 |
+| directory | account                 | Where the project is placed    |
+| tags      | type:data,scope:account | Tags (used for linting)        |
 
 #### Data - Command
 
@@ -222,15 +222,15 @@ libs/account/data
 
 ### Presentation - Generate
 
-| Property   | Value                      | Description                     |
-| ---------- | -------------------------- | ------------------------------- |
-| name       | presentation               | Name or last directory in tree  |
-| entity     | user                       | Entity of domain                |
-| project    | core-common                | Common core library             |
-| domain     | account-domain             | Domain library                  |
-| data       | account-data               | Data library                    |
-| directory  | account                    | Where the project is placed     |
-| tags       | type:data,scope:account    | Tags (used for linting)         |
+| Property  | Value                   | Description                    |
+| --------- | ----------------------- | ------------------------------ |
+| name      | presentation            | Name or last directory in tree |
+| entity    | user                    | Entity of domain               |
+| project   | core-common             | Common core library            |
+| domain    | account-domain          | Domain library                 |
+| data      | account-data            | Data library                   |
+| directory | account                 | Where the project is placed    |
+| tags      | type:data,scope:account | Tags (used for linting)        |
 
 #### Presentation - Command
 

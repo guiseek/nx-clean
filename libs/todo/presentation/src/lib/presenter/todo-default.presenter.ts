@@ -56,13 +56,13 @@ export class TodoDefaultPresenter implements TodoPresenter {
 
   constructor(private repository: TodoRepository) {
     this.filterTodosUC = new FilterTodosUseCase(this.repository);
-    
+
     this.getAllTodosUC = new GetAllTodosUseCase(this.repository);
-    
+
     this.getCompletedTodosUC = new GetCompletedTodosUseCase(this.repository);
-    
+
     this.getActiveTodosUC = new GetActiveTodosUseCase(this.repository);
-    
+
     this.getActiveTodosCountUC = new GetActiveTodosCountUseCase(
       this.repository
     );
@@ -156,7 +156,7 @@ export class TodoDefaultPresenter implements TodoPresenter {
     const add$ = this.addTodoUC
       .execute({ name })
       .pipe(map(this.mapper.mapFrom));
-      
+
     const count$ = this.getActiveTodosCountUC.execute();
 
     const todos$ = this.filterTodosUC
@@ -281,5 +281,9 @@ export class TodoDefaultPresenter implements TodoPresenter {
         todos,
       })
     );
+  }
+
+  onDestroy(): void {
+    console.log('destroy');
   }
 }

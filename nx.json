@@ -48,6 +48,13 @@
     },
     "todo-presentation": {
       "tags": []
+    },
+    "todo-react": {
+      "tags": ["type:app"]
+    },
+    "todo-react-e2e": {
+      "tags": [],
+      "implicitDependencies": ["todo-react"]
     }
   },
   "workspaceLayout": {

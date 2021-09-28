@@ -1,11 +1,12 @@
 import { TodoVM } from '../viewmodel/todos.viewmodel';
 import { Observable } from 'rxjs';
+import { Presenter } from '@nx-clean/core';
 
-export abstract class TodoPresenter {
+export abstract class TodoPresenter implements Presenter {
   abstract todos$: Observable<TodoVM[]>;
   abstract activeTodosCount$: Observable<number>;
   abstract filter$: Observable<string>;
-
+  
   abstract getAllTodos(): Observable<TodoVM[]>;
   abstract getCompletedTodos(): void;
   abstract getActiveTodos(): void;
@@ -16,4 +17,5 @@ export abstract class TodoPresenter {
   abstract markAllTodosAsActive(): void;
   abstract removeTodo(id: string): void;
   abstract removeCompletedTodos(): void;
+  abstract onDestroy(): void;
 }

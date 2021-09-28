@@ -1,0 +1,38 @@
+.app {
+  font-family: sans-serif;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.app :global(.view) {
+  gap: 14px;
+  display: flex;
+  align-items: center;
+
+  button {
+    border-width: 0.5px;
+    border-radius: 50%;
+  }
+}
+
+.app :global(.flex) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app :global(header) {
+  background-color: #143055;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.app :global(main) {
+  padding: 36px 18px 8px 18px;
+}
+
+.app :global(footer) {
+  padding: 8px 18px;
+}

@@ -1,41 +1,16 @@
-import { TodoInMemoryRepository } from '@nx-clean/todo-data-access';
-import { TodoRepository } from '@nx-clean/todo-domain';
-import { Injector } from '@nx-clean/core';
+import { TodoVM, TodoPresenter } from '@nx-clean/todo-presentation';
+import { injector } from './app.provider';
 import React, { useEffect } from 'react';
-import Logo from './logo.svg';
 import styles from './app.module.scss';
-import {
-  TodoVM,
-  TodoPresenter,
-  TodoDefaultPresenter,
-} from '@nx-clean/todo-presentation';
-
-const injector = Injector.create([]);
-
-injector.addProvider({
-  provide: TodoRepository,
-  useFactory: () => {
-    return new TodoInMemoryRepository(
-      [{ id: '1', title: 'Opa', completed: true }]
-    );
-  }
-});
-
-injector.addProvider({
-  provide: TodoPresenter,
-  useFactory: ([repo]: [TodoRepository]) => {
-    return new TodoDefaultPresenter(repo);
-  },
-  deps: [TodoRepository],
-});
+import Logo from './logo.svg';
 
 const presenter = injector.get<TodoPresenter>(TodoPresenter);
+
+console.log(presenter);
 
 export function App() {
   const [value, setValue] = React.useState('');
   const [state, setState] = React.useState<TodoVM[]>([]);
-
-  // const presenter = injector.get<TodoPresenter>(TodoPresenter);
 
   useEffect(() => {
     presenter.getAllTodos().subscribe(setState).unsubscribe();

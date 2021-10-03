@@ -116,7 +116,8 @@
                   "with": "apps/todo/angular/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/angular/"
             },
             "development": {
               "buildOptimizer": false,
@@ -318,6 +319,7 @@
                   "with": "apps/todo/react/src/environments/environment.prod.ts"
                 }
               ],
+              "baseHref": "/react/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,

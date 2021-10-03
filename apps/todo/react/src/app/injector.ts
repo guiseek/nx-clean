@@ -2,6 +2,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Constructor = new (...params: unknown[]) => void;
 
+/**
+ * PRIMEIRA POC
+ * @deprecated
+ */
+
 export interface FactorySansProvider {
   useFactory: Function;
   deps?: any[];

@@ -2,6 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "types": ["node"]
   },
   "files": [

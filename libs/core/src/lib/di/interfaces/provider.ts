@@ -3,6 +3,7 @@ import { Type } from './type';
 
 export interface BaseProvider<T> {
   provide: Token<T>;
+  deps?: Token<any>[];
 }
 
 export interface ClassProvider<T> extends BaseProvider<T> {

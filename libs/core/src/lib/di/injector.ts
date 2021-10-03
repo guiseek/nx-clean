@@ -72,7 +72,7 @@ export class Injector {
       return this.injectValue(provider as ValueProvider<T>);
     } else {
       // Factory provider by process of elimination
-      return this.injectFactory(provider as FactoryProvider<T>);
+      return this.injectFactory(provider as FactoryProvider<T>, provider.deps);
     }
   }
 
@@ -80,8 +80,11 @@ export class Injector {
     return valueProvider.useValue;
   }
 
-  private injectFactory<T>(valueProvider: FactoryProvider<T>): T {
-    return valueProvider.useFactory();
+  private injectFactory<T>(
+    valueProvider: FactoryProvider<T>,
+    tokens: Token<T>[] = []
+  ): T {
+    return valueProvider.useFactory(tokens.map((token) => this.get(token)));
   }
 
   private injectClass<T>(classProvider: ClassProvider<T>): T {

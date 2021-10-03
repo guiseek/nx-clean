@@ -1,13 +1,42 @@
-import { TodoPresenter, TodoVM } from '@nx-clean/todo-presentation';
-import { injector } from './app.provider';
+import { TodoInMemoryRepository } from '@nx-clean/todo-data-access';
+import { TodoRepository } from '@nx-clean/todo-domain';
+import { Injector } from '@nx-clean/core';
 import React, { useEffect } from 'react';
 import styles from './app.module.scss';
+import {
+  TodoVM,
+  TodoPresenter,
+  TodoDefaultPresenter,
+} from '@nx-clean/todo-presentation';
+
+const injector = Injector.create([]);
+
+injector.addProvider({
+  provide: TodoRepository,
+  useFactory: () => {
+    return new TodoInMemoryRepository([
+      { id: '1', title: 'Opa', completed: true },
+    ]);
+  },
+});
+
+injector.addProvider({
+  provide: TodoPresenter,
+  useFactory: () => {
+    return new TodoDefaultPresenter(
+      injector.get<TodoRepository>(TodoRepository)
+    );
+  },
+});
+
+const presenter = injector.get<TodoPresenter>(TodoPresenter);
+console.log(presenter);
 
 export function App() {
   const [value, setValue] = React.useState('');
   const [state, setState] = React.useState<TodoVM[]>([]);
 
-  const presenter = injector.get<TodoPresenter>(TodoPresenter);
+  // const presenter = injector.get<TodoPresenter>(TodoPresenter);
 
   useEffect(() => {
     presenter.getAllTodos().subscribe(setState).unsubscribe();
@@ -15,7 +44,7 @@ export function App() {
     const subscription = presenter.todos$.subscribe(setState);
 
     return () => subscription.unsubscribe();
-  }, [presenter, presenter.todos$]);
+  }, []);
 
   function handleAddTodo(event: React.KeyboardEvent) {
     if (event.key === 'Enter') {

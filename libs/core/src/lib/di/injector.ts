@@ -84,7 +84,7 @@ export class Injector {
     valueProvider: FactoryProvider<T>,
     tokens: Token<T>[] = []
   ): T {
-    return valueProvider.useFactory(tokens.map((token) => this.get(token)));
+    return valueProvider.useFactory(...tokens.map((token) => this.get(token)));
   }
 
   private injectClass<T>(classProvider: ClassProvider<T>): T {

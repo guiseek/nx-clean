@@ -1,0 +1,19 @@
+{
+  "extends": "../../.releaserc.json",
+  "tagFormat": "core-v${version}",
+  "plugins": [
+    [
+      "@guiseek/tool-release",
+      {
+        "project": "core"
+      }
+    ],
+    [
+      "@semantic-release/npm",
+      {
+        "pkgRoot": "dist/libs/core"
+      }
+    ],
+    "@semantic-release/github"
+  ]
+}

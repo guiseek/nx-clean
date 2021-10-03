@@ -50,7 +50,7 @@ export class Injector {
     }
   }
 
-  // Returns a printable name for the token.
+  // Retorna um nome para o token.
   private getTokenName<T>(token: Token<T>) {
     return token instanceof InjectionToken
       ? token.injectionIdentifier
@@ -71,7 +71,7 @@ export class Injector {
     } else if (isValueProvider(provider)) {
       return this.injectValue(provider as ValueProvider<T>);
     } else {
-      // Factory provider by process of elimination
+      // Fornecedor da factory por processo de eliminação
       return this.injectFactory(provider as FactoryProvider<T>, provider.deps);
     }
   }
@@ -102,16 +102,16 @@ export class Injector {
       return [];
     }
     return argTypes.map((argType, index) => {
-      // The reflect-metadata API fails on circular dependencies,
-      // and will return undefined for the argument instead.
-      // We could handle this better, but for now let's just throw an error.
+      // A API reflet-metadata falha em dependências circulares e,
+      // em vez disso, retorna indefinido para o argumento.
+      // Até resolver isso melhor, apenas lançamos um erro.
       if (argType === undefined) {
         throw new Error(
           `Injection error. Recursive dependency detected in constructor for type ${target.name} with parameter at index ${index}`
         );
       }
-      // Check if a 'Inject(INJECTION_TOKEN)' was added to the parameter.
-      // This always takes priority over the parameter type.
+      // Verifique se um 'Inject(INJECTION_TOKEN)' foi adicionado ao parâmetro.
+      // Ele sempre tem prioridade sobre os tipos de parâmetros.
       const overrideToken = getInjectionToken(target, index);
       const actualToken = overrideToken === undefined ? argType : overrideToken;
       const provider = this.providers.get(actualToken);

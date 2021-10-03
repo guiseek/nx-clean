@@ -1,6 +1,20 @@
 {
   "name": "@nx-clean/core",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guiseek/nx-clean.git"
+  },
+  "author": {
+    "name": "Guilherme Visi Siquinelli",
+    "email": "email@guiseek.dev",
+    "url": "https://guiseek.dev"
+  },
+  "private": false,
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guiseek/nx-clean/issues"
+  },
   "peerDependencies": {
     "tslib": "^2.0.0"
   }

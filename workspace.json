@@ -85,7 +85,7 @@
             "main": "apps/demos/src/main.ts",
             "polyfills": "apps/demos/src/polyfills.ts",
             "tsConfig": "apps/demos/tsconfig.app.json",
-            "assets": ["apps/demos/src/favicon.ico", "apps/demos/src/assets"],
+            "assets": ["apps/demos/src/favicon.ico", "apps/demos/src/CNAME", "apps/demos/src/assets"],
             "styles": ["apps/demos/src/styles.scss"],
             "scripts": []
           },

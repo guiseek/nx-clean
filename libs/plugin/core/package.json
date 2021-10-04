@@ -15,6 +15,5 @@
     "url": "https://github.com/guiseek/nx-clean/issues"
   },
   "main": "src/index.js",
-  "generators": "./generators.json",
-  "executors": "./executors.json"
+  "generators": "./generators.json"
 }

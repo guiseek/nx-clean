@@ -10,13 +10,20 @@ Clean architecture proposes some techniques that solve the problems and reduce t
 npm i @nx-clean/plugin-core
 ```
 
-## Generators
+## Docs
 
-- [Domain](./libs/plugin/core#domain---generate)
-- [Data](./libs/plugin/core#data---generate)
-- [Presentation](./libs/plugin/core#presentation---generate)
+- Packages
+  - [Core](./libs/core)
+- Generators
+  - [Domain](./libs/plugin/core#domain---generate)
+  - [Data](./libs/plugin/core#data---generate)
+  - [Presentation](./libs/plugin/core#presentation---generate)
 
 ---
+
+## Demos
+
+[clean-architecture.design](https://clean-architecture.design)
 
 ## Nx Clean with Nx Console
 

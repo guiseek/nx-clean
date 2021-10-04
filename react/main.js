@@ -3942,11 +3942,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _app_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.module.scss */ "./app/app.module.scss");
 /* harmony import */ var _app_module_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_app_module_scss__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./logo.svg */ "./app/logo.svg");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../../node_modules/react/jsx-dev-runtime.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../../node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/home/runner/work/nx-clean/nx-clean/apps/todo/react/src/app/app.tsx";
-
 
 
 
@@ -3999,10 +3997,10 @@ function App() {
   }
 
   const renderTodoItem = todo => {
-    return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("li", {
-      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+    return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("li", {
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
         className: "view",
-        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("input", {
           id: todo.id,
           type: "checkbox",
           className: "toggle",
@@ -4012,14 +4010,14 @@ function App() {
           fileName: _jsxFileName,
           lineNumber: 62,
           columnNumber: 11
-        }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("label", {
+        }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("label", {
           htmlFor: todo.id,
           children: todo.name
         }, void 0, false, {
           fileName: _jsxFileName,
           lineNumber: 69,
           columnNumber: 11
-        }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("button", {
+        }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("button", {
           className: "destroy",
           onClick: () => onRemoveItem(todo),
           children: "x"
@@ -4040,30 +4038,42 @@ function App() {
     }, this);
   };
 
-  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
     className: _app_module_scss__WEBPACK_IMPORTED_MODULE_3___default.a.app,
-    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("header", {
+    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("header", {
       className: "flex",
-      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("img", {
-        src: _logo_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
-        alt: "Logo"
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("h1", {
+        children: "Welcome to react!"
       }, void 0, false, {
         fileName: _jsxFileName,
         lineNumber: 81,
         columnNumber: 9
-      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("h1", {
-        children: "Welcome to react!"
-      }, void 0, false, {
-        fileName: _jsxFileName,
-        lineNumber: 82,
-        columnNumber: 9
-      }, this)]
-    }, void 0, true, {
+      }, this)
+    }, void 0, false, {
       fileName: _jsxFileName,
       lineNumber: 80,
       columnNumber: 7
-    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("main", {
-      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("nav", {
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("h3", {
+        children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("a", {
+          href: "/",
+          children: "Voltar"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 85,
+          columnNumber: 11
+        }, this)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 84,
+        columnNumber: 9
+      }, this)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 7
+    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("main", {
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("input", {
         type: "text",
         autoFocus: true,
         value: value,
@@ -4072,93 +4082,93 @@ function App() {
         onKeyPress: event => handleAddTodo(event)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 85,
+        lineNumber: 89,
         columnNumber: 9
-      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("hr", {}, void 0, false, {
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("hr", {}, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 93,
+        lineNumber: 97,
         columnNumber: 9
-      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("ul", {
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("ul", {
         children: state.map(renderTodoItem)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 94,
+        lineNumber: 98,
         columnNumber: 9
-      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("hr", {}, void 0, false, {
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("hr", {}, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 95,
+        lineNumber: 99,
         columnNumber: 9
       }, this)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 88,
       columnNumber: 7
-    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("footer", {
+    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("footer", {
       className: "footer",
-      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("p", {
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("p", {
         className: "todo-count",
         children: ["Faltam ", state.length, " itens pra finalizar"]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 98,
+        lineNumber: 102,
         columnNumber: 9
-      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("ul", {
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("ul", {
         className: "filters",
-        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("li", {
-          children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("button", {
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("li", {
+          children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("button", {
             onClick: onShowAll,
             children: "Todos"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 101,
+            lineNumber: 105,
             columnNumber: 13
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 100,
+          lineNumber: 104,
           columnNumber: 11
-        }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("li", {
-          children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("button", {
+        }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("li", {
+          children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("button", {
             onClick: onShowActive,
             children: "Ativos"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 104,
+            lineNumber: 108,
             columnNumber: 13
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 103,
+          lineNumber: 107,
           columnNumber: 11
-        }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("li", {
-          children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("button", {
+        }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("li", {
+          children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("button", {
             onClick: onShowCompleted,
             children: "Finalizados"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 107,
+            lineNumber: 111,
             columnNumber: 13
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 106,
+          lineNumber: 110,
           columnNumber: 11
         }, this)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 99,
+        lineNumber: 103,
         columnNumber: 9
-      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("button", {
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("button", {
         onClick: onClearCompleted,
         children: "Limpar finalizados"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 110,
+        lineNumber: 114,
         columnNumber: 9
       }, this)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 101,
       columnNumber: 7
     }, this)]
   }, void 0, true, {
@@ -4168,94 +4178,6 @@ function App() {
   }, this);
 }
 /* harmony default export */ __webpack_exports__["default"] = (App);
-
-/***/ }),
-
-/***/ "./app/logo.svg":
-/*!**********************!*\
-  !*** ./app/logo.svg ***!
-  \**********************/
-/*! exports provided: default, ReactComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReactComponent", function() { return ForwardRef; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _g;
-
-var _excluded = ["title", "titleId"];
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-
-
-function SvgLogo(_ref, svgRef) {
-  var title = _ref.title,
-      titleId = _ref.titleId,
-      props = _objectWithoutProperties(_ref, _excluded);
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
-    width: "65px",
-    height: "41px",
-    viewBox: "0 0 262 163",
-    xmlns: "http://www.w3.org/2000/svg",
-    xmlnsXlink: "http://www.w3.org/1999/xlink",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
-    id: titleId
-  }, title) : null, _g || (_g = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
-    id: "Styles-&-Quick-Wins",
-    stroke: "none",
-    strokeWidth: 1,
-    fill: "none",
-    fillRule: "evenodd"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
-    id: "Nx---Quick-Wins",
-    transform: "translate(-476.000000, -1284.000000)",
-    fillRule: "nonzero"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
-    id: "Logos",
-    transform: "translate(-11.000000, 782.000000)"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
-    id: "Nx_Flat_White",
-    transform: "translate(487.000000, 502.000000)"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("polygon", {
-    id: "Path",
-    fill: "#FFFFFF",
-    points: "130.68 104.59 97.49 52.71 97.44 96.3 40.24 0 0 0 0 162.57 39.79 162.57 39.92 66.39 96.53 158.26"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("polygon", {
-    id: "Path",
-    fill: "#FFFFFF",
-    points: "97.5 41.79 137.24 41.79 137.33 41.33 137.33 0 97.54 0 97.49 41.33"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
-    d: "M198.66,86.86 C189.139872,86.6795216 180.538723,92.516445 177.19,101.43 C182.764789,93.0931021 193.379673,89.7432211 202.73,93.37 C207.05,95.13 212.73,97.97 217.23,96.45 C212.950306,90.4438814 206.034895,86.8725952 198.66,86.86 L198.66,86.86 Z",
-    id: "Path",
-    fill: "#96D8E9"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
-    d: "M243.75,106.42 C243.75,101.55 241.1,100.42 235.6,98.42 C231.52,97 226.89,95.4 223.52,91 C222.86,90.13 222.25,89.15 221.6,88.11 C220.14382,85.4164099 218.169266,83.037429 215.79,81.11 C212.58,78.75 208.37,77.6 202.91,77.6 C191.954261,77.6076705 182.084192,84.2206169 177.91,94.35 C183.186964,87.0278244 191.956716,83.0605026 200.940147,83.9314609 C209.923578,84.8024193 217.767888,90.3805017 221.54,98.58 C223.424615,101.689762 227.141337,103.174819 230.65,102.22 C236.02,101.07 235.65,106.15 243.76,107.87 L243.75,106.42 Z",
-    id: "Path",
-    fill: "#48C4E5"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
-    d: "M261.46,105.38 L261.46,105.27 C261.34,73.03 235.17,45.45 202.91,45.45 C183.207085,45.4363165 164.821777,55.3450614 154,71.81 L153.79,71.45 L137.23,45.45 L97.5,45.4499858 L135.25,104.57 L98.41,162.57 L137,162.57 L153.79,136.78 L170.88,162.57 L209.48,162.57 L174.48,107.49 C173.899005,106.416838 173.583536,105.220114 173.56,104 C173.557346,96.2203871 176.64661,88.7586448 182.147627,83.2576275 C187.648645,77.7566101 195.110387,74.6673462 202.89,74.67 C219.11,74.67 221.82,84.37 225.32,88.93 C232.23,97.93 246.03,93.99 246.03,105.73 L246.03,105.73 C246.071086,108.480945 247.576662,111.001004 249.979593,112.340896 C252.382524,113.680787 255.317747,113.636949 257.679593,112.225896 C260.041438,110.814842 261.471086,108.250945 261.43,105.5 L261.43,105.5 L261.43,105.38 L261.46,105.38 Z",
-    id: "Path",
-    fill: "#FFFFFF"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
-    d: "M261.5,113.68 C261.892278,116.421801 261.504116,119.218653 260.38,121.75 C258.18,126.84 254.51,125.14 254.51,125.14 C254.51,125.14 251.35,123.6 253.27,120.65 C255.4,117.36 259.61,117.74 261.5,113.68 Z",
-    id: "Path",
-    fill: "#FFFFFF"
-  })))))));
-}
-
-var ForwardRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](SvgLogo);
-/* harmony default export */ __webpack_exports__["default"] = ("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjVweCIgaGVpZ2h0PSI0MXB4IiB2aWV3Qm94PSIwIDAgMjYyIDE2MyIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxnIGlkPSJTdHlsZXMtJmFtcDstUXVpY2stV2lucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Ik54LS0tUXVpY2stV2lucyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ3Ni4wMDAwMDAsIC0xMjg0LjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxnIGlkPSJMb2dvcyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTExLjAwMDAwMCwgNzgyLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ik54X0ZsYXRfV2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4Ny4wMDAwMDAsIDUwMi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aCIgZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSIxMzAuNjggMTA0LjU5IDk3LjQ5IDUyLjcxIDk3LjQ0IDk2LjMgNDAuMjQgMCAwIDAgMCAxNjIuNTcgMzkuNzkgMTYyLjU3IDM5LjkyIDY2LjM5IDk2LjUzIDE1OC4yNiI+PC9wb2x5Z29uPgogICAgICAgICAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9Ijk3LjUgNDEuNzkgMTM3LjI0IDQxLjc5IDEzNy4zMyA0MS4zMyAxMzcuMzMgMCA5Ny41NCAwIDk3LjQ5IDQxLjMzIj48L3BvbHlnb24+CiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTE5OC42Niw4Ni44NiBDMTg5LjEzOTg3Miw4Ni42Nzk1MjE2IDE4MC41Mzg3MjMsOTIuNTE2NDQ1IDE3Ny4xOSwxMDEuNDMgQzE4Mi43NjQ3ODksOTMuMDkzMTAyMSAxOTMuMzc5NjczLDg5Ljc0MzIyMTEgMjAyLjczLDkzLjM3IEMyMDcuMDUsOTUuMTMgMjEyLjczLDk3Ljk3IDIxNy4yMyw5Ni40NSBDMjEyLjk1MDMwNiw5MC40NDM4ODE0IDIwNi4wMzQ4OTUsODYuODcyNTk1MiAxOTguNjYsODYuODYgTDE5OC42Niw4Ni44NiBaIiBpZD0iUGF0aCIgZmlsbD0iIzk2RDhFOSI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yNDMuNzUsMTA2LjQyIEMyNDMuNzUsMTAxLjU1IDI0MS4xLDEwMC40MiAyMzUuNiw5OC40MiBDMjMxLjUyLDk3IDIyNi44OSw5NS40IDIyMy41Miw5MSBDMjIyLjg2LDkwLjEzIDIyMi4yNSw4OS4xNSAyMjEuNiw4OC4xMSBDMjIwLjE0MzgyLDg1LjQxNjQwOTkgMjE4LjE2OTI2Niw4My4wMzc0MjkgMjE1Ljc5LDgxLjExIEMyMTIuNTgsNzguNzUgMjA4LjM3LDc3LjYgMjAyLjkxLDc3LjYgQzE5MS45NTQyNjEsNzcuNjA3NjcwNSAxODIuMDg0MTkyLDg0LjIyMDYxNjkgMTc3LjkxLDk0LjM1IEMxODMuMTg2OTY0LDg3LjAyNzgyNDQgMTkxLjk1NjcxNiw4My4wNjA1MDI2IDIwMC45NDAxNDcsODMuOTMxNDYwOSBDMjA5LjkyMzU3OCw4NC44MDI0MTkzIDIxNy43Njc4ODgsOTAuMzgwNTAxNyAyMjEuNTQsOTguNTggQzIyMy40MjQ2MTUsMTAxLjY4OTc2MiAyMjcuMTQxMzM3LDEwMy4xNzQ4MTkgMjMwLjY1LDEwMi4yMiBDMjM2LjAyLDEwMS4wNyAyMzUuNjUsMTA2LjE1IDI0My43NiwxMDcuODcgTDI0My43NSwxMDYuNDIgWiIgaWQ9IlBhdGgiIGZpbGw9IiM0OEM0RTUiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMjYxLjQ2LDEwNS4zOCBMMjYxLjQ2LDEwNS4yNyBDMjYxLjM0LDczLjAzIDIzNS4xNyw0NS40NSAyMDIuOTEsNDUuNDUgQzE4My4yMDcwODUsNDUuNDM2MzE2NSAxNjQuODIxNzc3LDU1LjM0NTA2MTQgMTU0LDcxLjgxIEwxNTMuNzksNzEuNDUgTDEzNy4yMyw0NS40NSBMOTcuNSw0NS40NDk5ODU4IEwxMzUuMjUsMTA0LjU3IEw5OC40MSwxNjIuNTcgTDEzNywxNjIuNTcgTDE1My43OSwxMzYuNzggTDE3MC44OCwxNjIuNTcgTDIwOS40OCwxNjIuNTcgTDE3NC40OCwxMDcuNDkgQzE3My44OTkwMDUsMTA2LjQxNjgzOCAxNzMuNTgzNTM2LDEwNS4yMjAxMTQgMTczLjU2LDEwNCBDMTczLjU1NzM0Niw5Ni4yMjAzODcxIDE3Ni42NDY2MSw4OC43NTg2NDQ4IDE4Mi4xNDc2MjcsODMuMjU3NjI3NSBDMTg3LjY0ODY0NSw3Ny43NTY2MTAxIDE5NS4xMTAzODcsNzQuNjY3MzQ2MiAyMDIuODksNzQuNjcgQzIxOS4xMSw3NC42NyAyMjEuODIsODQuMzcgMjI1LjMyLDg4LjkzIEMyMzIuMjMsOTcuOTMgMjQ2LjAzLDkzLjk5IDI0Ni4wMywxMDUuNzMgTDI0Ni4wMywxMDUuNzMgQzI0Ni4wNzEwODYsMTA4LjQ4MDk0NSAyNDcuNTc2NjYyLDExMS4wMDEwMDQgMjQ5Ljk3OTU5MywxMTIuMzQwODk2IEMyNTIuMzgyNTI0LDExMy42ODA3ODcgMjU1LjMxNzc0NywxMTMuNjM2OTQ5IDI1Ny42Nzk1OTMsMTEyLjIyNTg5NiBDMjYwLjA0MTQzOCwxMTAuODE0ODQyIDI2MS40NzEwODYsMTA4LjI1MDk0NSAyNjEuNDMsMTA1LjUgTDI2MS40MywxMDUuNSBMMjYxLjQzLDEwNS4zOCBMMjYxLjQ2LDEwNS4zOCBaIiBpZD0iUGF0aCIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yNjEuNSwxMTMuNjggQzI2MS44OTIyNzgsMTE2LjQyMTgwMSAyNjEuNTA0MTE2LDExOS4yMTg2NTMgMjYwLjM4LDEyMS43NSBDMjU4LjE4LDEyNi44NCAyNTQuNTEsMTI1LjE0IDI1NC41MSwxMjUuMTQgQzI1NC41MSwxMjUuMTQgMjUxLjM1LDEyMy42IDI1My4yNywxMjAuNjUgQzI1NS40LDExNy4zNiAyNTkuNjEsMTE3Ljc0IDI2MS41LDExMy42OCBaIiBpZD0iUGF0aCIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K");
-
 
 /***/ }),
 

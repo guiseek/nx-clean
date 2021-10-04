@@ -34,6 +34,7 @@ jobs:
         with:
           targets: build
           projects: demos,todo-react,todo-angular
+          args: '--prod'
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

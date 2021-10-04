@@ -1,10 +1,31 @@
-import { GeneratorSchema } from './generator-schema';
+import {
+  GeneratorSchema,
+  DataGeneratorSchema,
+  DomainGeneratorSchema,
+  PresentationGeneratorSchema,
+} from './generator-schema';
+
 export interface PluginCoreNormalizedSchema extends GeneratorSchema {
   projectName: string;
   projectRoot: string;
   projectDirectory: string;
-  projectDomain?: string;
-  projectData?: string;
   parsedTags: string[];
-  npmScope?: string;
+}
+
+export interface DomainPluginCoreNormalizedSchema
+  extends PluginCoreNormalizedSchema,
+    DomainGeneratorSchema {
+  npmScope: string;
+}
+
+export interface DataPluginCoreNormalizedSchema
+  extends DomainPluginCoreNormalizedSchema,
+    DataGeneratorSchema {
+  projectDomain: string;
+}
+
+export interface PresentationPluginCoreNormalizedSchema
+  extends DataPluginCoreNormalizedSchema,
+    PresentationGeneratorSchema {
+  projectData: string;
 }

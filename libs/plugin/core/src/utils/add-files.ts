@@ -1,10 +1,26 @@
 import { Tree, names, generateFiles, offsetFromRoot } from '@nrwl/devkit';
-import { PluginCoreNormalizedSchema } from '../interfaces';
+import {
+  DataPluginCoreNormalizedSchema,
+  DomainPluginCoreNormalizedSchema,
+  PresentationPluginCoreNormalizedSchema,
+} from '../interfaces';
 import { join } from 'path';
 
 export function addFiles(
   host: Tree,
-  options: PluginCoreNormalizedSchema,
+  options: DomainPluginCoreNormalizedSchema,
+  dir: string
+);
+
+export function addFiles(
+  host: Tree,
+  options: DataPluginCoreNormalizedSchema,
+  dir: string
+);
+
+export function addFiles(
+  host: Tree,
+  options: PresentationPluginCoreNormalizedSchema,
   dir: string
 ) {
   const libNames = names(options.name);

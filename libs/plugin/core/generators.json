@@ -23,11 +23,6 @@
     }
   },
   "generators": {
-    "core": {
-      "factory": "./src/generators/core/generator",
-      "schema": "./src/generators/core/schema.json",
-      "description": "core generator"
-    },
     "domain": {
       "factory": "./src/generators/domain/generator",
       "schema": "./src/generators/domain/schema.json",

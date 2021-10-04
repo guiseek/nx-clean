@@ -1,9 +1,13 @@
 export * from './lib/entity/<%= entity.fileName %>.entity';
+
+<% if (repository) { %>
 export * from './lib/repository/<%= entity.fileName %>.repository';
+<% } %>
+
+<% if (usecases) { %>
 export * from './lib/usecase/add-<%= entity.fileName %>.usecase';
 export * from './lib/usecase/update-<%= entity.fileName %>.usecase';
-export * from './lib/usecase/get-active-<%= entity.fileName %>s-count.usecase';
-export * from './lib/usecase/get-active-<%= entity.fileName %>s.usecase';
 export * from './lib/usecase/get-all-<%= entity.fileName %>s.usecase';
 export * from './lib/usecase/get-<%= entity.fileName %>-by-id.usecase';
 export * from './lib/usecase/remove-<%= entity.fileName %>-id.usecase';
+<% } %>

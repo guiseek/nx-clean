@@ -1,12 +1,10 @@
 export class <%= entity.className %>Entity {
   id: string;
   name: string;
-  active: boolean;
 
   private constructor(params: <%= entity.className %>Entity) {
     this.id = params?.id;
     this.name = params?.name;
-    this.active = params?.active;
   }
 
   static create(params: <%= entity.className %>Entity) {

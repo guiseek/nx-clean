@@ -1,0 +1,1 @@
+export const nxCleanCoreVersion = '1.0.0';

@@ -19,12 +19,15 @@
       "description": "Add entity to the domain (singular)",
       "alias": "t"
     },
-    "project": {
-      "type": "string",
-      "description": "The name of the common core library.",
-      "$default": {
-        "$source": "projectName"
-      }
+    "repository": {
+      "type": "boolean",
+      "description": "Would you like to add a repository?",
+      "default": false
+    },
+    "usecases": {
+      "type": "boolean",
+      "description": "Would you like to add a usecases?",
+      "default": false
     },
     "tags": {
       "type": "string",
@@ -37,5 +40,5 @@
       "alias": "d"
     }
   },
-  "required": ["name", "entity", "project"]
+  "required": ["name", "entity"]
 }

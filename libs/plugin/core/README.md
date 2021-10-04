@@ -8,73 +8,6 @@ npm i @nx-clean/plugin-core
 
 ## Generators
 
-### Core - Generate
-
-| Property   | Value                      | Description                     |
-| ---------- | -------------------------- | ------------------------------- |
-| name       | common                     | Name or last directory in tree  |
-| directory  | core                       | Where the project is placed     |
-| tags       | type:common,scope:core     | Tags (used for linting)         |
-
-#### Core - Command
-
-```sh
-nx generate @nx-clean/plugin-core:core --name=common --directory=core --tags=type:common,scope:core
-```
-
-#### Core - Result
-
-```sh
-CREATE libs/core/common/README.md
-CREATE libs/core/common/.babelrc
-CREATE libs/core/common/package.json
-CREATE libs/core/common/src/index.ts
-CREATE libs/core/common/src/lib/core-common.spec.ts
-CREATE libs/core/common/src/lib/core-common.ts
-CREATE libs/core/common/tsconfig.json
-CREATE libs/core/common/tsconfig.lib.json
-UPDATE tsconfig.base.json
-UPDATE workspace.json
-UPDATE nx.json
-CREATE libs/core/common/.eslintrc.json
-CREATE libs/core/common/jest.config.js
-CREATE libs/core/common/tsconfig.spec.json
-UPDATE jest.config.js
-CREATE libs/core/common/src/lib/common/mapper.ts
-CREATE libs/core/common/src/lib/domain/service/localstorage.service.ts
-CREATE libs/core/common/src/lib/domain/usecase/usecase.ts
-CREATE libs/core/common/src/lib/presentation/presenter.ts
-CREATE libs/core/common/src/lib/presentation/view-model.ts
-```
-
-#### Core - Folder structure
-
-```sh
-libs/core/common
-├── README.md
-├── jest.config.js
-├── package.json
-├── src
-│   ├── index.ts
-│   └── lib
-│       ├── common
-│       │   └── mapper.ts
-│       ├── core-common.spec.ts
-│       ├── core-common.ts
-│       ├── domain
-│       │   ├── service
-│       │   │   └── localstorage.service.ts
-│       │   └── usecase
-│       │       └── usecase.ts
-│       └── presentation
-│           ├── presenter.ts
-│           └── view-model.ts
-├── tsconfig.json
-├── tsconfig.lib.json
-└── tsconfig.spec.json
-```
-
----
 
 ### Domain - Generate
 
@@ -82,14 +15,15 @@ libs/core/common
 | ---------- | -------------------------- | ------------------------------- |
 | name       | domain                     | Name or last directory in tree  |
 | entity     | user                       | Entity of domain                |
-| project    | core-common                | Common core library             |
+| repository | true                       | To add a repository             |
+| usecases   | true                       | To add a usecases               |
 | directory  | account                    | Where the project is placed     |
 | tags       | type:domain,scope:account  | Tags (used for linting)         |
 
 #### Domain - Command
 
 ```sh
-nx generate @nx-clean/plugin-core:domain --name=domain --entity=user --project=core-common --directory=account --tags=type:domain,scope:account
+nx generate @nx-clean/plugin-core:domain --name=domain --entity=user --directory=account  --repository --usecases --tags=type:domain,scope:account
 ```
 
 #### Domain - Result
@@ -152,47 +86,47 @@ libs/account/domain
 
 | Property   | Value                      | Description                     |
 | ---------- | -------------------------- | ------------------------------- |
-| name       | data                       | Name or last directory in tree  |
+| name       | data-access                | Name or last directory in tree  |
 | entity     | user                       | Entity of domain                |
-| project    | core-common                | Common core library             |
 | domain     | account-domain             | Domain library                  |
+| inmemory   | true                       | To add a in memory data access  |
 | directory  | account                    | Where the project is placed     |
 | tags       | type:data,scope:account    | Tags (used for linting)         |
 
 #### Data - Command
 
 ```sh
-nx generate @nx-clean/plugin-core:data --name=data --domain=account-domain --entity=user --project=core-common --directory=account --tags=type:data,scope:account
+nx generate @nx-clean/plugin-core:data --name=data-access --domain=account-domain --entity=user --directory=account --inmemory --tags=type:data,scope:account
 ```
 
 #### Data - Result
 
 ```sh
-CREATE libs/account/data/README.md
-CREATE libs/account/data/.babelrc
-CREATE libs/account/data/src/index.ts
-CREATE libs/account/data/src/lib/account-data.spec.ts
-CREATE libs/account/data/src/lib/account-data.ts
-CREATE libs/account/data/tsconfig.json
-CREATE libs/account/data/tsconfig.lib.json
+CREATE libs/account/data-access/README.md
+CREATE libs/account/data-access/.babelrc
+CREATE libs/account/data-access/src/index.ts
+CREATE libs/account/data-access/src/lib/account-data.spec.ts
+CREATE libs/account/data-access/src/lib/account-data.ts
+CREATE libs/account/data-access/tsconfig.json
+CREATE libs/account/data-access/tsconfig.lib.json
 UPDATE tsconfig.base.json
 UPDATE workspace.json
 UPDATE nx.json
-CREATE libs/account/data/.eslintrc.json
-CREATE libs/account/data/jest.config.js
-CREATE libs/account/data/tsconfig.spec.json
+CREATE libs/account/data-access/.eslintrc.json
+CREATE libs/account/data-access/jest.config.js
+CREATE libs/account/data-access/tsconfig.spec.json
 UPDATE jest.config.js
-CREATE libs/account/data/src/lib/inmemory/user.inmemory.repository.spec.ts
-CREATE libs/account/data/src/lib/inmemory/user.inmemory.repository.ts
-CREATE libs/account/data/src/lib/inmemory/dto/user-mock.dto.ts
-CREATE libs/account/data/src/lib/inmemory/mapper/user-mock.mapper.ts
-CREATE libs/account/data/src/lib/localstorage/user.localstorage.repository.ts
+CREATE libs/account/data-access/src/lib/inmemory/user.inmemory.repository.spec.ts
+CREATE libs/account/data-access/src/lib/inmemory/user.inmemory.repository.ts
+CREATE libs/account/data-access/src/lib/inmemory/dto/user-mock.dto.ts
+CREATE libs/account/data-access/src/lib/inmemory/mapper/user-mock.mapper.ts
+CREATE libs/account/data-access/src/lib/localstorage/user.localstorage.repository.ts
 ```
 
 #### Data - Folder structure
 
 ```sh
-libs/account/data
+libs/account/data-access
 ├── README.md
 ├── jest.config.js
 ├── src
@@ -218,20 +152,19 @@ libs/account/data
 
 ### Presentation - Generate
 
-| Property   | Value                      | Description                     |
-| ---------- | -------------------------- | ------------------------------- |
-| name       | presentation               | Name or last directory in tree  |
-| entity     | user                       | Entity of domain                |
-| project    | core-common                | Common core library             |
-| domain     | account-domain             | Domain library                  |
-| data       | account-data               | Data library                    |
-| directory  | account                    | Where the project is placed     |
-| tags       | type:data,scope:account    | Tags (used for linting)         |
+| Property   | Value                              | Description                     |
+| ---------- | ---------------------------------- | ------------------------------- |
+| name       | presentation                       | Name or last directory in tree  |
+| entity     | user                               | Entity of domain                |
+| domain     | account-domain                     | Domain library                  |
+| data       | account-data-access                | Data library                    |
+| directory  | account                            | Where the project is placed     |
+| tags       | type:presentation,scope:account    | Tags (used for linting)         |
 
 #### Presentation - Command
 
 ```sh
-nx generate @nx-clean/plugin-core:presentation --name=presentation --domain=account-domain --entity=user --project=core-common --directory=account --data=account-data --tags=type:presentation,scope:account
+nx generate @nx-clean/plugin-core:presentation --name=presentation --domain=account-domain --entity=user --directory=account --data=account-data-access --tags=type:presentation,scope:account
 ```
 
 #### Presentation - Result

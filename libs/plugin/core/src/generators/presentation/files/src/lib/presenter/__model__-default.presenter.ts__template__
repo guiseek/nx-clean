@@ -6,15 +6,12 @@ import { map, switchMap } from 'rxjs/operators';
 import {
   <%= entity.className %>Repository,
   Add<%= entity.className %>UseCase,
-  GetActive<%= entity.className %>sCountUseCase,
-  GetActive<%= entity.className %>sUseCase,
   GetAll<%= entity.className %>sUseCase,
   Remove<%= entity.className %>UseCase,
 } from '@<%= npmScope %>/<%= projectDomain %>';
 
 export class <%= entity.className %>DefaultPresenter implements <%= entity.className %>Presenter {
   <%= entity.propertyName %>s$: Observable<<%= entity.className %>VM[]>;
-  active<%= entity.className %>sCount$: Observable<number>;
   filter$: Observable<string>;
 
   // internal state
@@ -25,22 +22,12 @@ export class <%= entity.className %>DefaultPresenter implements <%= entity.class
   // use cases
   private getAll<%= entity.className %>sUC: GetAll<%= entity.className %>sUseCase;
 
-  private getActive<%= entity.className %>sUC: GetActive<%= entity.className %>sUseCase;
-
-  private getActive<%= entity.className %>sCountUC: GetActive<%= entity.className %>sCountUseCase;
-
   private add<%= entity.className %>UC: Add<%= entity.className %>UseCase;
 
   private remove<%= entity.className %>UC: Remove<%= entity.className %>UseCase;
 
   constructor(private repository: <%= entity.className %>Repository) {
     this.getAll<%= entity.className %>sUC = new GetAll<%= entity.className %>sUseCase(this.repository);
-
-    this.getActive<%= entity.className %>sUC = new GetActive<%= entity.className %>sUseCase(this.repository);
-
-    this.getActive<%= entity.className %>sCountUC = new GetActive<%= entity.className %>sCountUseCase(
-      this.repository
-    );
 
     this.add<%= entity.className %>UC = new Add<%= entity.className %>UseCase(this.repository);
 
@@ -54,25 +41,19 @@ export class <%= entity.className %>DefaultPresenter implements <%= entity.class
     this.filter$ = this.dispatch
       .asObservable()
       .pipe(map((state) => state.filter));
-
-    this.active<%= entity.className %>sCount$ = this.dispatch
-      .asObservable()
-      .pipe(map((state) => state.active<%= entity.className %>sCount));
   }
 
   getAll<%= entity.className %>s(): Observable<<%= entity.className %>VM[]> {
     const <%= entity.propertyName %>s$ = this.getAll<%= entity.className %>sUC
       .execute()
       .pipe(map((<%= entity.propertyName %>s) => <%= entity.propertyName %>s.map(this.mapper.mapFrom)));
-    const count$ = this.getActive<%= entity.className %>sCountUC.execute();
 
-    forkJoin([<%= entity.propertyName %>s$, count$]).subscribe(([<%= entity.propertyName %>s, active<%= entity.className %>sCount]) => {
+    <%= entity.propertyName %>s$.subscribe((<%= entity.propertyName %>s) => {
       this.dispatch.next(
         (this.state = {
           ...this.state,
           <%= entity.propertyName %>s,
           filter: 'all',
-          active<%= entity.className %>sCount,
         })
       );
     });
@@ -80,41 +61,22 @@ export class <%= entity.className %>DefaultPresenter implements <%= entity.class
     return <%= entity.propertyName %>s$;
   }
 
-  getActive<%= entity.className %>s() {
-    const <%= entity.propertyName %>s$ = this.getActive<%= entity.className %>sUC.execute();
-    const count$ = this.getActive<%= entity.className %>sCountUC.execute();
-
-    forkJoin([<%= entity.propertyName %>s$, count$]).subscribe(([<%= entity.propertyName %>s, count]) => {
-      this.dispatch.next(
-        (this.state = {
-          ...this.state,
-          <%= entity.propertyName %>s: <%= entity.propertyName %>s.map(this.mapper.mapFrom),
-          filter: 'active',
-          active<%= entity.className %>sCount: count,
-        })
-      );
-    });
-  }
-
-  add<%= entity.className %>({ name, active }:  Pick<<%= entity.className %>VM, 'name' | 'active'>): Observable<<%= entity.className %>VM> {
+  add<%= entity.className %>({ name }:  Pick<<%= entity.className %>VM, 'name'>): Observable<<%= entity.className %>VM> {
     const add$ = this.add<%= entity.className %>UC
-      .execute({ name, active, id: null })
+      .execute({ name, id: null })
       .pipe(map(this.mapper.mapFrom));
-
-    const count$ = this.getActive<%= entity.className %>sCountUC.execute();
 
     const <%= entity.propertyName %>s$ = this.getAll<%= entity.className %>sUC
       .execute()
       .pipe(map((<%= entity.propertyName %>s) => <%= entity.propertyName %>s.map(this.mapper.mapFrom)));
 
     add$
-      .pipe(switchMap(() => forkJoin([count$, <%= entity.propertyName %>s$])))
-      .subscribe(([active<%= entity.className %>sCount, <%= entity.propertyName %>s]) => {
+      .pipe(switchMap(() => <%= entity.propertyName %>s$))
+      .subscribe((<%= entity.propertyName %>s) => {
         this.dispatch.next(
           (this.state = {
             ...this.state,
             <%= entity.propertyName %>s,
-            active<%= entity.className %>sCount,
           })
         );
       });
@@ -124,17 +86,15 @@ export class <%= entity.className %>DefaultPresenter implements <%= entity.class
 
   remove<%= entity.className %>(id: string) {
     const remove$ = this.remove<%= entity.className %>UC.execute({ id });
-    const count$ = this.getActive<%= entity.className %>sCountUC.execute();
     const <%= entity.propertyName %>s$ = this.getAll<%= entity.className %>sUC
       .execute()
       .pipe(map((<%= entity.propertyName %>s) => <%= entity.propertyName %>s.map(this.mapper.mapFrom)));
 
-    forkJoin([remove$, count$, <%= entity.propertyName %>s$]).subscribe(([, count, <%= entity.propertyName %>s]) => {
+    forkJoin([remove$, <%= entity.propertyName %>s$]).subscribe(([<%= entity.propertyName %>s]) => {
       this.dispatch.next(
         (this.state = {
           ...this.state,
-          <%= entity.propertyName %>s: <%= entity.propertyName %>s.map(this.mapper.mapFrom),
-          active<%= entity.className %>sCount: count,
+          <%= entity.propertyName %>s: <%= entity.propertyName %>s.map(this.mapper.mapFrom)
         })
       );
     });

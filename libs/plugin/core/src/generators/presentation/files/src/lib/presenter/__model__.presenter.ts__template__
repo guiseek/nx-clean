@@ -3,11 +3,9 @@ import { Observable } from 'rxjs';
 
 export abstract class <%= entity.className %>Presenter {
   abstract <%= entity.propertyName %>s$: Observable<<%= entity.className %>VM[]>;
-  abstract active<%= entity.className %>sCount$: Observable<number>;
   abstract filter$: Observable<string>;
 
   abstract getAll<%= entity.className %>s(): Observable<<%= entity.className %>VM[]>;
-  abstract getActive<%= entity.className %>s(): void;
-  abstract add<%= entity.className %>(<%= entity.propertyName %>: Pick<<%= entity.className %>VM, 'name' | 'active'>): Observable<<%= entity.className %>VM>;
+  abstract add<%= entity.className %>(<%= entity.propertyName %>: Pick<<%= entity.className %>VM, 'name'>): Observable<<%= entity.className %>VM>;
   abstract remove<%= entity.className %>(id: string): void;
 }

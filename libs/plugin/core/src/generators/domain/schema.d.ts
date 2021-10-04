@@ -1,7 +1,10 @@
 export interface DomainGeneratorSchema {
     name: string;
     entity: string;
-    project: string;
+    
+    repository?: boolean;
+    usecases?: boolean;
+
     tags?: string;
     directory?: string;
 }

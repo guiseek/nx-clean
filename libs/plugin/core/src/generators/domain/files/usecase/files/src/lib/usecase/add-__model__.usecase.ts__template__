@@ -1,6 +1,6 @@
-import { UseCase } from '@<%= npmScope %>/<%= projectCore %>';
 import { <%= entity.className %>Repository } from '../repository/<%= entity.fileName %>.repository';
 import { <%= entity.className %>Entity } from '../entity/<%= entity.fileName %>.entity';
+import { UseCase } from '@nx-clean/core';
 import { Observable } from 'rxjs';
 
 /**

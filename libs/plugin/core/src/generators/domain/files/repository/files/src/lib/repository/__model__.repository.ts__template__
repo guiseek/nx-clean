@@ -3,8 +3,6 @@ import { Observable } from 'rxjs';
 
 export abstract class <%= entity.className %>Repository {
   public abstract getAll<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]>;
-  public abstract getActive<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]>;
-  public abstract getActive<%= entity.className %>sCount(): Observable<number>;
   public abstract add<%= entity.className %>(<%= entity.propertyName %>: Pick<<%= entity.className %>Entity, 'name'>): Observable<<%= entity.className %>Entity>;
   public abstract update<%= entity.className %>(id: string, <%= entity.propertyName %>: <%= entity.className %>Entity): Observable<<%= entity.className %>Entity>;
   public abstract remove<%= entity.className %>(id: string): Observable<<%= entity.className %>Entity>;

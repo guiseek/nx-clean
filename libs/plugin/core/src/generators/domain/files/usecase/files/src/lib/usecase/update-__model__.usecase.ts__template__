@@ -1,6 +1,6 @@
-import { UseCase } from '@<%= npmScope %>/<%= projectCore %>';
 import { <%= entity.className %>Repository } from '../repository/<%= entity.fileName %>.repository';
 import { <%= entity.className %>Entity } from '../entity/<%= entity.fileName %>.entity';
+import { UseCase } from '@nx-clean/core';
 import { Observable } from 'rxjs';
 
 /**
@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 export interface Update<%= entity.className %>UseCaseDTO extends <%= entity.className %>Entity {
   id: string;
   name: string;
-  active: boolean;
 }
 
 export class Update<%= entity.className %>UseCase implements UseCase<Update<%= entity.className %>UseCaseDTO, <%= entity.className %>Entity> {

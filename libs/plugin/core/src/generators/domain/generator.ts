@@ -1,7 +1,7 @@
 import { runTasksInSerial } from '@nrwl/workspace/src/utilities/run-tasks-in-serial';
 import { normalizeOptions, addFiles, nxCleanCoreVersion } from '../../utils';
 import { libraryGenerator } from '@nrwl/workspace/generators';
-import { DomainGeneratorSchema } from './schema';
+import { DomainGeneratorSchema } from '../../interfaces';
 import {
   Tree,
   formatFiles,

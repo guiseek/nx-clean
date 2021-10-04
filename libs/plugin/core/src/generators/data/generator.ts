@@ -1,7 +1,7 @@
 import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
 import { libraryGenerator } from '@nrwl/workspace/generators';
 import { addFiles, normalizeOptions } from '../../utils';
-import { DataGeneratorSchema } from './schema';
+import { DataGeneratorSchema } from '../../interfaces';
 
 export default async function (host: Tree, options: DataGeneratorSchema) {
   const normalizedOptions = normalizeOptions(host, options);

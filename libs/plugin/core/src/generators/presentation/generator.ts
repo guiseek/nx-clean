@@ -1,7 +1,7 @@
 import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { PresentationGeneratorSchema } from '../../interfaces';
 import { libraryGenerator } from '@nrwl/workspace/generators';
 import { addFiles, normalizeOptions } from '../../utils';
-import { PresentationGeneratorSchema } from './schema';
 
 export default async function (
   host: Tree,

@@ -20,6 +20,12 @@
       "schema": "./src/generators/presentation/schema.json",
       "description": "Add a presentation layer",
       "hidden": true
+    },
+    "repository": {
+      "factory": "./src/generators/repository/generator.compat#generatorSchematic",
+      "schema": "./src/generators/repository/schema.json",
+      "description": "Add a abstract and implementation repository",
+      "hidden": true
     }
   },
   "generators": {
@@ -37,6 +43,11 @@
       "factory": "./src/generators/presentation/generator",
       "schema": "./src/generators/presentation/schema.json",
       "description": "Presentation"
+    },
+    "repository": {
+      "factory": "./src/generators/repository/generator",
+      "schema": "./src/generators/repository/schema.json",
+      "description": "Add a abstract and implementation repository"
     }
   }
 }

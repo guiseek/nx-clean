@@ -1,0 +1,13 @@
+import { <%= entity.className %>Entity } from './<%= entity.fileName %>.entity';
+
+describe('<%= entity.className %> Entity', () => {
+  it('should be properly initialized', () => {
+    const model = <%= entity.className %>Entity.create({
+      id: '1',
+      name: 'foo',
+    });
+
+    expect(model.id).toEqual('1');
+    expect(model.name).toEqual('foo');
+  });
+});

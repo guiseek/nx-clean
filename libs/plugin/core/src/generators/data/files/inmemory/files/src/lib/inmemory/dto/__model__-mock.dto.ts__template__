@@ -1,11 +1,9 @@
 export class <%= entity.className %>MockDto {
   id: string;
   title: string;
-  active: boolean;
 
   constructor(params: <%= entity.className %>MockDto) {
     this.id = params.id;
     this.title = params.title;
-    this.active = params.active;
   }
 }

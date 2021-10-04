@@ -1,8 +1,8 @@
 export interface DataGeneratorSchema {
     name: string;
     entity: string;
-    project: string;
     domain: string;
+    inmemory?: boolean;
     tags?: string;
     directory?: string;
 }

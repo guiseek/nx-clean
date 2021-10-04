@@ -13,20 +13,9 @@ export class <%= entity.className %>InMemoryRepository implements <%= entity.cla
     return of(this.data).pipe(map((mocks) => mocks.map(this.mapper.mapTo)));
   }
 
-  public getActive<%= entity.className %>sCount(): Observable<number> {
-    return this.getActive<%= entity.className %>s().pipe(map((<%= entity.propertyName %>s) => <%= entity.propertyName %>s.length));
-  }
-
-
-  public getActive<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]> {
-    return of(this.data.filter((<%= entity.propertyName %>) => <%= entity.propertyName %>.active)).pipe(
-      map((mocks) => mocks.map(this.mapper.mapTo))
-    );
-  }
-
-  public add<%= entity.className %>({ name, active }: Pick<<%= entity.className %>Entity, 'name' | 'active'>): Observable<<%= entity.className %>Entity> {
+  public add<%= entity.className %>({ name }: Pick<<%= entity.className %>Entity, 'name'>): Observable<<%= entity.className %>Entity> {
     const id = 'item-' + new Date().getTime();
-    const <%= entity.propertyName %>: <%= entity.className %>Entity = <%= entity.className %>Entity.create({ id, name, active });
+    const <%= entity.propertyName %>: <%= entity.className %>Entity = <%= entity.className %>Entity.create({ id, name });
 
     this.data.push(this.mapper.mapFrom(<%= entity.propertyName %>));
     return of(<%= entity.propertyName %>);

@@ -19,19 +19,17 @@
       "description": "Add entity to the domain (singular)",
       "alias": "t"
     },
-    "project": {
-      "type": "string",
-      "description": "The name of the common core library.",
-      "$default": {
-        "$source": "projectName"
-      }
-    },
     "domain": {
       "type": "string",
       "description": "The name of the domain library.",
       "$default": {
         "$source": "projectName"
       }
+    },
+    "inmemory": {
+      "type": "boolean",
+      "description": "Would you like to add a inmemory data access?",
+      "default": false
     },
     "tags": {
       "type": "string",
@@ -44,5 +42,5 @@
       "alias": "d"
     }
   },
-  "required": ["name", "entity", "project", "domain"]
+  "required": ["name", "entity", "domain"]
 }

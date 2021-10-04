@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+.view {
+  gap: 14px;
+  display: flex;
+  align-items: center;
+
+  button {
+    border-width: 0.5px;
+    border-radius: 50%;
+  }
+}

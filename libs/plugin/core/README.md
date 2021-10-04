@@ -114,8 +114,6 @@ CREATE libs/account/domain/src/lib/entity/user.entity.ts
 CREATE libs/account/domain/src/lib/repository/user.repository.ts
 CREATE libs/account/domain/src/lib/usecase/add-user.usecase.ts
 CREATE libs/account/domain/src/lib/usecase/get-user-by-id.usecase.ts
-CREATE libs/account/domain/src/lib/usecase/get-active-users-count.usecase.ts
-CREATE libs/account/domain/src/lib/usecase/get-active-users.usecase.ts
 CREATE libs/account/domain/src/lib/usecase/get-all-users.usecase.ts
 CREATE libs/account/domain/src/lib/usecase/remove-user-id.usecase.ts
 CREATE libs/account/domain/src/lib/usecase/update-user.usecase.ts
@@ -139,8 +137,6 @@ libs/account/domain
 │       │   └── user.repository.ts
 │       └── usecase
 │           ├── add-user.usecase.ts
-│           ├── get-active-users-count.usecase.ts
-│           ├── get-active-users.usecase.ts
 │           ├── get-all-users.usecase.ts
 │           ├── get-user-by-id.usecase.ts
 │           ├── remove-user-id.usecase.ts

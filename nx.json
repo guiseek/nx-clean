@@ -33,6 +33,9 @@
     "core": {
       "tags": []
     },
+    "demos": {
+      "tags": ["type:app"]
+    },
     "todo-angular": {
       "tags": ["type:app"]
     },

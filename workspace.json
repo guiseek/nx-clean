@@ -71,6 +71,78 @@
         }
       }
     },
+    "demos": {
+      "projectType": "application",
+      "root": "apps/demos",
+      "sourceRoot": "apps/demos/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/demos",
+            "index": "apps/demos/src/index.html",
+            "main": "apps/demos/src/main.ts",
+            "polyfills": "apps/demos/src/polyfills.ts",
+            "tsConfig": "apps/demos/tsconfig.app.json",
+            "assets": ["apps/demos/src/favicon.ico", "apps/demos/src/assets"],
+            "styles": ["apps/demos/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demos/src/environments/environment.ts",
+                  "with": "apps/demos/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "demos:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "demos:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/demos/src/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/demos"],
+          "options": {
+            "jestConfig": "apps/demos/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "plugin-core": "libs/plugin/core",
     "plugin-core-e2e": "apps/plugin/core-e2e",
     "todo-angular": {
@@ -83,7 +155,7 @@
           "executor": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/todo/angular",
+            "outputPath": "dist/apps/demos/angular",
             "index": "apps/todo/angular/src/index.html",
             "main": "apps/todo/angular/src/main.ts",
             "polyfills": "apps/todo/angular/src/polyfills.ts",
@@ -298,7 +370,7 @@
           "executor": "@nrwl/web:build",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/todo/react",
+            "outputPath": "dist/apps/demos/react",
             "index": "apps/todo/react/src/index.html",
             "main": "apps/todo/react/src/main.tsx",
             "polyfills": "apps/todo/react/src/polyfills.ts",
@@ -429,6 +501,17 @@
         "style": "scss",
         "linter": "eslint"
       }
+    },
+    "@nrwl/web:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "none"
+    },
+    "@nrwl/web:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     }
   },
   "defaultProject": "todo-angular"

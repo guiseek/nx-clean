@@ -78,9 +78,13 @@ export function App() {
   return (
     <div className={styles.app}>
       <header className="flex">
-        <img src={Logo} alt="Logo" />
         <h1>Welcome to react!</h1>
       </header>
+      <nav>
+        <h3>
+          <a href="/">Voltar</a>
+        </h3>
+      </nav>
       <main>
         <input
           type="text"

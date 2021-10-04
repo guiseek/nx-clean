@@ -5,7 +5,6 @@ export interface PluginCoreNormalizedSchema extends GeneratorSchema {
   projectDirectory: string;
   projectDomain?: string;
   projectData?: string;
-  projectCore?: string;
   parsedTags: string[];
   npmScope?: string;
 }

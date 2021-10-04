@@ -6,8 +6,8 @@ import { skip } from 'rxjs/operators';
 describe('<%= entity.className %> Presenter', () => {
   let <%= entity.propertyName %>Presenter: <%= entity.className %>Presenter;
 
-  const item1 = { id: '1', title: '<%= entity.propertyName %> 1', active: true };
-  const item2 = { id: '2', title: '<%= entity.propertyName %> 2', active: false };
+  const item1 = { id: '1', title: '<%= entity.propertyName %> 1' };
+  const item2 = { id: '2', title: '<%= entity.propertyName %> 2' };
   const db: <%= entity.className %>MockDto[] = [item1, item2];
 
   beforeEach(() => {
@@ -19,15 +19,6 @@ describe('<%= entity.className %> Presenter', () => {
       it('should return empty array of <%= entity.propertyName %>s', done => {
         <%= entity.propertyName %>Presenter.<%= entity.propertyName %>s$.subscribe(<%= entity.propertyName %>s => {
           expect(<%= entity.propertyName %>s).toEqual([]);
-          done();
-        });
-      });
-    });
-
-    describe('Active <%= entity.className %>s Count', () => {
-      it('should return zero', done => {
-        <%= entity.propertyName %>Presenter.active<%= entity.className %>sCount$.subscribe(count => {
-          expect(count).toEqual(0);
           done();
         });
       });
@@ -51,25 +42,12 @@ describe('<%= entity.className %> Presenter', () => {
 
           expect(<%= entity.propertyName %>s[0].id).toEqual(item1.id);
           expect(<%= entity.propertyName %>s[0].name).toEqual(item1.title);
-          expect(<%= entity.propertyName %>s[0].active).toEqual(item1.active);
           expect(<%= entity.propertyName %>s[0].editing).toBeFalsy();
 
           expect(<%= entity.propertyName %>s[1].id).toEqual(item2.id);
           expect(<%= entity.propertyName %>s[1].name).toEqual(item2.title);
-          expect(<%= entity.propertyName %>s[1].active).toEqual(item2.active);
           expect(<%= entity.propertyName %>s[1].editing).toBeFalsy();
 
-          done();
-        });
-
-        <%= entity.propertyName %>Presenter.getAll<%= entity.className %>s();
-      });
-    });
-
-    describe('Active <%= entity.className %>s Count', () => {
-      it('should return proper counts of <%= entity.propertyName %>s', done => {
-        <%= entity.propertyName %>Presenter.active<%= entity.className %>sCount$.pipe(skip(1)).subscribe(count => {
-          expect(count).toEqual(1);
           done();
         });
 

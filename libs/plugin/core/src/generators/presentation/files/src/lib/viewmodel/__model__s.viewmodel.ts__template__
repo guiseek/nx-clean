@@ -1,13 +1,11 @@
 export class <%= entity.className %>StateVM {
-  filter: 'active' | 'completed' | 'all' = 'all';
+  filter: string | 'all' = 'all';
   <%= entity.propertyName %>s: <%= entity.className %>VM[] = [];
-  active<%= entity.className %>sCount = 0;
 }
 
 export interface <%= entity.className %>VM {
   id: string;
   name: string;
-  active: boolean;
 
   /**
    * different as in

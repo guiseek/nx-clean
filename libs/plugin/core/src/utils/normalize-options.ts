@@ -22,10 +22,6 @@ export function normalizeOptions<T extends GeneratorSchema>(host: Tree, options:
     npmScope,
   }
 
-  if (options.project) {
-    normalized.projectCore = options.project.replace(new RegExp('-', 'g'), '/');
-  }
-
   if (options.domain) {
     normalized.projectDomain = options.domain.replace(new RegExp('-', 'g'), '/');
   }

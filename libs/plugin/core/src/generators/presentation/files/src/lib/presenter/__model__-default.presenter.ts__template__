@@ -63,7 +63,7 @@ export class <%= entity.className %>DefaultPresenter implements <%= entity.class
 
   add<%= entity.className %>({ name }:  Pick<<%= entity.className %>VM, 'name'>): Observable<<%= entity.className %>VM> {
     const add$ = this.add<%= entity.className %>UC
-      .execute({ name, id: null })
+      .execute({ name, id: '' })
       .pipe(map(this.mapper.mapFrom));
 
     const <%= entity.propertyName %>s$ = this.getAll<%= entity.className %>sUC
@@ -90,7 +90,7 @@ export class <%= entity.className %>DefaultPresenter implements <%= entity.class
       .execute()
       .pipe(map((<%= entity.propertyName %>s) => <%= entity.propertyName %>s.map(this.mapper.mapFrom)));
 
-    forkJoin([remove$, <%= entity.propertyName %>s$]).subscribe(([<%= entity.propertyName %>s]) => {
+    forkJoin([remove$, <%= entity.propertyName %>s$]).subscribe(([,<%= entity.propertyName %>s]) => {
       this.dispatch.next(
         (this.state = {
           ...this.state,

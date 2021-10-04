@@ -2,6 +2,26 @@
   "$schema": "http://json-schema.org/schema",
   "name": "plugin",
   "version": "0.0.1",
+  "schematics": {
+    "domain": {
+      "factory": "./src/generators/domain/generator.compat#generatorSchematic",
+      "schema": "./src/generators/domain/schema.json",
+      "description": "Add a core feature domain",
+      "hidden": true
+    },
+    "data": {
+      "factory": "./src/generators/data/generator.compat#generatorSchematic",
+      "schema": "./src/generators/data/schema.json",
+      "description": "Add a data access layer",
+      "hidden": true
+    },
+    "presentation": {
+      "factory": "./src/generators/presentation/generator.compat#generatorSchematic",
+      "schema": "./src/generators/presentation/schema.json",
+      "description": "Add a presentation layer",
+      "hidden": true
+    }
+  },
   "generators": {
     "core": {
       "factory": "./src/generators/core/generator",

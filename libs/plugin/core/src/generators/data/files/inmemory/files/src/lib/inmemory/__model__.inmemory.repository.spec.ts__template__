@@ -9,18 +9,15 @@ describe('<%= entity.className %> In Memory Repository', () => {
     repo = new <%= entity.className %>InMemoryRepository([
       {
         id: '1',
-        title: 'one',
-        active: true
+        title: 'one'
       },
       {
         id: '2',
-        title: 'two',
-        active: false
+        title: 'two'
       },
       {
         id: '3',
-        title: 'three',
-        active: true
+        title: 'three'
       },
     ]);
   });
@@ -28,13 +25,6 @@ describe('<%= entity.className %> In Memory Repository', () => {
   it('get all', (done) => {
     repo.getAll<%= entity.className %>s().subscribe((<%= entity.propertyName %>s) => {
       expect(<%= entity.propertyName %>s.length).toEqual(3);
-      done();
-    });
-  });
-
-  it('get active', (done) => {
-    repo.getActive<%= entity.className %>s().subscribe((<%= entity.propertyName %>s) => {
-      expect(<%= entity.propertyName %>s.length).toEqual(2);
       done();
     });
   });

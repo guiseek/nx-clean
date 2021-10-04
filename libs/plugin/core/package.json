@@ -1,9 +1,12 @@
 {
   "name": "@nx-clean/plugin-core",
-  "version": "0.3.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/guiseek/nx-clean.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "author": {
     "name": "Guilherme Visi Siquinelli",

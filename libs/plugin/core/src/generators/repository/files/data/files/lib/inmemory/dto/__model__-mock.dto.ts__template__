@@ -1,0 +1,9 @@
+export class <%= entity.className %>MockDto {
+  id: string;
+  title: string;
+
+  constructor(params: <%= entity.className %>MockDto) {
+    this.id = params.id;
+    this.title = params.title;
+  }
+}

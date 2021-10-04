@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "id": "Repository",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "domain": {
+      "type": "string",
+      "description": "The name of the domain library.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "impl": {
+      "type": "boolean",
+      "description": "Would you like to add a implementation?",
+      "default": false
+    },
+    "data": {
+      "type": "string",
+      "description": "The name of the data library.",
+      "$default": {
+        "$source": "projectName"
+      }
+    }
+  },
+  "required": ["name", "domain"]
+}

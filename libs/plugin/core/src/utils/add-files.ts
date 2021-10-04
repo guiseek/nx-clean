@@ -10,19 +10,19 @@ export function addFiles(
   host: Tree,
   options: DomainPluginCoreNormalizedSchema,
   dir: string
-);
+): void
 
 export function addFiles(
   host: Tree,
   options: DataPluginCoreNormalizedSchema,
   dir: string
-);
+): void
 
 export function addFiles(
   host: Tree,
   options: PresentationPluginCoreNormalizedSchema,
   dir: string
-) {
+): void {
   const libNames = names(options.name);
 
   const templateOptions: Record<string, any> = {

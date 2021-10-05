@@ -1,6 +1,12 @@
 import { <%= entity.className %>Entity } from '../entity/<%= entity.fileName %>.entity';
 import { Observable } from 'rxjs';
+<% if (injectable) { %>
+import { Injectable } from '@nx-clean/core';
+<% } %>
 
+<% if (injectable) { %>
+@Injectable()
+<% } %>
 export abstract class <%= entity.className %>Repository {
   public abstract getAll<%= entity.className %>s(): Observable<<%= entity.className %>Entity[]>;
   public abstract add<%= entity.className %>(<%= entity.propertyName %>: Pick<<%= entity.className %>Entity, 'name'>): Observable<<%= entity.className %>Entity>;

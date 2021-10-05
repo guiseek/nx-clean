@@ -3,7 +3,13 @@ import { <%= entity.className %>MockMapper } from './mapper/<%= entity.fileName 
 import { <%= entity.className %>MockDto } from './dto/<%= entity.fileName %>-mock.dto';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+<% if (injectable) { %>
+import { Injectable } from '@nx-clean/core';
+<% } %>
 
+<% if (injectable) { %>
+@Injectable()
+<% } %>
 export class <%= entity.className %>InMemoryRepository implements <%= entity.className %>Repository {
   constructor(private data: <%= entity.className %>MockDto[] = []) {}
 

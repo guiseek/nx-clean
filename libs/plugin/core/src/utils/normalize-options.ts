@@ -54,10 +54,11 @@ export function normalizeOptions(host: Tree, options: any): unknown {
     ? options.tags.split(',').map((s) => s.trim())
     : [];
 
+  options.injectable = options.injectable ? options.injectable : false;
   options.repository = options.repository ? options.repository : false;
   options.usecases = options.usecases ? options.usecases : false;
   options.inmemory = options.inmemory ? options.inmemory : false;
-  
+
   if (options.domain) {
     const config = readProjectConfiguration(host, options.domain);
     options.projectDomain = config

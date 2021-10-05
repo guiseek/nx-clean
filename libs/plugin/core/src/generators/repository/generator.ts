@@ -25,11 +25,21 @@ export default function (
   if (options.name && options.domain) {
     const domain = readProjectConfiguration(host, options.domain);
 
-    addFiles(
+    const { model } = addFiles(
       host,
       normalizedOptions,
       __dirname + '/files/domain',
       domain.sourceRoot
+    );
+
+    const contents = host.read(domain.sourceRoot + '/index.ts');
+    host.write(
+      domain.sourceRoot + '/index.ts',
+      contents.toString() +
+        `
+export * from './lib/entity/${model}.entity';
+export * from './lib/repository/${model}.repository';
+`
     );
   }
 
@@ -38,13 +48,28 @@ export default function (
       throw new Error('You need to add a name');
     }
 
+    if (!options.type) {
+      throw new Error('You need to add a type of repository');
+    }
+
     const data = readProjectConfiguration(host, options.data);
 
-    addFiles(
+    const { model, format } = addFiles(
       host,
       normalizedOptions,
       __dirname + '/files/data',
       data.sourceRoot
+    );
+
+    const contents = host.read(data.sourceRoot + '/index.ts');
+    host.write(
+      data.sourceRoot + '/index.ts',
+      contents.toString() +
+        `
+export * from './lib/${format}/${model}.${format}.repository';
+export * from './lib/${format}/mapper/${model}-${format}.mapper';
+export * from './lib/${format}/dto/${model}-${format}.dto';
+`
     );
   }
 }
@@ -54,6 +79,7 @@ function normalizeOptions(
   options: ImplRepositoryGeneratorSchema
 ): NormalizedSchema {
   const npmScope = readWorkspaceConfiguration(host).npmScope;
+  const format = names(options.type).fileName;
   const projectDomain = options.domain;
   const projectData = options.data;
   return {
@@ -61,6 +87,7 @@ function normalizeOptions(
     projectDomain,
     projectData,
     npmScope,
+    format,
   };
 }
 
@@ -71,6 +98,7 @@ function addFiles(
   target: string
 ) {
   const entity = names(options.name);
+  const type = names(options.type);
 
   const templateOptions: TemplateOptions = {
     ...options,
@@ -79,7 +107,10 @@ function addFiles(
     offsetFromRoot: offsetFromRoot(target),
     template: '',
     entity,
+    type,
   };
 
   generateFiles(host, join(dir, 'files'), target, templateOptions);
+
+  return templateOptions;
 }

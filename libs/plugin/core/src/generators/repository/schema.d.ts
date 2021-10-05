@@ -2,16 +2,19 @@ export interface RepositoryGeneratorSchema {
   name: string;
   domain: string;
   impl?: boolean;
+  type?: string;
 }
 
 export interface ImplRepositoryGeneratorSchema extends RepositoryGeneratorSchema {
   impl: boolean;
   data: string;
+  type: string;
 }
 
 export interface NormalizedSchema extends RepositoryGeneratorSchema {
   projectDomain: string;
   projectData: string;
+  format: string;
   npmScope: string;
 }
 
@@ -26,6 +29,7 @@ export interface Names {
 export interface TemplateOptions extends NormalizedSchema, Names {
   offsetFromRoot: string;
   entity: Names;
+  type: Names;
   model: string;
   template: string;
 }

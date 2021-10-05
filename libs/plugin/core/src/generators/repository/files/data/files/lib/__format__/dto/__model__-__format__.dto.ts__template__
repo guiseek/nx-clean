@@ -1,0 +1,9 @@
+export class <%= entity.className %><%= type.className %>Dto {
+  id: string;
+  title: string;
+
+  constructor(params: <%= entity.className %><%= type.className %>Dto) {
+    this.id = params.id;
+    this.title = params.title;
+  }
+}

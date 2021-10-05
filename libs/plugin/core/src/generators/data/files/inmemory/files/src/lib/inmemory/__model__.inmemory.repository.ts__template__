@@ -1,4 +1,4 @@
-import { <%= entity.className %>Repository, <%= entity.className %>Entity } from '@<%= npmScope %>/<%= projectDomain %>';
+import { <%= entity.className %>Repository, <%= entity.className %>Entity } from '<%= projectDomain %>';
 import { <%= entity.className %>MockMapper } from './mapper/<%= entity.fileName %>-mock.mapper';
 import { <%= entity.className %>MockDto } from './dto/<%= entity.fileName %>-mock.dto';
 import { Observable, of } from 'rxjs';

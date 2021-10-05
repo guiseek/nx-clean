@@ -5,8 +5,8 @@ export function getProjectImportPath({ sourceRoot }: ProjectConfiguration) {
   const { compilerOptions } = readJsonFile<TSConfigBase>('tsconfig.base.json');
 
   return Object.keys(compilerOptions.paths).find((importPath) => {
-    return compilerOptions.paths[importPath].filter(
-      (path) => path.indexOf(sourceRoot) > -1
+    return compilerOptions.paths[importPath].find(
+      (path) => path.indexOf(sourceRoot + '/index.ts') > -1
     );
   });
 }

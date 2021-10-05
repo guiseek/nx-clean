@@ -1,5 +1,5 @@
 import { <%= entity.className %>InMemoryRepository } from './<%= entity.propertyName %>.inmemory.repository';
-import { <%= entity.className %>Repository } from '@<%= npmScope %>/<%= projectDomain %>';
+import { <%= entity.className %>Repository } from '<%= projectDomain %>';
 import { forkJoin } from 'rxjs';
 
 describe('<%= entity.className %> In Memory Repository', () => {

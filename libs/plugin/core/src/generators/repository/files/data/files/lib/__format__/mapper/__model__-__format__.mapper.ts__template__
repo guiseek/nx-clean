@@ -1,5 +1,5 @@
 import { <%= entity.className %><%= type.className %>Dto } from '../dto/<%= entity.fileName %>-<%= type.fileName %>.dto';
-import { <%= entity.className %>Entity } from '@<%= npmScope %>/<%= projectDomain %>';
+import { <%= entity.className %>Entity } from '<%= projectDomain %>';
 import { Mapper } from '@nx-clean/core';
 
 export class <%= entity.className %><%= type.className %>Mapper implements Mapper<<%= entity.className %>Entity, <%= entity.className %><%= type.className %>Dto> {

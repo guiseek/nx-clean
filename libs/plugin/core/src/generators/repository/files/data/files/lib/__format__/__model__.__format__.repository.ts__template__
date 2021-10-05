@@ -1,4 +1,4 @@
-import { <%= entity.className %>Repository, <%= entity.className %>Entity } from '@<%= npmScope %>/<%= projectDomain %>';
+import { <%= entity.className %>Repository, <%= entity.className %>Entity } from '<%= projectDomain %>';
 import { <%= entity.className %><%= type.className %>Mapper } from './mapper/<%= entity.fileName %>-<%= type.fileName %>.mapper';
 import { <%= entity.className %><%= type.className %>Dto } from './dto/<%= entity.fileName %>-<%= type.fileName %>.dto';
 import { Observable, of } from 'rxjs';

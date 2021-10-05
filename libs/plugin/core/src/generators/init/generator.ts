@@ -28,21 +28,12 @@ function setDefaults(host: Tree, options: InitGeneratorSchema) {
   const workspace = readWorkspaceConfiguration(host);
 
   workspace.generators = workspace.generators || {};
-  workspace.generators['@nx-clean/plugin-core:data'] = {
-    injectable: options.injectable,
-    ...(workspace.generators['@nx-clean/plugin-core:data'] || {}),
-  };
-  workspace.generators['@nx-clean/plugin-core:domain'] = {
-    injectable: options.injectable,
-    ...(workspace.generators['@nx-clean/plugin-core:domain'] || {}),
-  };
-  workspace.generators['@nx-clean/plugin-core:presentation'] = {
-    injectable: options.injectable,
-    ...(workspace.generators['@nx-clean/plugin-core:presentation'] || {}),
-  };
-  workspace.generators['@nx-clean/plugin-core:repository'] = {
-    injectable: options.injectable,
-    ...(workspace.generators['@nx-clean/plugin-core:repository'] || {}),
+  workspace.generators['@nx-clean/plugin-core'] = {
+    data: { injectable: options.injectable },
+    domain: { injectable: options.injectable },
+    presentation: { injectable: options.injectable },
+    repository: { injectable: options.injectable },
+    ...(workspace.generators['@nx-clean/plugin-core'] || {}),
   };
 
   updateWorkspaceConfiguration(host, workspace);

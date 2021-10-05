@@ -23,7 +23,7 @@ export function addFiles(
   options: PresentationPluginCoreNormalizedSchema,
   dir: string
 ): void {
-  const libNames = names(options.name);
+  const libNames = names(options.projectName);
 
   const templateOptions: Record<string, any> = {
     ...options,

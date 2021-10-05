@@ -24,6 +24,11 @@
       "description": "Would you like to add a repository?",
       "default": false
     },
+    "injectable": {
+      "type": "boolean",
+      "description": "Would you like to use dependency injection?",
+      "default": true
+    },
     "usecases": {
       "type": "boolean",
       "description": "Would you like to add a usecases?",

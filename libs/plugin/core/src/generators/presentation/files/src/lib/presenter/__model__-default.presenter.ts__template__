@@ -9,7 +9,13 @@ import {
   GetAll<%= entity.className %>sUseCase,
   Remove<%= entity.className %>UseCase,
 } from '<%= projectDomain %>';
+<% if (injectable) { %>
+import { Injectable } from '@nx-clean/core';
+<% } %>
 
+<% if (injectable) { %>
+@Injectable()
+<% } %>
 export class <%= entity.className %>DefaultPresenter implements <%= entity.className %>Presenter {
   <%= entity.propertyName %>s$: Observable<<%= entity.className %>VM[]>;
   filter$: Observable<string>;

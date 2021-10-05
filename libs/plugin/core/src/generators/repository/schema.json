@@ -37,6 +37,11 @@
       "$default": {
         "$source": "projectName"
       }
+    },
+    "injectable": {
+      "type": "boolean",
+      "description": "Would you like to use dependency injection?",
+      "default": true
     }
   },
   "required": ["name", "domain"]

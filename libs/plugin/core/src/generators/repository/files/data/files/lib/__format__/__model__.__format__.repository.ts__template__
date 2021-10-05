@@ -3,7 +3,13 @@ import { <%= entity.className %><%= type.className %>Mapper } from './mapper/<%=
 import { <%= entity.className %><%= type.className %>Dto } from './dto/<%= entity.fileName %>-<%= type.fileName %>.dto';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+<% if (injectable) { %>
+import { Injectable } from '@nx-clean/core';
+<% } %>
 
+<% if (injectable) { %>
+@Injectable()
+<% } %>
 export class <%= entity.className %><%= type.className %>Repository implements <%= entity.className %>Repository {
   constructor(private data: <%= entity.className %><%= type.className %>Dto[] = []) {}
 

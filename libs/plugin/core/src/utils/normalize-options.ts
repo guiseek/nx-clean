@@ -11,56 +11,74 @@ import {
   names,
   getWorkspaceLayout,
   readWorkspaceConfiguration,
+  readProjectConfiguration,
 } from '@nrwl/devkit';
+import { GeneratorsConfig } from '../types';
+import { getProjectImportPath } from './get-project-import-path';
 
-export function normalizeOptions<T extends DomainGeneratorSchema>(
+export function normalizeOptions(
   host: Tree,
-  options: T
+  options: DomainGeneratorSchema
 ): DomainPluginCoreNormalizedSchema;
-export function normalizeOptions<T extends DataGeneratorSchema>(
+
+export function normalizeOptions(
   host: Tree,
-  options: T
+  options: DataGeneratorSchema
 ): DataPluginCoreNormalizedSchema;
-export function normalizeOptions<T extends PresentationGeneratorSchema>(
+
+export function normalizeOptions(
   host: Tree,
-  options: T
-): PresentationPluginCoreNormalizedSchema {
+  options: PresentationGeneratorSchema
+): PresentationPluginCoreNormalizedSchema;
+
+export function normalizeOptions(host: Tree, options: any): unknown {
   const name = names(options.name).fileName;
   const projectDirectory = options.directory
     ? `${names(options.directory).fileName}/${name}`
     : name;
-  const npmScope = readWorkspaceConfiguration(host).npmScope;
+
+  const workspace = readWorkspaceConfiguration(host);
+
+  const npmScope = workspace.npmScope;
+
+  const generators = ((workspace.generators ?? {})['@nx-clean/plugin-core'] ?? {
+    data: { injectable: options.injectable },
+    domain: { injectable: options.injectable },
+    presentation: { injectable: options.injectable },
+    repository: { injectable: options.injectable },
+  }) as GeneratorsConfig;
+
   const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
   const projectRoot = `${getWorkspaceLayout(host).libsDir}/${projectDirectory}`;
   const parsedTags = options.tags
     ? options.tags.split(',').map((s) => s.trim())
     : [];
 
-
   options.repository = options.repository ? options.repository : false;
   options.usecases = options.usecases ? options.usecases : false;
   options.inmemory = options.inmemory ? options.inmemory : false;
-
-  const normalized: PresentationPluginCoreNormalizedSchema = {
-    ...options,
-    projectName,
-    projectRoot,
-    projectDirectory,
-    projectDomain: '',
-    projectData: '',
-    parsedTags,
-    npmScope,
-  };
-
+  
   if (options.domain) {
-    (normalized as DataPluginCoreNormalizedSchema).projectDomain =
-      options.domain.replace(new RegExp('-', 'g'), '/');
+    const config = readProjectConfiguration(host, options.domain);
+    options.projectDomain = config
+      ? getProjectImportPath(config)
+      : options.domain;
   }
 
   if (options.data) {
-    (normalized as PresentationPluginCoreNormalizedSchema).projectData =
-      options.data.replace(new RegExp('-', 'g'), '/');
+    const config = readProjectConfiguration(host, options.data);
+    options.projectData = config ? getProjectImportPath(config) : options.data;
   }
+
+  const normalized: PresentationPluginCoreNormalizedSchema = {
+    ...options,
+    generators,
+    projectName,
+    projectRoot,
+    projectDirectory,
+    parsedTags,
+    npmScope,
+  };
 
   return normalized;
 }

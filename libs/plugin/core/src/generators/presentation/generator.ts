@@ -7,7 +7,7 @@ export default async function (
   host: Tree,
   options: PresentationGeneratorSchema
 ) {
-  const normalizedOptions = normalizeOptions<PresentationGeneratorSchema>(
+  const normalizedOptions = normalizeOptions(
     host,
     options
   );

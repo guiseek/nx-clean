@@ -1,3 +1,4 @@
+import { GeneratorsConfig } from '../types';
 import {
   GeneratorSchema,
   DataGeneratorSchema,
@@ -9,6 +10,7 @@ export interface PluginCoreNormalizedSchema extends GeneratorSchema {
   projectName: string;
   projectRoot: string;
   projectDirectory: string;
+  generators: GeneratorsConfig;
   parsedTags: string[];
 }
 

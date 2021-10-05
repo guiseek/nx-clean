@@ -1,5 +1,5 @@
 import { <%= entity.className %><%= type.className %>Repository } from './<%= entity.fileName %>.<%= type.fileName %>.repository';
-import { <%= entity.className %>Repository } from '@<%= npmScope %>/<%= projectDomain %>';
+import { <%= entity.className %>Repository } from '<%= projectDomain %>';
 import { forkJoin } from 'rxjs';
 
 describe('<%= entity.className %> <%= type.className %> Repository', () => {

@@ -8,7 +8,7 @@ import {
   Add<%= entity.className %>UseCase,
   GetAll<%= entity.className %>sUseCase,
   Remove<%= entity.className %>UseCase,
-} from '@<%= npmScope %>/<%= projectDomain %>';
+} from '<%= projectDomain %>';
 
 export class <%= entity.className %>DefaultPresenter implements <%= entity.className %>Presenter {
   <%= entity.propertyName %>s$: Observable<<%= entity.className %>VM[]>;

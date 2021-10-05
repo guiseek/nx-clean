@@ -1,4 +1,4 @@
-import { <%= entity.className %>InMemoryRepository, <%= entity.className %>MockDto } from '@<%= npmScope %>/<%= projectData %>';
+import { <%= entity.className %>InMemoryRepository, <%= entity.className %>MockDto } from '<%= projectData %>';
 import { <%= entity.className %>DefaultPresenter } from './<%= entity.fileName %>-default.presenter';
 import { <%= entity.className %>Presenter } from './<%= entity.fileName %>.presenter';
 import { skip } from 'rxjs/operators';

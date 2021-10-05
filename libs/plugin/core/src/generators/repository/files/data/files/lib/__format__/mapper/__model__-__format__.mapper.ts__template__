@@ -1,0 +1,21 @@
+import { <%= entity.className %><%= type.className %>Dto } from '../dto/<%= entity.fileName %>-<%= type.fileName %>.dto';
+import { <%= entity.className %>Entity } from '@<%= npmScope %>/<%= projectDomain %>';
+import { Mapper } from '@nx-clean/core';
+
+export class <%= entity.className %><%= type.className %>Mapper implements Mapper<<%= entity.className %>Entity, <%= entity.className %><%= type.className %>Dto> {
+  mapFrom(input: <%= entity.className %>Entity): <%= entity.className %><%= type.className %>Dto {
+    return {
+      id: input?.id,
+      title: input?.name
+    };
+  }
+
+  mapTo(input: <%= entity.className %><%= type.className %>Dto): <%= entity.className %>Entity {
+    const <%= entity.propertyName %> = <%= entity.className %>Entity.create({
+      id: input?.id,
+      name: input?.title
+    });
+
+    return <%= entity.propertyName %>;
+  }
+}

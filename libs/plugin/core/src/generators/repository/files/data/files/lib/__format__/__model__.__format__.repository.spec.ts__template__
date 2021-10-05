@@ -1,12 +1,12 @@
-import { <%= entity.className %>InMemoryRepository } from './<%= entity.propertyName %>.inmemory.repository';
+import { <%= entity.className %><%= type.className %>Repository } from './<%= entity.fileName %>.<%= type.fileName %>.repository';
 import { <%= entity.className %>Repository } from '@<%= npmScope %>/<%= projectDomain %>';
 import { forkJoin } from 'rxjs';
 
-describe('<%= entity.className %> In Memory Repository', () => {
+describe('<%= entity.className %> <%= type.className %> Repository', () => {
   let repo: <%= entity.className %>Repository;
 
   beforeEach(() => {
-    repo = new <%= entity.className %>InMemoryRepository([
+    repo = new <%= entity.className %><%= type.className %>Repository([
       {
         id: '1',
         title: 'one'

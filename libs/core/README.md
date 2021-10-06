@@ -9,6 +9,15 @@ Na engenharia de software, injeção de dependência é uma técnica na qual um 
 
 O serviço faz parte do estado do cliente. Passar o serviço para o cliente (serviço ou componente), em vez de permitir que um cliente construa ou encontre o serviço, é o requisito fundamental do padrão.
 
+
+## Install
+
+```sh
+npm i @nx-clean/core
+```
+
+---
+
 ### Como usa-lo com React
 
 
@@ -130,3 +139,4 @@ export class TodoComponent {
 
 Você pode ver funcionando no endereço [clean-architecture.design](https://clean-architecture.design)
 
+![Nx Clean Core - Base for all](../../assets/base.svg)

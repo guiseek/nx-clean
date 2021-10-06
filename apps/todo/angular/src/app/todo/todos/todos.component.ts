@@ -4,7 +4,6 @@ import { TodoVM } from '@nx-clean/todo-presentation';
 @Component({
   selector: 'todo-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent {
   @Input() todos: TodoVM[] | null;

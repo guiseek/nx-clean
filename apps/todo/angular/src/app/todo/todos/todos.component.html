@@ -1,9 +1,10 @@
-<ul class="todo-list">
-  <li
-    todo-item
-    *ngFor="let todo of todos"
-    [todo]="todo"
-    (toggle)="onCheckItem(todo, $event)"
-    (remove)="onRemoveItem(todo)"
-  ></li>
-</ul>
+<mat-list>
+  <mat-list-item *ngFor="let todo of todos">
+    <div
+      todo-item
+      [todo]="todo"
+      (toggle)="onCheckItem(todo, $event)"
+      (remove)="onRemoveItem(todo)"
+    ></div>
+  </mat-list-item>
+</mat-list>

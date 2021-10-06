@@ -1,25 +1,18 @@
-import { ActivatedRoute } from '@angular/router';
 import { TodoPresenter, TodoVM } from '@nx-clean/todo-presentation';
 import { Component } from '@angular/core';
 
 @Component({
   templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent {
   todos$ = this.todoApp.todos$;
-  activeTodosCount$ = this.todoApp.activeTodosCount$;
   filter$ = this.todoApp.filter$;
 
-  constructor(private todoApp: TodoPresenter, private route: ActivatedRoute) {
-    route.fragment.subscribe((p) => {
-      if (p?.includes('active')) {
-        this.todoApp.getActiveTodos();
-      } else if (p?.includes('completed')) {
-        this.todoApp.getCompletedTodos();
-      } else {
-        this.todoApp.getAllTodos();
-      }
-    });
+  activeTodosCount$ = this.todoApp.activeTodosCount$;
+
+  constructor(private todoApp: TodoPresenter) {
+    this.todoApp.getAllTodos();
   }
 
   onAddItem(name: string) {

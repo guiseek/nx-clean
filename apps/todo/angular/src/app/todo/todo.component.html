@@ -1,4 +1,15 @@
-<section class="todoapp">
+<mat-toolbar color="primary">
+  <a mat-button href="/">
+    <mat-icon>navigate_before</mat-icon>
+    <span>Voltar</span>
+  </a>
+
+  <span class="spacer"></span>
+
+  <h1>Angular - <span>Clean Architecture .design</span></h1>
+</mat-toolbar>
+
+<main>
   <todo-header
     (addItem)="onAddItem($event)"
     (toggleAllCompleted)="onToggleAllCompleted()"
@@ -23,4 +34,4 @@
     (clearCompleted)="onClearCompleted()"
   >
   </todo-footer>
-</section>
+</main>

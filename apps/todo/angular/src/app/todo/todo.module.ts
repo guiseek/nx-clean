@@ -9,6 +9,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoInMemoryRepository } from '@nx-clean/todo-data-access';
 import { TodosComponent } from './todos/todos.component';
 import { TodoRepository } from '@nx-clean/todo-domain';
+import { SharedModule } from '../shared/shared.module';
 import { TodoComponent } from './todo.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +23,7 @@ import { NgModule } from '@angular/core';
     TodoHeaderComponent,
     TodoFooterComponent,
   ],
-  imports: [CommonModule, FormsModule, TodoRoutingModule],
+  imports: [CommonModule, SharedModule, FormsModule, TodoRoutingModule],
   exports: [
     TodoComponent,
     TodosComponent,
@@ -35,7 +36,10 @@ import { NgModule } from '@angular/core';
       provide: TodoRepository,
       useFactory: () => {
         return new TodoInMemoryRepository([
-          { id: '1', title: 'test', completed: false },
+          { id: '1', title: 'Front-end 1', completed: true },
+          { id: '2', title: 'Front-end 2', completed: false },
+          { id: '3', title: 'Front-end 3', completed: true },
+          { id: '4', title: 'Front-end 4', completed: false },
         ]);
       },
     },

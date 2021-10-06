@@ -10,16 +10,23 @@ Clean architecture proposes some techniques that solve the problems and reduce t
 npm i @nx-clean/plugin-core
 ```
 
+<div style="margin-bottom: -100px">
+
+![Nx Console with Nx Clean](./assets/onions.svg)
+
+</div>
+
 ## Docs
 
 - Packages
-  - [Core](./libs/core)
+  - [Core library](./libs/core)
 - Generators
-  - [Domain](./libs/plugin/core#domain---generate)
-  - [Data](./libs/plugin/core#data---generate)
-  - [Presentation](./libs/plugin/core#presentation---generate)
+  - [Domain - Business rules lives here](./libs/plugin/core#domain---generate)
+  - [Data / Data Access - Our data access layer](./libs/plugin/core#data---generate)
+  - [Presentation - Data flow for reactive presentation](./libs/plugin/core#presentation---generate)
 
 ---
+
 
 ## Demos
 

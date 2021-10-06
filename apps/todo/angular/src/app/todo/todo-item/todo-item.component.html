@@ -1,11 +1,11 @@
-<div class="view">
-  <input
-    #checkbox
-    class="toggle"
-    type="checkbox"
-    [attr.checked]="todo?.completed || null"
-    (click)="onToggleItem(checkbox.checked)"
-  />
-  <label>{{ todo?.name }}</label>
-  <button class="destroy" (click)="onRemoveItem()">x</button>
-</div>
+<todo-checkbox
+  [formControl]="checkbox"
+  [checked]="todo.completed"
+  (stateChange)="onToggleItem(checkbox.value)"
+>
+  {{ todo.name }}
+</todo-checkbox>
+
+<button mat-icon-button (click)="onRemoveItem()">
+  <mat-icon>clear</mat-icon>
+</button>

@@ -1,23 +1,17 @@
-<header class="header">
-  <h1>todos</h1>
-  <input
-    [(ngModel)]="name"
-    type="text"
-    class="new-todo"
-    placeholder="O que falta finalizar?"
-    autofocus=""
-    (keyup.enter)="onAddItem()"
-  />
-
-  <label for="toggle-all">
+<header>
+  <mat-form-field floatLabel="always">
+    <mat-label> O que falta finalizar? </mat-label>
     <input
-      id="toggle-all"
-      class="toggle-all"
-      type="checkbox"
-      [(ngModel)]="isToggleAll"
-      (change)="onToggleAllChange()"
+      matInput
+      name="task"
+      #todoInput
+      [autofocus]="true"
+      [formControl]="name"
+      (keyup.enter)="onAddItem(name)"
     />
-
+  </mat-form-field>
+  
+  <todo-checkbox [formControl]="checkbox" (stateChange)="onToggleAllChange()">
     Marcar todos como finalizados
-  </label>
+  </todo-checkbox>
 </header>

@@ -1,5 +1,5 @@
-<footer class="footer">
-  <p class="todo-count">
+<footer>
+  <p>
     <span [ngPlural]="count ?? 0">
       <ng-template ngPluralCase="=0">Nada pra fazer</ng-template>
       <ng-template ngPluralCase="=1">Falta apenas um item</ng-template>
@@ -11,40 +11,23 @@
     </span>
   </p>
 
-  <ul class="filters">
-    <li>
-      <a
-        routerLink="/todo"
-        fragment="/"
-        [class.selected]="filter === 'all'"
-        (click)="onShowAll()"
-      >
-        Todos
-      </a>
-    </li>
-    <li>
-      <a
-        routerLink="/todo"
-        fragment="/active"
-        [class.selected]="filter === 'active'"
-        (click)="onShowActive()"
-      >
-        Ativos
-      </a>
-    </li>
-    <li>
-      <a
-        routerLink="/todo"
-        fragment="/completed"
-        [class.selected]="filter === 'completed'"
-        (click)="onShowCompleted()"
-      >
-        Finalizados
-      </a>
-    </li>
-  </ul>
+  <p>
+    <mat-button-toggle-group
+      name="filter"
+      [formControl]="control"
+      aria-label="Todos filter"
+    >
+      <mat-button-toggle value="all">Todos</mat-button-toggle>
+      <mat-button-toggle value="active">Ativos</mat-button-toggle>
+      <mat-button-toggle value="completed">Finalizados</mat-button-toggle>
+    </mat-button-toggle-group>
+  </p>
 
-  <button class="clear-completed" (click)="onClearCompleted()">
-    Limpar finalizados
-  </button>
+  <mat-divider></mat-divider>
+
+  <p>
+    <button color="accent" mat-flat-button (click)="onClearCompleted()">
+      Limpar finalizados
+    </button>
+  </p>
 </footer>

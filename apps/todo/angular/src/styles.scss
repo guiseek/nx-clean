@@ -1,1 +1,31 @@
+@use '~@angular/material' as mat;
+@use './theming/palletes' as out;
+@use './theming/button-treme' as button;
+
 /* You can add global styles to this file, and also import other style files */
+
+@include mat.core();
+
+$out-primary: mat.define-palette(out.$light-mode);
+$out-accent: mat.define-palette(out.$light-mode);
+
+$out-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $out-primary,
+      accent: $out-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($out-theme);
+@include button.theme($out-theme);
+@include button.theme($out-theme);
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+.spacer {
+  flex: 1 1 auto;
+}

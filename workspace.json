@@ -241,32 +241,6 @@
         }
       }
     },
-    "todo-angular-e2e": {
-      "root": "apps/todo/angular-e2e",
-      "sourceRoot": "apps/todo/angular-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/todo/angular-e2e/cypress.json",
-            "tsConfig": "apps/todo/angular-e2e/tsconfig.e2e.json",
-            "devServerTarget": "todo-angular:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "todo-angular:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/todo/angular-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
     "todo-data-access": {
       "root": "libs/todo/data-access",
       "sourceRoot": "libs/todo/data-access/src",
@@ -439,34 +413,6 @@
           "options": {
             "jestConfig": "apps/todo/react/jest.config.js",
             "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "todo-react-e2e": {
-      "root": "apps/todo/react-e2e",
-      "sourceRoot": "apps/todo/react-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/todo/react-e2e/cypress.json",
-            "devServerTarget": "todo-react:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "todo-react:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/todo/react-e2e/src/**/*.ts",
-              "apps/todo/react-e2e/src/**/*.tsx"
-            ]
           }
         }
       }

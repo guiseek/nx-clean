@@ -39,10 +39,6 @@
     "todo-angular": {
       "tags": ["type:app"]
     },
-    "todo-angular-e2e": {
-      "tags": [],
-      "implicitDependencies": ["todo-angular"]
-    },
     "todo-data-access": {
       "tags": []
     },
@@ -54,10 +50,6 @@
     },
     "todo-react": {
       "tags": ["type:app"]
-    },
-    "todo-react-e2e": {
-      "tags": [],
-      "implicitDependencies": ["todo-react"]
     },
     "todo-web": {
       "tags": ["type:app"]

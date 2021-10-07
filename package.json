@@ -116,5 +116,17 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "contributors": [
+    {
+      "name": "Guilherme Siquinelli",
+      "email": "guiseek@gmail.com",
+      "url": "https://guiseek.dev"
+    },
+    {
+      "name": "Albino Neto",
+      "email": "albinomeneeguetti@hotmail.com.br",
+      "url": "https://github.com/AlbinoMeneguettiNeto"
+    }
+  ]
 }

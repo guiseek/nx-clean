@@ -35,3 +35,13 @@ npm i @nx-clean/plugin-core
 ![Nx Console with Nx Clean](./assets/nx-clean-console.png)
 
 Visit [Nx](https://nx.dev/) to learn more.
+
+
+## Contributors
+
+|  |  |
+| --- | --- |
+| [![Guilherme Siquinelli](https://avatars.githubusercontent.com/u/5638096?v=4) Guilherme Siquinelli ](https://github.com/guiseek) | [![Albino Neto](https://avatars.githubusercontent.com/u/43091506?v=4) Albino Neto](https://github.com/AlbinoMeneguettiNeto) |
+|  |  |
+
+ 

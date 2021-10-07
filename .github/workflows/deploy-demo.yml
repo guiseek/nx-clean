@@ -33,7 +33,7 @@ jobs:
         uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: build
-          projects: demos,todo-react,todo-angular
+          projects: demos,todo-react,todo-angular,todo-web
           args: '--prod'
 
       - name: Deploy

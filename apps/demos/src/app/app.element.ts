@@ -155,6 +155,9 @@ export class AppElement extends HTMLElement {
         <li class="col-span-2">
           <a class="resource flex" href="/react/"> React </a>
         </li>
+        <li class="col-span-2">
+          <a class="resource flex" href="/web/"> Web </a>
+        </li>
       </ul>
 
       <h2>Next Steps</h2>

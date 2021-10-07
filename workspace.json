@@ -85,7 +85,11 @@
             "main": "apps/demos/src/main.ts",
             "polyfills": "apps/demos/src/polyfills.ts",
             "tsConfig": "apps/demos/tsconfig.app.json",
-            "assets": ["apps/demos/src/favicon.ico", "apps/demos/src/CNAME", "apps/demos/src/assets"],
+            "assets": [
+              "apps/demos/src/favicon.ico",
+              "apps/demos/src/CNAME",
+              "apps/demos/src/assets"
+            ],
             "styles": ["apps/demos/src/styles.scss"],
             "scripts": []
           },
@@ -128,9 +132,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/demos/src/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/demos/src/**/*.ts"]
           }
         },
         "test": {
@@ -465,6 +467,80 @@
               "apps/todo/react-e2e/src/**/*.ts",
               "apps/todo/react-e2e/src/**/*.tsx"
             ]
+          }
+        }
+      }
+    },
+    "todo-web": {
+      "projectType": "application",
+      "root": "apps/todo/web",
+      "sourceRoot": "apps/todo/web/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/demos/web",
+            "index": "apps/todo/web/src/index.html",
+            "main": "apps/todo/web/src/main.ts",
+            "polyfills": "apps/todo/web/src/polyfills.ts",
+            "tsConfig": "apps/todo/web/tsconfig.app.json",
+            "assets": [
+              "apps/todo/web/src/favicon.ico",
+              "apps/todo/web/src/assets"
+            ],
+            "styles": ["apps/todo/web/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/todo/web/src/environments/environment.ts",
+                  "with": "apps/todo/web/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "baseHref": "/web/"
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "todo-web:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "todo-web:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/todo/web/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/todo/web"],
+          "options": {
+            "jestConfig": "apps/todo/web/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

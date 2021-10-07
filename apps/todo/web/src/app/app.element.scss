@@ -1,0 +1,54 @@
+/*
+ * Remove template code below
+ */
+body > *:first-child {
+  display: block;
+  max-width: 600px;
+  margin: 25px auto;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+
+  --mdc-theme-primary: #000000;
+  --mdc-theme-secondary: #000000;
+
+  --mdc-checkbox-unchecked-color: black;
+  /* Required for unchecked focus ripple */
+  --mdc-theme-on-surface: white;
+  --mdc-checkbox-disabled-color: #adadad;
+  --mdc-checkbox-ink-color: white;
+
+  --mdc-top-app-bar-width: 600px;
+}
+
+mwc-top-app-bar {
+  padding-left: 0;
+  margin-bottom: 25px;
+}
+
+main {
+  gap: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+mwc-icon {
+  cursor: pointer;
+}
+
+mwc-textfield {
+  width: 100%;
+}
+
+.view {
+  gap: 14px;
+  display: flex;
+  align-items: center;
+}

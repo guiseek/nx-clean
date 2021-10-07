@@ -58,6 +58,9 @@
     "todo-react-e2e": {
       "tags": [],
       "implicitDependencies": ["todo-react"]
+    },
+    "todo-web": {
+      "tags": ["type:app"]
     }
   },
   "workspaceLayout": {

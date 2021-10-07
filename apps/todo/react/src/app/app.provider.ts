@@ -11,7 +11,10 @@ export const injector = Injector.create([
     provide: TodoRepository,
     useFactory: () => {
       return new TodoInMemoryRepository([
-        { id: '1', title: 'Opa', completed: true },
+        { id: '1', title: 'Front-end 1', completed: true },
+        { id: '2', title: 'Front-end 2', completed: false },
+        { id: '3', title: 'Front-end 3', completed: true },
+        { id: '4', title: 'Front-end 4', completed: false },
       ]);
     },
   },

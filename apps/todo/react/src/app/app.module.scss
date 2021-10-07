@@ -40,3 +40,11 @@
 .app :global(footer) {
   padding: 8px 18px;
 }
+
+.app :global(span.opacity) {
+  opacity: 0.66;
+}
+
+.app :global(input) {
+  width: 100%;
+}

@@ -48,3 +48,7 @@
 .app :global(input) {
   width: 100%;
 }
+
+.app :global(.repo-link) {
+  text-align: center;
+}

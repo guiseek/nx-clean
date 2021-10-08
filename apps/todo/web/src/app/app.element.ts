@@ -49,6 +49,12 @@ export class AppElement extends HTMLElement {
       <footer>
         <mwc-button id="clear" unelevated> Limpar finalizados </mwc-button>
       </footer>
+
+      <div class="repo-link">
+        <a href="https://github.com/guiseek/nx-clean">
+          <mwc-button label="Source code"></mwc-button>
+        </a>
+      </div>
     </main>
   `;
 

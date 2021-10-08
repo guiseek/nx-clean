@@ -1,5 +1,4 @@
 import { Connected, BuiltIn, html } from '../../../core';
-import { TodoVM } from '@nx-clean/todo-presentation';
 
 @BuiltIn({
   selector: 'todo-item',
@@ -8,7 +7,7 @@ import { TodoVM } from '@nx-clean/todo-presentation';
 export class TodoItemElement extends HTMLLIElement implements Connected {
   observed = ['todo', 'is'];
   is = 'todo-item'
-  todo: TodoVM;
+  todo: any;
 
   template = html`
     <div class="view">

@@ -28,6 +28,9 @@ const theme = createTheme({
     primary: {
       main: '#000000',
     },
+    secondary: {
+      main: '#ffffff',
+    },
     contrastThreshold: 3,
     tonalOffset: 0.2,
   },
@@ -121,7 +124,11 @@ export function App() {
           sx={{ backgroundColor: 'primary.dark' }}
           alignItems="center"
         >
-          <Link component="button" underline="none" href="/" color="white">
+          <Button variant="text" href="/" color="secondary">
+            <NavigateBefore />
+            <span>Voltar</span>
+          </Button>
+          {/* <Link component="button" underline="none" href="/" color="white">
             <Grid container alignItems="center" spacing={0.5}>
               <Grid item mt="1px">
                 <NavigateBefore />
@@ -132,7 +139,7 @@ export function App() {
                 </Typography>
               </Grid>
             </Grid>
-          </Link>
+          </Link> */}
           <Grid item>
             <Typography variant="h5" color="white">
               React - <span className="opacity">Clean Archtecture .design</span>
@@ -187,6 +194,11 @@ export function App() {
             Limpar finalizados
           </Button>
         </footer>
+        <div className="repo-link">
+          <Button variant="text" href="https://github.com/guiseek/nx-clean">
+            Source code
+          </Button>
+        </div>
       </div>
     </ThemeProvider>
   );

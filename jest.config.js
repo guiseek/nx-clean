@@ -7,7 +7,6 @@ module.exports = {
     '<rootDir>/libs/todo/presentation',
     '<rootDir>/apps/todo/web',
     '<rootDir>/libs/plugin/core',
-    '<rootDir>/apps/plugin/core-e2e',
     '<rootDir>/apps/todo/react',
     '<rootDir>/apps/demos',
   ],

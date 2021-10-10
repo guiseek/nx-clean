@@ -1,7 +1,7 @@
 {
   "name": "nx-clean",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "GPLv3",
   "scripts": {
     "nx": "nx",
     "start": "nx serve",

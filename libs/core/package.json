@@ -13,7 +13,7 @@
     "email": "email@guiseek.dev",
     "url": "https://guiseek.dev"
   },
-  "license": "MIT",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/guiseek/nx-clean/issues"
   },

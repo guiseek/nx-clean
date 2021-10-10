@@ -16,5 +16,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/guiseek/nx-clean/issues"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "reflect-metadata": "0.1.13"
   }
 }

@@ -51,7 +51,10 @@ export class AppElement extends HTMLElement {
       </footer>
 
       <div class="repo-link">
-        <a href="https://github.com/guiseek/nx-clean">
+        <a
+          target="_blank" rel="noopener noreferrer"
+          href="https://github.com/guiseek/nx-clean/blob/main/apps/todo/web/src/app"
+        >
           <mwc-button label="Source code"></mwc-button>
         </a>
       </div>

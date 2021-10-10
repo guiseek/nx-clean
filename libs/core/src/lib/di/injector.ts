@@ -53,7 +53,7 @@ export class Injector {
   // Retorna um nome para o token.
   private getTokenName<T>(token: Token<T>) {
     return token instanceof InjectionToken
-      ? token.injectionIdentifier
+      ? token.toString()
       : token.name;
   }
 

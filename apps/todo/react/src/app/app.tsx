@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-// import Checkbox from '@mui/material/Checkbox';
 import {
-  Link,
   Grid,
   Stack,
   Button,
@@ -9,32 +7,20 @@ import {
   Checkbox,
   FormGroup,
   Typography,
-  ButtonGroup,
   ToggleButton,
   FormControlLabel,
   ToggleButtonGroup,
 } from '@mui/material';
 import { NavigateBefore, Clear } from '@material-ui/icons';
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 import { TodoVM, TodoPresenter } from '@nx-clean/todo-presentation';
+
 import { injector } from './app.provider';
+import { theme } from './app.theme';
 
 import styles from './app.module.scss';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#000000',
-    },
-    secondary: {
-      main: '#ffffff',
-    },
-    contrastThreshold: 3,
-    tonalOffset: 0.2,
-  },
-});
 
 const presenter = injector.get<TodoPresenter>(TodoPresenter);
 
@@ -128,18 +114,6 @@ export function App() {
             <NavigateBefore />
             <span>Voltar</span>
           </Button>
-          {/* <Link component="button" underline="none" href="/" color="white">
-            <Grid container alignItems="center" spacing={0.5}>
-              <Grid item mt="1px">
-                <NavigateBefore />
-              </Grid>
-              <Grid item>
-                <Typography variant="caption">
-                  <span className="opacity">Voltar</span>
-                </Typography>
-              </Grid>
-            </Grid>
-          </Link> */}
           <Grid item>
             <Typography variant="h5" color="white">
               React - <span className="opacity">Clean Archtecture .design</span>
@@ -195,7 +169,12 @@ export function App() {
           </Button>
         </footer>
         <div className="repo-link">
-          <Button variant="text" href="https://github.com/guiseek/nx-clean">
+          <Button
+            variant="text"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/guiseek/nx-clean/blob/main/apps/todo/react/src/app"
+          >
             Source code
           </Button>
         </div>

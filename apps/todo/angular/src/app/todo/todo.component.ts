@@ -2,6 +2,7 @@ import { TodoPresenter, TodoVM } from '@nx-clean/todo-presentation';
 import { Component } from '@angular/core';
 
 @Component({
+  selector: 'todo-angular',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
 })

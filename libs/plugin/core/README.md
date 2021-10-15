@@ -3,7 +3,7 @@
 ## Install
 
 ```sh
-npm i @nx-clean/plugin-core
+npm i -D @nx-clean/plugin-core
 ```
 
 ## Generators

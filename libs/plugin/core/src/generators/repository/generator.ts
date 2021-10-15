@@ -7,6 +7,7 @@ import {
   readWorkspaceConfiguration,
 } from '@nrwl/devkit';
 import { join } from 'path';
+import { getProjectImportPath } from '../../utils/get-project-import-path';
 import {
   ImplRepositoryGeneratorSchema,
   NormalizedSchema,
@@ -80,8 +81,17 @@ function normalizeOptions(
 ): NormalizedSchema {
   const npmScope = readWorkspaceConfiguration(host).npmScope;
   const format = names(options.type).fileName;
-  const projectDomain = options.domain;
-  const projectData = options.data;
+
+  const configDomain = readProjectConfiguration(host, options.domain);
+  const projectDomain = configDomain
+    ? getProjectImportPath(configDomain)
+    : options.domain;
+
+  const configData = readProjectConfiguration(host, options.domain);
+  const projectData = configData
+    ? getProjectImportPath(configData)
+    : options.data;
+
   return {
     ...options,
     projectDomain,

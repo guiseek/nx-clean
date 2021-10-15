@@ -32,6 +32,9 @@ MIT
 @angular/core
 MIT
 
+@angular/forms
+MIT
+
 @angular/material
 MIT
 The MIT License
@@ -60,8 +63,11 @@ THE SOFTWARE.
 @angular/platform-browser
 MIT
 
-@angular/router
-MIT
+@nx-clean/todo-data-access
+
+@nx-clean/todo-domain
+
+@nx-clean/todo-presentation
 
 rxjs
 Apache-2.0

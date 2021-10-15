@@ -5,8 +5,8 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'todo-header',
   templateUrl: './todo-header.component.html',
-  styleUrls: ['./todo-header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [`:host header { display: flex; flex-direction: column; }`],
 })
 export class TodoHeaderComponent implements AfterViewInit {
   @ViewChild('todoInput')

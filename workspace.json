@@ -7,7 +7,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/cli",
@@ -32,7 +32,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "core": {
       "root": "libs/core",
@@ -40,7 +41,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/core",
@@ -71,7 +72,8 @@
             "command": "npx semantic-release -e ./libs/core/.releaserc.json"
           }
         }
-      }
+      },
+      "tags": []
     },
     "demos": {
       "projectType": "application",
@@ -79,7 +81,7 @@
       "sourceRoot": "apps/demos/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/demos",
@@ -146,7 +148,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["type:app"]
     },
     "plugin-core": "libs/plugin/core",
     "todo-angular": {
@@ -242,7 +245,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["type:app"]
     },
     "todo-data-access": {
       "root": "libs/todo/data-access",
@@ -250,7 +254,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/todo/data-access",
@@ -275,7 +279,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "todo-domain": {
       "root": "libs/todo/domain",
@@ -283,7 +288,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/todo/domain",
@@ -308,7 +313,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "todo-presentation": {
       "root": "libs/todo/presentation",
@@ -316,7 +322,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/todo/presentation",
@@ -341,7 +347,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "todo-react": {
       "root": "apps/todo/react",
@@ -349,7 +356,7 @@
       "projectType": "application",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/demos/react",
@@ -422,7 +429,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["type:app"]
     },
     "todo-web": {
       "projectType": "application",
@@ -430,7 +438,7 @@
       "sourceRoot": "apps/todo/web/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/demos/web",
@@ -497,52 +505,8 @@
             "passWithNoTests": true
           }
         }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "generators": {
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    },
-    "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
       },
-      "component": {
-        "style": "scss"
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/web:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "none"
-    },
-    "@nrwl/web:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
+      "tags": ["type:app"]
     }
-  },
-  "defaultProject": "todo-angular"
+  }
 }

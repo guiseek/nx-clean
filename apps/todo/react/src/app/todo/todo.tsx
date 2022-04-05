@@ -9,21 +9,26 @@ import {
 
 import styles from './todo.module.scss';
 
-import { injector } from '../app.provider';
+import { useServiceLocator } from '@nx-clean/react';
 
 import TodoFooter from './todo-footer/todo-footer';
 import TodoHeader from './todo-header/todo-header';
 import Todos from './todos/todos';
 
-/* eslint-disable-next-line */
-export interface TodoProps {}
+// import { injector } from '../app.provider';
+// const presenter = injector.get<TodoPresenter>(TodoPresenter);
 
-const presenter = injector.get<TodoPresenter>(TodoPresenter);
 
-export function Todo(props: TodoProps) {
+export function Todo() {
+
   const [value, setValue] = React.useState('');
   const [state, setState] = React.useState<TodoVM[]>([]);
   const [buttonGroup, setButtonGroup] = React.useState('showAll');
+
+
+  const [getPresenter] = useServiceLocator();
+  const presenter = getPresenter<TodoPresenter>(TodoPresenter);
+
 
   useEffect(() => {
     presenter.getAllTodos().subscribe(setState).unsubscribe();

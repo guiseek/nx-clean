@@ -18,6 +18,7 @@
       "@nx-clean/cli": ["libs/cli/src/index.ts"],
       "@nx-clean/core": ["libs/core/src/index.ts"],
       "@nx-clean/core-plugin": ["libs/plugin/core/src/index.ts"],
+      "@nx-clean/react": ["libs/react/src/index.ts"],
       "@nx-clean/todo-data-access": ["libs/todo/data-access/src/index.ts"],
       "@nx-clean/todo-domain": ["libs/todo/domain/src/index.ts"],
       "@nx-clean/todo-presentation": ["libs/todo/presentation/src/index.ts"]

@@ -12,6 +12,7 @@ import {
   ClassProvider,
   FactoryProvider,
 } from './interfaces/provider';
+import { assertInjectableIfClassProvider } from './utils/assert-injectables';
 
 export class Injector {
   private static instance: Injector;
@@ -39,15 +40,16 @@ export class Injector {
   }
 
   private assertInjectableIfClassProvider<T>(provider: Provider<T>) {
-    if (isClassProvider(provider) && !isInjectable(provider.useClass)) {
-      throw new Error(
-        `Cannot provide ${this.getTokenName(
-          provider.provide
-        )} using class ${this.getTokenName(
-          provider.useClass
-        )}, ${this.getTokenName(provider.useClass)} isn't injectable`
-      );
-    }
+    assertInjectableIfClassProvider(provider);
+    // if (isClassProvider(provider) && !isInjectable(provider.useClass)) {
+    //   throw new Error(
+    //     `Cannot provide ${this.getTokenName(
+    //       provider.provide
+    //     )} using class ${this.getTokenName(
+    //       provider.useClass
+    //     )}, ${this.getTokenName(provider.useClass)} isn't injectable`
+    //   );
+    // }
   }
 
   // Retorna um nome para o token.

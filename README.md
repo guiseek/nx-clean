@@ -46,5 +46,5 @@ Clean architecture proposes some techniques that solve the problems and reduce t
 
 |  |  |
 | --- | --- |
-| [![Guilherme Siquinelli](https://avatars.githubusercontent.com/u/5638096?v=4) Guilherme Siquinelli ](https://github.com/guiseek) | [![Albino Neto](https://avatars.githubusercontent.com/u/43091506?v=4) Albino Neto](https://github.com/AlbinoMeneguettiNeto) |
+| [![Guilherme Siquinelli](https://avatars.githubusercontent.com/u/5638096?v=4) Guilherme Siquinelli ](https://github.com/guiseek) | [![Albino Neto](https://avatars.githubusercontent.com/u/43091506?v=4) Albino Neto](https://github.com/albinomn) |
 |  |  |

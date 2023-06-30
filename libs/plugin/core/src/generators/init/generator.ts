@@ -7,8 +7,8 @@ import {
   formatFiles,
   installPackagesTask,
   addDependenciesToPackageJson,
-  updateWorkspaceConfiguration,
-  readWorkspaceConfiguration,
+  updateNxJson,
+  readNxJson,
 } from '@nx/devkit';
 
 const nxCleanInitGenerator = async function (
@@ -25,7 +25,7 @@ const nxCleanInitGenerator = async function (
 };
 
 function setDefaults(host: Tree, options: InitGeneratorSchema) {
-  const workspace = readWorkspaceConfiguration(host);
+  const workspace = readNxJson(host);
 
   workspace.generators = workspace.generators || {};
   workspace.generators['@nx-clean/plugin-core'] = {
@@ -36,7 +36,7 @@ function setDefaults(host: Tree, options: InitGeneratorSchema) {
     ...(workspace.generators['@nx-clean/plugin-core'] || {}),
   };
 
-  updateWorkspaceConfiguration(host, workspace);
+  updateNxJson(host, workspace);
   setDefaultCollection(host, '@nx-clean/plugin-core');
 }
 

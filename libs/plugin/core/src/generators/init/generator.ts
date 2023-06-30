@@ -1,5 +1,5 @@
 import { setDefaultCollection } from '@nx/workspace/src/utilities/set-default-collection';
-import { runTasksInSerial } from '@nx/workspace/src/utilities/run-tasks-in-serial';
+import { runTasksInSerial } from '@nx/devkit';
 import { nxCleanCoreVersion, rxjsVersion } from '../../utils';
 import { InitGeneratorSchema } from './schema';
 import {

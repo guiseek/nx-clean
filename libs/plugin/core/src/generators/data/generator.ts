@@ -1,7 +1,7 @@
 import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
-import { libraryGenerator } from '@nx/workspace/generators';
 import { addFiles, normalizeOptions } from '../../utils';
 import { DataGeneratorSchema } from '../../interfaces';
+import { libraryGenerator } from '@nx/js';
 
 export default async function (host: Tree, options: DataGeneratorSchema) {
   const normalizedOptions = normalizeOptions(host, options);

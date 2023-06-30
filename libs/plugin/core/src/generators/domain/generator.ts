@@ -4,8 +4,8 @@ import {
   nxCleanCoreVersion,
   rxjsVersion,
 } from '../../utils';
-import { runTasksInSerial } from '@nx/workspace/src/utilities/run-tasks-in-serial';
-import { libraryGenerator } from '@nx/workspace/generators';
+import { runTasksInSerial } from '@nx/devkit';
+import { libraryGenerator } from '@nx/js';
 import { DomainGeneratorSchema } from '../../interfaces';
 import {
   Tree,

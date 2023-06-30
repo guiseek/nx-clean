@@ -1,6 +1,6 @@
 import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
 import { PresentationGeneratorSchema } from '../../interfaces';
-import { libraryGenerator } from '@nx/workspace/generators';
+import { libraryGenerator } from '@nx/js';
 import { addFiles, normalizeOptions } from '../../utils';
 
 export default async function (

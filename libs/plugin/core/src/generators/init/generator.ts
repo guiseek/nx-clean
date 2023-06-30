@@ -1,5 +1,5 @@
-import { setDefaultCollection } from '@nrwl/workspace/src/utilities/set-default-collection';
-import { runTasksInSerial } from '@nrwl/workspace/src/utilities/run-tasks-in-serial';
+import { setDefaultCollection } from '@nx/workspace/src/utilities/set-default-collection';
+import { runTasksInSerial } from '@nx/workspace/src/utilities/run-tasks-in-serial';
 import { nxCleanCoreVersion, rxjsVersion } from '../../utils';
 import { InitGeneratorSchema } from './schema';
 import {
@@ -9,7 +9,7 @@ import {
   addDependenciesToPackageJson,
   updateWorkspaceConfiguration,
   readWorkspaceConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 
 const nxCleanInitGenerator = async function (
   host: Tree,

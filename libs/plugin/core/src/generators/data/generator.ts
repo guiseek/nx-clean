@@ -1,5 +1,5 @@
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
+import { libraryGenerator } from '@nx/workspace/generators';
 import { addFiles, normalizeOptions } from '../../utils';
 import { DataGeneratorSchema } from '../../interfaces';
 

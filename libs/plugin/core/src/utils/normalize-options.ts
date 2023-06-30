@@ -12,7 +12,7 @@ import {
   getWorkspaceLayout,
   readWorkspaceConfiguration,
   readProjectConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { GeneratorsConfig } from '../types';
 import { getProjectImportPath } from './get-project-import-path';
 

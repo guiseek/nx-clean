@@ -1,5 +1,5 @@
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
+import { Tree, readProjectConfiguration } from '@nx/devkit';
 import { DataGeneratorSchema } from '../../interfaces';
 
 import domainGenerator from '../domain/generator';
@@ -10,14 +10,14 @@ describe('data generator', () => {
   const domainOptions = {
     name: 'domain',
     directory: 'todo',
-    entity: 'user'
-  }
+    entity: 'user',
+  };
 
   let appTree: Tree;
   const options: DataGeneratorSchema = {
     name: 'test',
     domain: 'todo-domain',
-    entity: 'user'
+    entity: 'user',
   };
 
   beforeEach(async () => {

@@ -5,7 +5,7 @@ import {
   offsetFromRoot,
   readProjectConfiguration,
   readWorkspaceConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { join } from 'path';
 import { getProjectImportPath } from '../../utils/get-project-import-path';
 import {

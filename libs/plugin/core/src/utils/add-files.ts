@@ -1,4 +1,4 @@
-import { Tree, names, generateFiles, offsetFromRoot } from '@nrwl/devkit';
+import { Tree, names, generateFiles, offsetFromRoot } from '@nx/devkit';
 import {
   DataPluginCoreNormalizedSchema,
   DomainPluginCoreNormalizedSchema,
@@ -10,13 +10,13 @@ export function addFiles(
   host: Tree,
   options: DomainPluginCoreNormalizedSchema,
   dir: string
-): void
+): void;
 
 export function addFiles(
   host: Tree,
   options: DataPluginCoreNormalizedSchema,
   dir: string
-): void
+): void;
 
 export function addFiles(
   host: Tree,

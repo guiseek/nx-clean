@@ -18,13 +18,13 @@
   // Get the typography config from the theme.
   $typography-config: mat.get-typography-config($theme);
 
-  .mat-button {
+  .mat-mdc-button {
     font-family: mat.font-family($typography-config);
   }
 }
 
 @mixin theme($theme) {
-  button.mat-button-base {
+  button.mat-mdc-button-base {
     // border-radius: 8px;
   }
 

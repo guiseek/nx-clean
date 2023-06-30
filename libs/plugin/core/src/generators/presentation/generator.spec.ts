@@ -1,6 +1,6 @@
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import { PresentationGeneratorSchema } from '../../interfaces';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
+import { Tree, readProjectConfiguration } from '@nx/devkit';
 
 import domainGenerator from '../domain/generator';
 import dataGenerator from '../data/generator';

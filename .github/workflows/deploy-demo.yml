@@ -27,7 +27,7 @@ jobs:
         run: git fetch origin main
 
       - name: Install
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Build
         uses: mansagroup/nrwl-nx-action@v2

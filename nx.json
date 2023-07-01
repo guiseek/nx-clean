@@ -1,5 +1,4 @@
 {
-  "npmScope": "nx-clean",
   "affected": {
     "defaultBase": "main"
   },

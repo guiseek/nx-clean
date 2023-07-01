@@ -1,4 +1,3 @@
-import { setDefaultCollection } from '@nx/workspace/src/utilities/set-default-collection';
 import { runTasksInSerial } from '@nx/devkit';
 import { nxCleanCoreVersion, rxjsVersion } from '../../utils';
 import { InitGeneratorSchema } from './schema';
@@ -37,7 +36,7 @@ function setDefaults(host: Tree, options: InitGeneratorSchema) {
   };
 
   updateNxJson(host, workspace);
-  setDefaultCollection(host, '@nx-clean/plugin-core');
+  workspace.defaultProject = '@nx-clean/plugin-core'
 }
 
 function updateDependencies(host: Tree) {

@@ -15,15 +15,10 @@ import { NgClass, NgPlural, NgPluralCase } from '@angular/common';
 export type FilterValue = 'all' | 'active' | 'completed';
 
 @Component({
-    selector: 'todo-footer',
-    templateUrl: './todo-footer.component.html',
-    standalone: true,
-    imports: [
-        NgClass,
-        NgPlural,
-        NgPluralCase,
-        ReactiveFormsModule,
-    ],
+  selector: 'todo-footer',
+  templateUrl: './todo-footer.component.html',
+  standalone: true,
+  imports: [NgClass, NgPlural, NgPluralCase, ReactiveFormsModule],
 })
 export class TodoFooterComponent implements AfterViewInit, OnDestroy {
   private _destroy = new Subject<void>();

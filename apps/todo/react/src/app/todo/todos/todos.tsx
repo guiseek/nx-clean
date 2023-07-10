@@ -14,18 +14,20 @@ export function Todos({
   handleRemoveItem,
 }: TodosProps) {
   return (
-    <>
+    <ul>
       {todos.map((todo) => {
         return (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            handleToggleItem={handleToggleItem}
-            handleRemoveItem={handleRemoveItem}
-          />
+          <li className="list-none" key={todo.id}>
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              handleToggleItem={handleToggleItem}
+              handleRemoveItem={handleRemoveItem}
+            />
+          </li>
         );
       })}
-    </>
+    </ul>
   );
 }
 

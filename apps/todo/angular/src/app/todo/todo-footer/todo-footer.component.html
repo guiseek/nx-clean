@@ -10,14 +10,35 @@
       </ng-template>
     </span>
   </p>
-    <div class="btn-group btn-group-horizontal lg:btn-group-horizontal p-4">
-      <button class="btn" [ngClass]="{'btn-active': filter === 'all'}" (click)="emitChange('all')">Todos</button>
-      <button class="btn" [ngClass]="{'btn-active': filter === 'active'}" (click)="emitChange('active')">Ativos</button>
-      <button class="btn" [ngClass]="{'btn-active': filter === 'completed'}" (click)="emitChange('completed')">Finalizados</button>
-    </div>
-    <div class="divider"></div>
-
-    <button class="btn btn-accent text-center m-auto" (click)="onClearCompleted()">
-      Limpar finalizados
+  <div class="btn-group btn-group-horizontal lg:btn-group-horizontal p-4">
+    <button
+      class="btn"
+      [ngClass]="{ 'btn-active': filter === 'all' }"
+      (click)="emitChange('all')"
+    >
+      Todos
     </button>
+    <button
+      class="btn"
+      [ngClass]="{ 'btn-active': filter === 'active' }"
+      (click)="emitChange('active')"
+    >
+      Ativos
+    </button>
+    <button
+      class="btn"
+      [ngClass]="{ 'btn-active': filter === 'completed' }"
+      (click)="emitChange('completed')"
+    >
+      Finalizados
+    </button>
+  </div>
+  <div class="divider"></div>
+
+  <button
+    class="btn btn-accent text-center m-auto"
+    (click)="onClearCompleted()"
+  >
+    Limpar finalizados
+  </button>
 </footer>

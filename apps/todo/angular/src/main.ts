@@ -9,9 +9,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-// platformBrowserDynamic()
-//   .bootstrapModule(AppModule)
-//   .catch((err) => console.error(err));
 bootstrapApplication(AppComponent, {
   providers: [AppProvider.withEnv(environment)],
-})
+});

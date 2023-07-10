@@ -1,14 +1,18 @@
-import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
 import { TodoVM } from '@nx-clean/todo-presentation';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-    selector: '[todo-item]',
-    templateUrl: './todo-item.component.html',
-    standalone: true,
-    imports: [
-        ReactiveFormsModule,
-    ],
+  selector: '[todo-item]',
+  templateUrl: './todo-item.component.html',
+  standalone: true,
+  imports: [ReactiveFormsModule],
 })
 export class TodoItemComponent implements OnChanges {
   @Input() todo!: TodoVM;

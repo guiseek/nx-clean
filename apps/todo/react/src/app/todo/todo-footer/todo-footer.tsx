@@ -1,4 +1,3 @@
-import { Button, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { TodoVM } from '@nx-clean/todo-presentation';
 
 export interface TodoFooterProps {
@@ -24,32 +23,47 @@ export function TodoFooter({
   handleButtonGroup,
 }: TodoFooterProps) {
   return (
-    <footer className="footer">
+    <footer className="footer flex flex-col justify-start gap-0">
       <p className="todo-count">
         Faltam {todos.filter((value) => value.completed === false).length} itens
         pra finalizar
       </p>
-      <ToggleButtonGroup
-        color="primary"
-        exclusive
-        value={buttonGroup}
-        onChange={handleButtonGroup}
-        aria-label="outlined button group"
-      >
-        <ToggleButton value="showAll" onClick={handleShowAll}>
-          Todos
-        </ToggleButton>
-        <ToggleButton value="showActive" onClick={handleShowActive}>
-          Ativos
-        </ToggleButton>
-        <ToggleButton value="showCompleted" onClick={handleShowCompleted}>
-          Finalizados
-        </ToggleButton>
-      </ToggleButtonGroup>
-      <hr />
-      <Button variant="contained" onClick={handleClearCompleted}>
+      <div className="w-full">
+        <div className="btn-group btn-group-horizontal lg:btn-group-horizontal p-4 w-full">
+          <button
+            className={`btn ${buttonGroup === 'all' ? 'btn-active' : ''}`}
+            onClick={(e) => {
+              handleShowAll();
+              handleButtonGroup(e, 'all');
+            }}
+          >
+            Todos
+          </button>
+          <button
+            className={`btn ${buttonGroup === 'active' ? 'btn-active' : ''}`}
+            onClick={(e) => {
+              handleShowActive();
+              handleButtonGroup(e, 'active');
+            }}
+          >
+            Ativos
+          </button>
+          <button
+            className={`btn ${buttonGroup === 'completed' ? 'btn-active' : ''}`}
+            onClick={(e) => {
+              handleShowCompleted();
+              handleButtonGroup(e, 'completed');
+            }}
+          >
+            Finalizados
+          </button>
+        </div>
+      </div>
+      <div className="divider"></div>
+
+      <button className="btn btn-primary pt-4" onClick={handleClearCompleted}>
         Limpar finalizados
-      </Button>
+      </button>
     </footer>
   );
 }

@@ -1,0 +1,35 @@
+{
+  "name": "todo-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/todo/domain/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/todo/domain",
+        "main": "libs/todo/domain/src/index.ts",
+        "packageJson": "libs/todo/domain/package.json",
+        "tsConfig": "libs/todo/domain/tsconfig.lib.json",
+        "assets": ["libs/todo/domain/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/todo/domain/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/todo/domain"],
+      "options": {
+        "jestConfig": "libs/todo/domain/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

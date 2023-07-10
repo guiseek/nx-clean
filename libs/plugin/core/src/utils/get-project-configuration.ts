@@ -1,8 +1,8 @@
-import { ProjectConfiguration } from '@nrwl/devkit';
+import { ProjectConfiguration } from '@nx/devkit';
 import { PluginCoreNormalizedSchema } from '../interfaces';
 
 export function getProjectConfiguration<T extends PluginCoreNormalizedSchema>(
-  normalizedOptions: T,
+  normalizedOptions: T
 ): ProjectConfiguration & { tags: string[] } {
   return {
     root: normalizedOptions.projectRoot,
@@ -10,7 +10,7 @@ export function getProjectConfiguration<T extends PluginCoreNormalizedSchema>(
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       build: {
-        executor: '@nrwl/node:package',
+        executor: '@nx/node:package',
         outputs: ['{options.outputPath}'],
         options: {
           outputPath: `dist/${normalizedOptions.projectRoot}`,
@@ -22,5 +22,5 @@ export function getProjectConfiguration<T extends PluginCoreNormalizedSchema>(
       },
     },
     tags: normalizedOptions.parsedTags,
-  }
+  };
 }

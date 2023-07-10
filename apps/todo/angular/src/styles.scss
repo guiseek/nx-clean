@@ -1,27 +1,54 @@
-@use '@angular/material' as mat;
-@use './theming/palletes' as out;
-@use './theming/button-treme' as button;
+// @use '@angular/material' as mat;
+// @use './theming/palletes' as out;
+// @use './theming/button-treme' as button;
 
 /* You can add global styles to this file, and also import other style files */
 
-@include mat.core();
+// @include mat.core();
 
-$out-primary: mat.define-palette(out.$light-mode);
-$out-accent: mat.define-palette(out.$light-mode);
+// // $out-primary: mat.define-palette(out.$light-mode);
+// // $out-accent: mat.define-palette(out.$light-mode);
+// $my-primary: mat.define-palette(mat.$indigo-palette, 500);
+// $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-$out-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $out-primary,
-      accent: $out-accent,
-    ),
-  )
-);
+// $out-theme: mat.define-light-theme($my-primary, $my-accent);
 
-@include mat.all-component-themes($out-theme);
-@include button.theme($out-theme);
-@include button.theme($out-theme);
+// @include mat.all-component-themes($out-theme);
+// @include button.theme($out-theme);
+// @include button.theme($out-theme);
 
+@use '@angular/material' as mat;
+
+// @include mat.core();
+// @include mat.strong-focus-indicators((
+//   border-style: dotted,
+//   border-width: 4px,
+//   border-radius: 2px,
+// ));
+
+// $my-primary: mat.define-palette(mat.$indigo-palette, 500);
+// $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// $my-theme: mat.define-light-theme((
+//  color: (
+//    primary: $my-primary,
+//    accent: $my-accent,
+//  )
+// ));
+
+// @include mat.all-component-themes($my-theme);
+// @include mat.strong-focus-indicators-theme(purple);
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+  
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+  
+.example-full-width {
+  width: 100%;
+}
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;

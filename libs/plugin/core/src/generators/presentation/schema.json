@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
   "id": "Presentation",
   "title": "",
   "type": "object",
@@ -24,7 +23,6 @@
       "description": "The name of the domain library.",
       "$default": {
         "$source": "projectName"
-
       }
     },
     "data": {
@@ -45,5 +43,10 @@
       "alias": "d"
     }
   },
-  "required": ["name", "entity", "domain", "data"]
+  "required": [
+    "name",
+    "entity",
+    "domain",
+    "data"
+  ]
 }

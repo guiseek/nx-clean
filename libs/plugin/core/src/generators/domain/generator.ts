@@ -1,13 +1,18 @@
-import { normalizeOptions, addFiles, nxCleanCoreVersion, rxjsVersion } from '../../utils';
-import { runTasksInSerial } from '@nrwl/workspace/src/utilities/run-tasks-in-serial';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import {
+  normalizeOptions,
+  addFiles,
+  nxCleanCoreVersion,
+  rxjsVersion,
+} from '../../utils';
+import { runTasksInSerial } from '@nx/devkit';
+import { libraryGenerator } from '@nx/js';
 import { DomainGeneratorSchema } from '../../interfaces';
 import {
   Tree,
   formatFiles,
   installPackagesTask,
   addDependenciesToPackageJson,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 
 export default async function (host: Tree, options: DomainGeneratorSchema) {
   const normalizedOptions = normalizeOptions(host, options);
@@ -43,7 +48,7 @@ export default async function (host: Tree, options: DomainGeneratorSchema) {
 function updateDependencies(host: Tree) {
   const packages = {
     '@nx-clean/core': nxCleanCoreVersion,
-    'rxjs': rxjsVersion
+    rxjs: rxjsVersion,
   };
   return addDependenciesToPackageJson(host, packages, {});
 }

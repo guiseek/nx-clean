@@ -22,7 +22,7 @@ import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'todo-checkbox',
   template: `
-    <mat-checkbox [formControl]="control" [checked]="checked === true ?? false">
+    <mat-checkbox [formControl]="control" [checked]="checked === true || false">
       <ng-content></ng-content>
     </mat-checkbox>
   `,

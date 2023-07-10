@@ -1,0 +1,83 @@
+{
+  "name": "todo-react",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/todo/react/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/demos/react",
+        "index": "apps/todo/react/src/index.html",
+        "main": "apps/todo/react/src/main.tsx",
+        "polyfills": "apps/todo/react/src/polyfills.ts",
+        "tsConfig": "apps/todo/react/tsconfig.app.json",
+        "assets": [
+          "apps/todo/react/src/favicon.ico",
+          "apps/todo/react/src/assets"
+        ],
+        "styles": ["apps/todo/react/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nx/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/todo/react/src/environments/environment.ts",
+              "with": "apps/todo/react/src/environments/environment.prod.ts"
+            }
+          ],
+          "baseHref": "/react/",
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "todo-react:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "todo-react:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/todo/react/src/**/*.ts",
+          "apps/todo/react/src/**/*.tsx"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/todo/react"],
+      "options": {
+        "jestConfig": "apps/todo/react/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:app"]
+}

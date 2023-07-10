@@ -4,9 +4,9 @@ import {
   generateFiles,
   offsetFromRoot,
   readProjectConfiguration,
-  readWorkspaceConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { join } from 'path';
+import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope';
 import { getProjectImportPath } from '../../utils/get-project-import-path';
 import {
   ImplRepositoryGeneratorSchema,
@@ -79,7 +79,7 @@ function normalizeOptions(
   host: Tree,
   options: ImplRepositoryGeneratorSchema
 ): NormalizedSchema {
-  const npmScope = readWorkspaceConfiguration(host).npmScope;
+  const npmScope = getNpmScope(host);
   const format = names(options.type).fileName;
 
   const configDomain = readProjectConfiguration(host, options.domain);

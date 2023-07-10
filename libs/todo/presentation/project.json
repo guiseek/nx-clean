@@ -1,0 +1,35 @@
+{
+  "name": "todo-presentation",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/todo/presentation/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/todo/presentation",
+        "main": "libs/todo/presentation/src/index.ts",
+        "packageJson": "libs/todo/presentation/package.json",
+        "tsConfig": "libs/todo/presentation/tsconfig.lib.json",
+        "assets": ["libs/todo/presentation/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/todo/presentation/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/todo/presentation"],
+      "options": {
+        "jestConfig": "libs/todo/presentation/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

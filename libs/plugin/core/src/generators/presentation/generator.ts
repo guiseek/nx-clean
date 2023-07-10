@@ -1,16 +1,13 @@
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { Tree, formatFiles, installPackagesTask } from '@nx/devkit';
 import { PresentationGeneratorSchema } from '../../interfaces';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { libraryGenerator } from '@nx/js';
 import { addFiles, normalizeOptions } from '../../utils';
 
 export default async function (
   host: Tree,
   options: PresentationGeneratorSchema
 ) {
-  const normalizedOptions = normalizeOptions(
-    host,
-    options
-  );
+  const normalizedOptions = normalizeOptions(host, options);
   await libraryGenerator(host, normalizedOptions);
 
   addFiles(host, normalizedOptions, __dirname);

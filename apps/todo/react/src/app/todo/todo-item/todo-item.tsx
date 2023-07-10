@@ -1,5 +1,5 @@
 import { Grid, Checkbox, FormControlLabel } from '@mui/material';
-import { Clear } from '@material-ui/icons';
+import { Clear } from '@mui/icons-material';
 
 import { TodoVM } from '@nx-clean/todo-presentation';
 

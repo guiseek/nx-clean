@@ -1,5 +1,5 @@
 import { Grid, Button, Typography } from '@mui/material';
-import { NavigateBefore } from '@material-ui/icons';
+import { NavigateBefore } from '@mui/icons-material';
 
 import styles from './todo-header.module.scss';
 

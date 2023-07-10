@@ -1,5 +1,4 @@
-import { setDefaultCollection } from '@nrwl/workspace/src/utilities/set-default-collection';
-import { runTasksInSerial } from '@nrwl/workspace/src/utilities/run-tasks-in-serial';
+import { runTasksInSerial } from '@nx/devkit';
 import { nxCleanCoreVersion, rxjsVersion } from '../../utils';
 import { InitGeneratorSchema } from './schema';
 import {
@@ -7,9 +6,9 @@ import {
   formatFiles,
   installPackagesTask,
   addDependenciesToPackageJson,
-  updateWorkspaceConfiguration,
-  readWorkspaceConfiguration,
-} from '@nrwl/devkit';
+  updateNxJson,
+  readNxJson,
+} from '@nx/devkit';
 
 const nxCleanInitGenerator = async function (
   host: Tree,
@@ -25,7 +24,7 @@ const nxCleanInitGenerator = async function (
 };
 
 function setDefaults(host: Tree, options: InitGeneratorSchema) {
-  const workspace = readWorkspaceConfiguration(host);
+  const workspace = readNxJson(host);
 
   workspace.generators = workspace.generators || {};
   workspace.generators['@nx-clean/plugin-core'] = {
@@ -36,8 +35,8 @@ function setDefaults(host: Tree, options: InitGeneratorSchema) {
     ...(workspace.generators['@nx-clean/plugin-core'] || {}),
   };
 
-  updateWorkspaceConfiguration(host, workspace);
-  setDefaultCollection(host, '@nx-clean/plugin-core');
+  updateNxJson(host, workspace);
+  workspace.defaultProject = '@nx-clean/plugin-core'
 }
 
 function updateDependencies(host: Tree) {

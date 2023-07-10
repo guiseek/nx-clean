@@ -1,25 +1,26 @@
 {
-  "root": "libs/plugin/core",
+  "name": "plugin-core",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/plugin/core/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/plugin/core/**/*.ts"]
       },
       "outputs": ["{options.outputFile}"]
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/plugin/core"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/plugin/core"],
       "options": {
-        "jestConfig": "libs/plugin/core/jest.config.js",
+        "jestConfig": "libs/plugin/core/jest.config.ts",
         "passWithNoTests": false
       }
     },
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/plugin/core",
@@ -47,7 +48,7 @@
       }
     },
     "release": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "npx semantic-release -e ./libs/plugin/core/.releaserc.json"
       }

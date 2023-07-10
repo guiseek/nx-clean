@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  Input,
-  Output,
-  OnDestroy,
+  AfterViewInit,
   Component,
   EventEmitter,
-  AfterViewInit,
+  Input,
+  OnDestroy,
+  Output,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
+
+import { FormControl } from '@angular/forms';
 
 export type FilterValue = 'all' | 'active' | 'completed';
 
@@ -31,7 +33,7 @@ export class TodoFooterComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.control.valueChanges
       .pipe(takeUntil(this._destroy))
-      .subscribe((value: FilterValue) => {
+      .subscribe((value: any) => {
         this.emitChange(value);
       });
   }

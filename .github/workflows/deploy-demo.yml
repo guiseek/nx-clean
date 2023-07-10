@@ -13,7 +13,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '12'
+          node-version: '18'
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -27,7 +27,7 @@ jobs:
         run: git fetch origin main
 
       - name: Install
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Build
         uses: mansagroup/nrwl-nx-action@v2

@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
   "id": "Init",
   "title": "",
   "type": "object",
@@ -12,5 +11,7 @@
       "alias": "di"
     }
   },
-  "required": ["injectable"]
+  "required": [
+    "injectable"
+  ]
 }

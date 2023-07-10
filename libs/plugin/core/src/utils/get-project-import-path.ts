@@ -1,4 +1,4 @@
-import { ProjectConfiguration, readJsonFile } from '@nrwl/devkit';
+import { ProjectConfiguration, readJsonFile } from '@nx/devkit';
 import { TSConfigBase } from '../interfaces';
 
 export function getProjectImportPath({ sourceRoot }: ProjectConfiguration) {

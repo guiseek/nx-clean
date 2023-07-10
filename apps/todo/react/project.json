@@ -5,21 +5,10 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/webpack:webpack",
+      "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/demos/react",
-        "index": "apps/todo/react/src/index.html",
-        "main": "apps/todo/react/src/main.tsx",
-        "polyfills": "apps/todo/react/src/polyfills.ts",
-        "tsConfig": "apps/todo/react/tsconfig.app.json",
-        "assets": [
-          "apps/todo/react/src/favicon.ico",
-          "apps/todo/react/src/assets"
-        ],
-        "styles": ["apps/todo/react/src/styles.scss"],
-        "scripts": [],
-        "webpackConfig": "@nx/react/plugins/webpack"
+        "outputPath": "dist/apps/todo/react"
       },
       "configurations": {
         "production": {
@@ -48,7 +37,7 @@
       }
     },
     "serve": {
-      "executor": "@nx/webpack:dev-server",
+      "executor": "@nx/vite:dev-server",
       "options": {
         "buildTarget": "todo-react:build",
         "hmr": true
@@ -76,6 +65,21 @@
       "options": {
         "jestConfig": "apps/todo/react/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "todo-react:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "todo-react:build:development"
+        },
+        "production": {
+          "buildTarget": "todo-react:build:production"
+        }
       }
     }
   },

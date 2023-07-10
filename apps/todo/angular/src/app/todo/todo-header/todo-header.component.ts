@@ -1,12 +1,13 @@
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { Component, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
-
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
-  selector: 'todo-header',
-  templateUrl: './todo-header.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [`:host header { display: flex; flex-direction: column; }`],
+    selector: 'todo-header',
+    templateUrl: './todo-header.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: [`:host header { display: flex; flex-direction: column; }`],
+    standalone: true,
+    imports: [ReactiveFormsModule],
 })
 export class TodoHeaderComponent implements AfterViewInit {
   @ViewChild('todoInput')

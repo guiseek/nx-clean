@@ -1,17 +1,31 @@
 <header>
-  <mat-form-field floatLabel="always">
-    <mat-label> O que falta finalizar? </mat-label>
-    <input
-      matInput
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">O que falta finalizar?</span>
+    </label>
+    <input 
+      type="text" 
+      placeholder="Type here" 
+      class="input input-bordered w-full max-w-xs" 
       name="task"
       #todoInput
       [autofocus]="true"
       [formControl]="name"
-      (keyup.enter)="onAddItem(name)"
-    />
-  </mat-form-field>
+      (keyup.enter)="onAddItem(name)" />
+  </div>
   
-  <todo-checkbox [formControl]="checkbox" (stateChange)="onToggleAllChange()">
-    Marcar todos como finalizados
-  </todo-checkbox>
+
+  <div class="form-control w-full max-w-xs justify-normal!">
+    <label class="label cursor-pointer">
+      <input
+        type="checkbox"
+        checked="checked"
+        class="checkbox"
+        [formControl]="checkbox"
+        (change)="onToggleAllChange()"
+        />
+      <span class="label-text"> Marcar todos como finalizados</span> 
+    </label>
+  </div>
 </header>

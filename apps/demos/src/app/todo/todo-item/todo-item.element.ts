@@ -36,8 +36,6 @@ export class TodoItemElement extends HTMLLIElement implements Connected {
     };
 
     this.querySelector('button').onclick = () => {
-      console.log('remove');
-      
       this.dispatchEvent(new CustomEvent('remove'));
     };
   }

@@ -1,9 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TodoVM } from '@nx-clean/todo-presentation';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'todo-todos',
   templateUrl: './todos.component.html',
+  standalone: true,
+  imports: [NgFor, TodoItemComponent],
 })
 export class TodosComponent {
   @Input() todos: TodoVM[] | null;

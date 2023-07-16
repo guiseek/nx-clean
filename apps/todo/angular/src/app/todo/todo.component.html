@@ -1,13 +1,32 @@
-<mat-toolbar color="primary">
-  <a mat-button href="/">
-    <mat-icon>navigate_before</mat-icon>
-    <span>Voltar</span>
-  </a>
-
-  <span class="spacer"></span>
-
-  <h1>Angular - <span>Clean Architecture .design</span></h1>
-</mat-toolbar>
+<div class="navbar bg-base-300">
+  <div class="navbar-start">
+    <a href="/">
+      <label tabindex="0" class="btn btn-ghost btn-circle">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="svg-icon"
+          style="
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            fill: currentColor;
+            overflow: hidden;
+          "
+          viewBox="0 0 1024 1024"
+          version="1.1"
+        >
+          <path
+            d="M657.706667 316.373333L597.333333 256 341.333333 512l256 256 60.373334-60.373333L462.08 512z"
+          />
+        </svg>
+      </label>
+      Back
+    </a>
+  </div>
+  <div class="navbar-center">
+    <h1>Angular - <span>Clean Architecture .design</span></h1>
+  </div>
+</div>
 
 <main>
   <todo-header
@@ -36,9 +55,9 @@
   </todo-footer>
 </main>
 
-<footer class="repo-link">
+<footer class="w-full p-3 text-center">
   <a
-    mat-button
+    class="btn btn-ghost btn-sm rounded-btn m-auto"
     target="_blank"
     rel="noopener noreferrer"
     href="https://github.com/guiseek/nx-clean/blob/main/apps/todo/angular/src/app/todo"

@@ -1,10 +1,10 @@
-<mat-list>
-  <mat-list-item *ngFor="let todo of todos">
+<ul>
+  <li *ngFor="let todo of todos">
     <div
       todo-item
       [todo]="todo"
       (toggle)="onCheckItem(todo, $event)"
       (remove)="onRemoveItem(todo)"
     ></div>
-  </mat-list-item>
-</mat-list>
+  </li>
+</ul>

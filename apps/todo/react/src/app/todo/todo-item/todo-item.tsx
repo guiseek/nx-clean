@@ -1,5 +1,4 @@
-import { Grid, Checkbox, FormControlLabel } from '@mui/material';
-import { Clear } from '@mui/icons-material';
+import { ReactComponent as DeleteIcon } from './deleteIcon.svg';
 
 import { TodoVM } from '@nx-clean/todo-presentation';
 
@@ -14,26 +13,23 @@ export function TodoItem({
   handleToggleItem,
   handleRemoveItem,
 }: TodoItemProps) {
-  const label = { inputProps: { 'aria-label': todo.name } };
-
   return (
-    <Grid key={todo.id} container alignItems="center">
-      <FormControlLabel
-        value={todo.name}
-        control={
-          <Checkbox
-            {...label}
-            checked={todo.completed}
-            onChange={(event) => handleToggleItem(event.target, todo.id)}
-          />
-        }
-        label={todo.name}
-      />
-      <Clear
-        onClick={() => handleRemoveItem(todo)}
-        sx={{ cursor: 'pointer' }}
-      />
-    </Grid>
+    <div key={todo.id} className="form-control w-full max-w-xs justify-normal!">
+      <label className="label cursor-pointer">
+        <input
+          aria-label={todo.name}
+          type="checkbox"
+          className="checkbox checkbox-primary"
+          style={{ maxWidth: '25px' }}
+          checked={todo.completed}
+          onChange={(event) => handleToggleItem(event.target, todo.id)}
+        />
+        <span className="label-text"> {todo.name} </span>
+        <button className="btn" onClick={() => handleRemoveItem(todo)}>
+          <DeleteIcon />
+        </button>
+      </label>
+    </div>
   );
 }
 

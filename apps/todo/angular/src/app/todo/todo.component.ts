@@ -1,10 +1,27 @@
 import { TodoPresenter, TodoVM } from '@nx-clean/todo-presentation';
 import { Component } from '@angular/core';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { TodoFooterComponent } from './todo-footer/todo-footer.component';
+import { TodosComponent } from './todos/todos.component';
+import { TodoHeaderComponent } from './todo-header/todo-header.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'todo-angular',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    TodoComponent,
+    TodoItemComponent,
+    TodoHeaderComponent,
+    TodosComponent,
+    TodoFooterComponent,
+    AsyncPipe,
+  ],
 })
 export class TodoComponent {
   todos$ = this.todoApp.todos$;

@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/daisyui@3.2.1/dist/full.css");
+
 /*
  * Remove template code below
  */
@@ -22,11 +24,6 @@ body {
   --mdc-top-app-bar-width: 600px;
 }
 
-mwc-top-app-bar {
-  padding-left: 0;
-  margin-bottom: 25px;
-}
-
 main {
   gap: 25px;
   display: flex;
@@ -39,11 +36,7 @@ ul {
   margin: 0;
 }
 
-mwc-icon {
-  cursor: pointer;
-}
-
-mwc-textfield {
+#add {
   width: 100%;
 }
 

@@ -1,13 +1,5 @@
 import { TodoVM, TodoPresenter } from '@nx-clean/todo-presentation';
 import React, { useEffect } from 'react';
-import {
-  Stack,
-  Button,
-  TextField,
-  FormGroup,
-} from '@mui/material';
-
-import styles from './todo.module.scss';
 
 import { injector } from '../app.provider';
 
@@ -76,34 +68,32 @@ export function Todo(props: TodoProps) {
   }
 
   return (
-    <div className={styles.app}>
+    <div>
       <TodoHeader />
       <main>
-        <TextField
-          type="text"
-          autoFocus
-          fullWidth
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-          onKeyPress={(event) => handleAddTodo(event)}
-          id="outline-required"
-          label="O que falta finalizar?"
-          variant="outlined"
-          InputLabelProps={{
-            shrink: true,
-          }}
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">O que falta finalizar?</span>
+          </label>
+          <input
+            id="outline-required"
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-xs"
+            name="task"
+            autoFocus={true}
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+            onKeyUp={(event) => handleAddTodo(event)}
+          />
+        </div>
+        <div className="divider"></div>
+        <Todos
+          todos={state}
+          handleToggleItem={onToggleItem}
+          handleRemoveItem={onRemoveItem}
         />
-        <hr />
-        <Stack spacing={2}>
-          <FormGroup>
-            <Todos
-              todos={state}
-              handleToggleItem={onToggleItem}
-              handleRemoveItem={onRemoveItem}
-            />
-          </FormGroup>
-        </Stack>
-        <hr />
+        <div className="divider"></div>
       </main>
       <TodoFooter
         todos={state}
@@ -114,16 +104,16 @@ export function Todo(props: TodoProps) {
         handleClearCompleted={onClearCompleted}
         handleButtonGroup={handleButtonGroup}
       />
-      <div className="repo-link">
-        <Button
-          variant="text"
+      <footer className="w-full p-3 text-center">
+        <a
+          className="btn btn-ghost btn-sm rounded-btn m-auto"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/guiseek/nx-clean/blob/main/apps/todo/react/src/app"
+          href="https://github.com/guiseek/nx-clean/blob/main/apps/todo/angular/src/app/todo"
         >
           Source code
-        </Button>
-      </div>
+        </a>
+      </footer>
     </div>
   );
 }

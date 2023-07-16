@@ -2,11 +2,11 @@
   "migrations": [
     {
       "cli": "nx",
-      "version": "16.0.0-beta.1",
-      "description": "Replace @nx/js with @nx/js",
-      "implementation": "./src/migrations/update-16-0-0-add-nx-packages/update-16-0-0-add-nx-packages",
-      "package": "@nx/js",
-      "name": "update-16-0-0-add-nx-packages"
+      "version": "16.5.0-beta.2",
+      "description": "Add test-setup.ts to ignored files in production input",
+      "implementation": "./src/migrations/update-16-5-0/add-test-setup-to-inputs-ignore",
+      "package": "@nx/jest",
+      "name": "add-test-setup-to-inputs-ignore"
     }
   ]
 }

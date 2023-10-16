@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-npm i @nx-clean/plugin-core
+npm i -D @nx-clean/plugin-core
 ```
 
 Nx Clean is a plugin for developers that extends Nx, although we have several schematics and plugins already, sometimes we miss one that already creates libraries with functional implementations and obviously, structured following good practices. Thinking about big projects, with many people working and it will remain alive for a long period, it is a fact the architecture becomes essential...

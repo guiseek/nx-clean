@@ -22,7 +22,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "commit": "cz"
+    "commit": "czg"
   },
   "private": false,
   "dependencies": {
@@ -61,6 +61,7 @@
     "@nx/angular": "17.2.8",
     "@nx/cypress": "17.2.8",
     "@nx/devkit": "17.2.8",
+    "@nx/eslint": "17.2.8",
     "@nx/eslint-plugin": "17.2.8",
     "@nx/jest": "17.2.8",
     "@nx/js": "17.2.8",
@@ -86,9 +87,10 @@
     "@vitest/ui": "0.34.7",
     "autoprefixer": "10.4.13",
     "babel-jest": "29.5.0",
-    "commitizen": "^1.0.3",
+    "commitizen": "^1.0.5",
     "cypress": "^7.3.0",
     "cz-conventional-changelog": "^1.0.1",
+    "czg": "^1.8.0",
     "daisyui": "^3.2.1",
     "dotenv": "10.0.0",
     "eslint": "8.48.0",
@@ -115,8 +117,7 @@
     "typescript": "5.2.2",
     "vite": "5.0.12",
     "vite-tsconfig-paths": "^4.2.0",
-    "vitest": "0.34.6",
-    "@nx/eslint": "17.2.8"
+    "vitest": "0.34.6"
   },
   "config": {
     "commitizen": {

@@ -50,21 +50,14 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "apps/todo/react/src/**/*.ts",
-          "apps/todo/react/src/**/*.tsx"
-        ]
-      },
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/todo/react"],
       "options": {
-        "jestConfig": "apps/todo/react/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/todo/react/jest.config.ts"
       }
     },
     "preview": {

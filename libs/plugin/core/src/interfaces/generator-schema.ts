@@ -1,3 +1,10 @@
+import {
+  DataPluginCoreNormalizedSchema,
+  DomainPluginCoreNormalizedSchema,
+  PluginCoreNormalizedSchema,
+  PresentationPluginCoreNormalizedSchema,
+} from './normalized-schema';
+
 export interface GeneratorSchema {
   name: string;
   tags?: string;
@@ -22,3 +29,12 @@ export interface PresentationGeneratorSchema extends GeneratorSchema {
   domain: string;
   data: string;
 }
+
+export interface AllGeneratorSchema
+  extends DomainGeneratorSchema,
+    DataGeneratorSchema,
+    PresentationGeneratorSchema,
+    PluginCoreNormalizedSchema,
+    DomainPluginCoreNormalizedSchema,
+    DataPluginCoreNormalizedSchema,
+    PresentationPluginCoreNormalizedSchema {}

@@ -16,9 +16,9 @@ import {
 export class Injector {
   private static instance: Injector;
 
-  private providers = new Map<Token<any>, Provider<any>>();
+  private providers = new Map<Token, Provider>();
 
-  private constructor(providers: Provider<any>[]) {
+  private constructor(providers: Provider[]) {
     providers.forEach((provider) => {
       this.assertInjectableIfClassProvider(provider);
       this.providers.set(provider.provide, provider);
@@ -59,7 +59,7 @@ export class Injector {
 
   get<T>(type: Token<T>): T {
     const provider = this.providers.get(type);
-    return this.injectWithProvider(type, provider);
+    return this.injectWithProvider<T>(type, provider as Provider<T>);
   }
 
   private injectWithProvider<T>(type: Token<T>, provider?: Provider<T>): T {

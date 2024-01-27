@@ -55,18 +55,14 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["apps/todo/web/**/*.ts"]
-      },
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/todo/web"],
       "options": {
-        "jestConfig": "apps/todo/web/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/todo/web/jest.config.ts"
       }
     }
   },

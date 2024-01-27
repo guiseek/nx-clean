@@ -16,18 +16,14 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/todo/data-access/**/*.ts"]
-      },
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/todo/data-access"],
       "options": {
-        "jestConfig": "libs/todo/data-access/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/todo/data-access/jest.config.ts"
       }
     }
   },

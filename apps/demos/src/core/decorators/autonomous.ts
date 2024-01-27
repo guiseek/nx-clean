@@ -1,11 +1,9 @@
-import { AutonomousOptions } from '../interfaces/options';
-import { cloneTemplate } from '../utils/clone-template';
-import { Component } from '../interfaces/component';
-import { parseValue } from '../utils/parse-value';
-import { lifecycle } from '../utils/lifecycle';
+import { AutonomousOptions, Component } from '../interfaces';
+import { parseValue, lifecycle, cloneTemplate } from '../utils';
+import { CustomElement } from '../interfaces/custom-element';
 
 export function Autonomous({ selector, ...opts }: AutonomousOptions) {
-  return function (target: CustomElementConstructor) {
+  return function (target: CustomElement) {
     const disconnected = lifecycle.disconn(target);
     const connected = lifecycle.conn(target);
     const attribute = lifecycle.attr(target);
@@ -18,7 +16,7 @@ export function Autonomous({ selector, ...opts }: AutonomousOptions) {
 
     const observed = (target as Component)?.observed;
 
-    (target as any).observedAttributes = observed;
+    target.observedAttributes = observed;
 
     target.prototype.attributeChangedCallback = function (
       name: string,

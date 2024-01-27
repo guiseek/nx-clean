@@ -6,8 +6,8 @@ import { Connected, BuiltIn, html } from '../../../core';
 })
 export class TodoItemElement extends HTMLLIElement implements Connected {
   observed = ['todo', 'is'];
-  is = 'todo-item'
-  todo: any;
+  is = 'todo-item';
+  todo: { name: string };
 
   template = html`
     <div class="view">

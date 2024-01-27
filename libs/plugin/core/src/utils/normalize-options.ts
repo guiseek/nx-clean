@@ -5,12 +5,12 @@ import {
   DomainPluginCoreNormalizedSchema,
   DataPluginCoreNormalizedSchema,
   PresentationPluginCoreNormalizedSchema,
+  AllGeneratorSchema,
 } from '../interfaces';
 import {
   Tree,
   names,
   getWorkspaceLayout,
-  readWorkspaceConfiguration,
   readProjectConfiguration,
 } from '@nx/devkit';
 import { GeneratorsConfig } from '../types';
@@ -31,15 +31,18 @@ export function normalizeOptions(
   options: PresentationGeneratorSchema
 ): PresentationPluginCoreNormalizedSchema;
 
-export function normalizeOptions(host: Tree, options: any): unknown {
+export function normalizeOptions<T extends AllGeneratorSchema>(
+  host: Tree,
+  options: T
+) {
   const name = names(options.name).fileName;
   const projectDirectory = options.directory
     ? `${names(options.directory).fileName}/${name}`
     : name;
 
-  const workspace = readWorkspaceConfiguration(host);
+  const workspace = readProjectConfiguration(host, name);
 
-  const npmScope = workspace.npmScope;
+  const npmScope = workspace.sourceRoot.split('/').shift() ?? '';
 
   const generators = ((workspace.generators ?? {})['@nx-clean/plugin-core'] ?? {
     data: { injectable: options.injectable },

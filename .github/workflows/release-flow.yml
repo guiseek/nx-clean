@@ -33,7 +33,6 @@ jobs:
         with:
           targets: build,release
           projects: plugin-core,core
-          args: '--skip-nx-cache'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

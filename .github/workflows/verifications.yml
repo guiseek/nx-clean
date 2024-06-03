@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 'lts'
+          node-version: 'lts/*'
       - name: Restore cached npm dependencies
         uses: actions/cache/restore@v3
         with:

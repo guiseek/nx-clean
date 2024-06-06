@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import replaceFiles from '@nx/vite/plugins/rollup-replace-files.plugin';
+import { replaceFiles } from '@nx/vite/plugins/rollup-replace-files.plugin';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';

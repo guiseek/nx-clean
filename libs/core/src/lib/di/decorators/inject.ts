@@ -9,6 +9,5 @@ export function Inject<T extends object>(token: Token<T>) {
       target,
       `index-${index}`
     );
-    return target;
   };
 }

@@ -30,7 +30,7 @@ export class Injector {
     this.providers.set(provider.provide, provider);
   }
 
-  static create<T>(providers: Provider<T>[]) {
+  static create(providers: Provider[]) {
     if (!Injector.instance) {
       Injector.instance = new Injector(providers);
     }

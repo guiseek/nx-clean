@@ -52,9 +52,7 @@ export class Injector {
 
   // Retorna um nome para o token.
   private getTokenName<T>(token: Token<T>) {
-    return token instanceof InjectionToken
-      ? token.toString()
-      : token.name;
+    return token instanceof InjectionToken ? token.toString() : token.name;
   }
 
   get<T>(type: Token<T>): T {
@@ -95,7 +93,7 @@ export class Injector {
 
   private getInjectedParams<T>(target: Type<T>) {
     const argTypes = Reflect.getMetadata(REFLECT_PARAMS, target) as (
-      | InjectableParam
+      | InjectableParam<T>
       | undefined
     )[];
     if (argTypes === undefined) {

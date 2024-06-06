@@ -3,10 +3,10 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/plugin/core/src",
   "projectType": "library",
+  "tags": ["type:plugin"],
   "targets": {
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
@@ -50,6 +50,5 @@
         "command": "npx semantic-release -e ./libs/plugin/core/.releaserc.json"
       }
     }
-  },
-  "tags": ["type:plugin"]
+  }
 }

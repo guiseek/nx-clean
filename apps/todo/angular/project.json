@@ -4,6 +4,7 @@
   "projectType": "application",
   "sourceRoot": "apps/todo/angular/src",
   "prefix": "todo",
+  "tags": ["type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -75,8 +76,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
@@ -85,6 +85,5 @@
         "jestConfig": "apps/todo/angular/jest.config.ts"
       }
     }
-  },
-  "tags": ["type:app"]
+  }
 }

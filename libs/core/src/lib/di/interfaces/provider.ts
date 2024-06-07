@@ -16,7 +16,7 @@ export interface ValueProvider<T> extends BaseProvider<T> {
 
 // Para manter as coisas simples, uma factory é
 // uma função que retorna a real implementação.
-export type Factory<T = unknown> = (...params: unknown[]) => T;
+export type Factory<T = unknown> = (...params: any[]) => T;
 
 export interface FactoryProvider<T> extends BaseProvider<T> {
   useFactory: Factory<T>;

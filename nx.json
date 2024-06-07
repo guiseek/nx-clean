@@ -66,6 +66,11 @@
     "@nx/eslint:lint": {
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
       "cache": true
+    },
+    "@nx/webpack:webpack": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "namedInputs": {

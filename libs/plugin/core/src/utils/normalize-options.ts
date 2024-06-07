@@ -12,9 +12,11 @@ import {
   names,
   getWorkspaceLayout,
   readProjectConfiguration,
+  readNxJson,
 } from '@nx/devkit';
 import { GeneratorsConfig } from '../types';
 import { getProjectImportPath } from './get-project-import-path';
+import { readPackageJson } from 'nx/src/project-graph/file-utils';
 
 export function normalizeOptions(
   host: Tree,
@@ -40,9 +42,11 @@ export function normalizeOptions<T extends AllGeneratorSchema>(
     ? `${names(options.directory).fileName}/${name}`
     : name;
 
-  const workspace = readProjectConfiguration(host, name);
+  const workspace = readNxJson(host);
 
-  const npmScope = workspace.sourceRoot.split('/').shift() ?? '';
+  const packageJson = readPackageJson();
+
+  const npmScope = packageJson.name;
 
   const generators = ((workspace.generators ?? {})['@nx-clean/plugin-core'] ?? {
     data: { injectable: options.injectable },

@@ -1,4 +1,4 @@
-import { ReactComponent as BackIcon } from './backIcon.svg';
+import BackIcon from './backIcon';
 
 /* eslint-disable-next-line */
 export interface TodoHeaderProps {}

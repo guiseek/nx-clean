@@ -1,4 +1,4 @@
-import { ReactComponent as DeleteIcon } from './deleteIcon.svg';
+import DeleteIcon from './deleteIcon';
 
 import { TodoVM } from '@nx-clean/todo-presentation';
 

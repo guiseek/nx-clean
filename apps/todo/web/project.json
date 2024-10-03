@@ -3,46 +3,8 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/todo/web/src",
+  "tags": ["type:app"],
   "targets": {
-    "build": {
-      "executor": "@nx/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/demos/web",
-        "index": "apps/todo/web/src/index.html",
-        "main": "apps/todo/web/src/main.ts",
-        "polyfills": "apps/todo/web/src/polyfills.ts",
-        "tsConfig": "apps/todo/web/tsconfig.app.json",
-        "assets": ["apps/todo/web/src/favicon.ico", "apps/todo/web/src/assets"],
-        "styles": ["apps/todo/web/src/styles.scss"],
-        "scripts": []
-      },
-      "configurations": {
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "apps/todo/web/src/environments/environment.ts",
-              "with": "apps/todo/web/src/environments/environment.prod.ts"
-            }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "extractCss": true,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false,
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "2mb",
-              "maximumError": "5mb"
-            }
-          ],
-          "baseHref": "/web/"
-        }
-      }
-    },
     "serve": {
       "executor": "@nx/webpack:dev-server",
       "options": {
@@ -55,20 +17,37 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["apps/todo/web/**/*.ts"]
-      },
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/todo/web"],
       "options": {
-        "jestConfig": "apps/todo/web/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/todo/web/jest.config.ts"
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/todo/web",
+        "compiler": "swc",
+        "main": "apps/todo/web/src/main.ts",
+        "tsConfig": "apps/todo/web/tsconfig.app.json",
+        "webpackConfig": "apps/todo/web/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
       }
     }
-  },
-  "tags": ["type:app"]
+  }
 }

@@ -25,7 +25,7 @@ export function addFiles(
 ): void {
   const libNames = names(options.projectName);
 
-  const templateOptions: Record<string, any> = {
+  const templateOptions: Record<string, unknown> = {
     ...options,
     ...libNames,
     offsetFromRoot: offsetFromRoot(options.projectRoot),

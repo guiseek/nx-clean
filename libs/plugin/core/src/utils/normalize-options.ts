@@ -5,16 +5,18 @@ import {
   DomainPluginCoreNormalizedSchema,
   DataPluginCoreNormalizedSchema,
   PresentationPluginCoreNormalizedSchema,
+  AllGeneratorSchema,
 } from '../interfaces';
 import {
   Tree,
   names,
   getWorkspaceLayout,
-  readWorkspaceConfiguration,
   readProjectConfiguration,
+  readNxJson,
 } from '@nx/devkit';
 import { GeneratorsConfig } from '../types';
 import { getProjectImportPath } from './get-project-import-path';
+import { readPackageJson } from 'nx/src/project-graph/file-utils';
 
 export function normalizeOptions(
   host: Tree,
@@ -31,15 +33,20 @@ export function normalizeOptions(
   options: PresentationGeneratorSchema
 ): PresentationPluginCoreNormalizedSchema;
 
-export function normalizeOptions(host: Tree, options: any): unknown {
+export function normalizeOptions<T extends AllGeneratorSchema>(
+  host: Tree,
+  options: T
+) {
   const name = names(options.name).fileName;
   const projectDirectory = options.directory
     ? `${names(options.directory).fileName}/${name}`
     : name;
 
-  const workspace = readWorkspaceConfiguration(host);
+  const workspace = readNxJson(host);
 
-  const npmScope = workspace.npmScope;
+  const packageJson = readPackageJson();
+
+  const npmScope = packageJson.name;
 
   const generators = ((workspace.generators ?? {})['@nx-clean/plugin-core'] ?? {
     data: { injectable: options.injectable },

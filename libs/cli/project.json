@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/cli/src",
   "projectType": "library",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
@@ -16,20 +17,14 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["libs/cli/**/*.ts"]
-      },
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/cli"],
       "options": {
-        "jestConfig": "libs/cli/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/cli/jest.config.ts"
       }
     }
-  },
-  "tags": []
+  }
 }

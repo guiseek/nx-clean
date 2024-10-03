@@ -3,49 +3,8 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/demos/src",
+  "tags": ["type:app"],
   "targets": {
-    "build": {
-      "executor": "@nx/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/demos",
-        "index": "apps/demos/src/index.html",
-        "main": "apps/demos/src/main.ts",
-        "polyfills": "apps/demos/src/polyfills.ts",
-        "tsConfig": "apps/demos/tsconfig.app.json",
-        "assets": [
-          "apps/demos/src/favicon.ico",
-          "apps/demos/src/CNAME",
-          "apps/demos/src/assets"
-        ],
-        "styles": ["apps/demos/src/styles.scss"],
-        "scripts": []
-      },
-      "configurations": {
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "apps/demos/src/environments/environment.ts",
-              "with": "apps/demos/src/environments/environment.prod.ts"
-            }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "extractCss": true,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false,
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "2mb",
-              "maximumError": "5mb"
-            }
-          ]
-        }
-      }
-    },
     "serve": {
       "executor": "@nx/webpack:dev-server",
       "options": {
@@ -58,20 +17,37 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["apps/demos/src/**/*.ts"]
-      },
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/demos"],
       "options": {
-        "jestConfig": "apps/demos/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/demos/jest.config.ts"
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/demos",
+        "compiler": "swc",
+        "main": "apps/demos/src/main.ts",
+        "tsConfig": "apps/demos/tsconfig.app.json",
+        "webpackConfig": "apps/demos/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
       }
     }
-  },
-  "tags": ["type:app"]
+  }
 }

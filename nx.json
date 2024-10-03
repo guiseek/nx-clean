@@ -1,16 +1,4 @@
 {
-  "affected": {
-    "defaultBase": "main"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [],
-        "parallel": 1
-      }
-    }
-  },
   "workspaceLayout": {
     "appsDir": "apps",
     "libsDir": "libs"
@@ -62,16 +50,35 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
-    "lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+    "@nx/jest:jest": {
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+      "cache": true,
+      "options": {
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
     },
-    "test": {
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+    "@nx/eslint:lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "cache": true
+    },
+    "@nx/webpack:webpack": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "sharedGlobals": ["{workspaceRoot}/babel.config.json"],
+    "sharedGlobals": [
+      "{workspaceRoot}/babel.config.json",
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -80,5 +87,8 @@
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s"
     ]
-  }
+  },
+  "parallel": 1,
+  "useInferencePlugins": false,
+  "defaultBase": "main"
 }

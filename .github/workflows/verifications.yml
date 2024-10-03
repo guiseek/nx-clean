@@ -1,0 +1,39 @@
+name: verifications
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Restore cached npm dependencies
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('package-lock.json') }}
+      - run: npm ci
+      - name: Cache npm dependencies
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('package-lock.json') }}
+      - uses: nrwl/nx-set-shas@v3
+      # This line is needed for nx affected to work when CI is running on a PR
+      - run: git branch --track main origin/main
+        if: ${{ github.event_name == 'pull_request' }}
+
+      - run: npx nx run-many -t lint test build --parallel=3
+      - run: npx nx run-many -t e2e --parallel=1

@@ -73,7 +73,8 @@
         "production": {
           "buildTarget": "todo-react:build:production"
         }
-      }
+      },
+      "dependsOn": ["build"]
     }
   }
 }

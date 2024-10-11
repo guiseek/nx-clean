@@ -8,16 +8,17 @@ import { default as generator } from './generator';
 
 describe('data generator', () => {
   const domainOptions = {
-    name: 'domain',
-    directory: 'todo',
-    entity: 'user',
+    name: 'domain-test',
+    directory: 'todo/domain-test',
+    entity: 'test',
   };
 
   let appTree: Tree;
   const options: DataGeneratorSchema = {
-    name: 'test',
-    domain: 'todo-domain',
-    entity: 'user',
+    name: 'data-test',
+    domain: 'domain-test',
+    entity: 'test',
+    directory: 'todo/data-test',
   };
 
   beforeEach(async () => {
@@ -27,7 +28,7 @@ describe('data generator', () => {
 
   it('should run successfully', async () => {
     await generator(appTree, options);
-    const config = readProjectConfiguration(appTree, 'test');
+    const config = readProjectConfiguration(appTree, 'data-test');
     expect(config).toBeDefined();
   });
 });

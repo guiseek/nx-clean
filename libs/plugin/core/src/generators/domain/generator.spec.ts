@@ -6,7 +6,11 @@ import { default as generator } from './generator';
 
 describe('domain generator', () => {
   let appTree: Tree;
-  const options: DomainGeneratorSchema = { name: 'test', entity: 'todo' };
+  const options: DomainGeneratorSchema = {
+    name: 'domain-test',
+    entity: 'test',
+    directory: 'todo/domain-test',
+  };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();
@@ -14,7 +18,7 @@ describe('domain generator', () => {
 
   it('should run successfully', async () => {
     await generator(appTree, options);
-    const config = readProjectConfiguration(appTree, 'test');
+    const config = readProjectConfiguration(appTree, 'domain-test');
     expect(config).toBeDefined();
   });
 });

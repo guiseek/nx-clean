@@ -8,7 +8,7 @@ import {
 export interface GeneratorSchema {
   name: string;
   tags?: string;
-  directory?: string;
+  directory: string;
   injectable?: boolean;
 }
 

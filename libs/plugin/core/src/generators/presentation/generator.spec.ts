@@ -9,24 +9,25 @@ import generator from './generator';
 
 describe('presentation generator', () => {
   const domainOptions = {
-    name: 'domain',
-    directory: 'todo',
-    entity: 'user',
+    name: 'domain-test',
+    directory: 'todo/domain-test',
+    entity: 'test',
   };
 
   const dataOptions = {
-    name: 'data-access',
-    domain: 'todo-domain',
-    directory: 'todo',
-    entity: 'user',
+    name: 'data-test',
+    domain: 'domain-test',
+    directory: 'todo/data-test',
+    entity: 'test',
   };
 
   let appTree: Tree;
   const options: PresentationGeneratorSchema = {
-    name: 'test',
-    entity: 'seek',
-    domain: 'todo-domain',
-    data: 'todo-data-access',
+    name: 'presentation-test',
+    entity: 'test',
+    domain: 'domain-test',
+    data: 'data-test',
+    directory: 'todo/presentation-test',
   };
 
   beforeEach(async () => {
@@ -37,7 +38,7 @@ describe('presentation generator', () => {
 
   it('should run successfully', async () => {
     await generator(appTree, options);
-    const config = readProjectConfiguration(appTree, 'test');
+    const config = readProjectConfiguration(appTree, 'presentation-test');
     expect(config).toBeDefined();
   });
 });

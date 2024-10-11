@@ -15,7 +15,7 @@ const API_TOKEN = new InjectionToken<ApiConfig>('api.config');
 abstract class Repository {
   protected api: string;
 
-  constructor(config: ApiConfig) {
+  protected constructor(config: ApiConfig) {
     this.api = config.url;
   }
 
@@ -34,7 +34,7 @@ class DataRepository extends Repository {
 }
 
 abstract class Presenter {
-  constructor(public repository: Repository) {}
+  protected constructor(public repository: Repository) {}
 
   abstract getAll(): Promise<unknown[]>;
 }
@@ -64,7 +64,7 @@ describe('Injector', () => {
         provide: Presenter,
         useFactory: (repo: Repository) => new UiPresenter(repo),
         deps: [Repository],
-      }
+      },
     ]);
   });
 
@@ -73,7 +73,7 @@ describe('Injector', () => {
   });
 
   it('should return config object when asking api token', () => {
-    const config = injector.get<ApiConfig>(API_TOKEN);
+    const config = injector.get(API_TOKEN);
     expect(config).toStrictEqual({
       url: 'https://api.clean-architecture.design',
     });

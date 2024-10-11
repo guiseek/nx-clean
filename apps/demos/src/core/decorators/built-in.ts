@@ -3,6 +3,7 @@ import { BuiltInOptions } from '../interfaces/options';
 import { Component } from '../interfaces/component';
 import { parseValue } from '../utils/parse-value';
 import { lifecycle } from '../utils/lifecycle';
+import { CustomElement } from '../interfaces/custom-element';
 
 export function BuiltIn({ selector, ...opts }: BuiltInOptions) {
   return function (target: CustomElementConstructor) {
@@ -19,7 +20,7 @@ export function BuiltIn({ selector, ...opts }: BuiltInOptions) {
 
     const observed = (target as Component)?.observed;
 
-    (target as any).observedAttributes = observed;
+    (target as CustomElement).observedAttributes = observed;
 
     target.prototype.attributeChangedCallback = function (
       name: string,

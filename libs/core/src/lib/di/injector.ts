@@ -16,9 +16,9 @@ import {
 export class Injector {
   private static instance: Injector;
 
-  private providers = new Map<Token<any>, Provider<any>>();
+  private providers = new Map<Token, Provider>();
 
-  private constructor(providers: Provider<any>[]) {
+  private constructor(providers: Provider[]) {
     providers.forEach((provider) => {
       this.assertInjectableIfClassProvider(provider);
       this.providers.set(provider.provide, provider);
@@ -30,7 +30,7 @@ export class Injector {
     this.providers.set(provider.provide, provider);
   }
 
-  static create<T>(providers: Provider<T>[]) {
+  static create(providers: Provider[]) {
     if (!Injector.instance) {
       Injector.instance = new Injector(providers);
     }
@@ -52,14 +52,12 @@ export class Injector {
 
   // Retorna um nome para o token.
   private getTokenName<T>(token: Token<T>) {
-    return token instanceof InjectionToken
-      ? token.toString()
-      : token.name;
+    return token instanceof InjectionToken ? token.toString() : token.name;
   }
 
   get<T>(type: Token<T>): T {
     const provider = this.providers.get(type);
-    return this.injectWithProvider(type, provider);
+    return this.injectWithProvider<T>(type, provider as Provider<T>);
   }
 
   private injectWithProvider<T>(type: Token<T>, provider?: Provider<T>): T {
@@ -95,7 +93,7 @@ export class Injector {
 
   private getInjectedParams<T>(target: Type<T>) {
     const argTypes = Reflect.getMetadata(REFLECT_PARAMS, target) as (
-      | InjectableParam
+      | InjectableParam<T>
       | undefined
     )[];
     if (argTypes === undefined) {
